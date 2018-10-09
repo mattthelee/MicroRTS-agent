@@ -1,0 +1,42 @@
+• Abstract: 
+
+a summary in a 70-150 words paragraph. Motivate the research and explain your findings.
+
+
+• Introduction:
+
+initial introduction to the problem, motivation and outline of the rest of the paper.
+
+• microRTS:
+
+Brief description of the game, and literature review of what has been done in research before
+in this and similar games.
+
+• Background:
+
+Explain here the algorithm that the submitted agent’s technique is based on, including
+literature review.
+
+• Techniques Implemented: 
+
+Explanation and description of the agent submitted, and possible variants. How
+do you value a state? Have you used abstract/macro actions in your approach (and how)?
+
+
+• Experimental Study: 
+
+Describe the experimental study performed to obtain the final submitted agent (i.e.,
+the procedure used to obtain the best combination of parameters, effect on the results of adding different
+functionality to the agent, empirical comparison against sample bots, etc).
+
+• Analysis: 
+
+Analysis of the development process (What things worked? What things didn’t work? Did
+something surprise you?)
+• Overall conclusions 
+
+(problems and difficulties found, main takeaways) and potential future work. Note
+that conclusions must not be a reflection of what did the assignment mean for you as a student, but a
+critical summary of the work and findings of the project.
+
+• References.
