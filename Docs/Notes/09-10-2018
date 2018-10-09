@@ -1,3 +1,7 @@
+Legends.com Team notes
+
+First meeting:
+We agreed we’d use a monte carlo as the main AI. We will work on an ai with hardcoded actions as it’s playout ai. We will also create an evaluation function which will check the state of the game and evaluate the value of that position.
 
 
 
