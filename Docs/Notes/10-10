@@ -1,0 +1,57 @@
+Strategy Chooser
+	• Easy - Just choose strategy each time
+	• Medium - Could keep on the same strategy for multiple strategies
+	• Hard - Or pick some inertia which looks at what has previously been chosen
+
+
+What enemy are we playing against?
+	• Some metric of 
+	• More than 3 workers and no barracks - WorkerRush
+	• Lots of LightRush -> LightRush
+	• Lots of HeavyRush -> HeavyRush
+	• Lots of RangedRush -> RangedRush
+	• Easy version first - Just use if functions to go for the top 4
+	• Default to workerRush
+	• Medium - Weighting of all those strategies
+
+How do we evaluate the state?
+	• The SimpleSqrEvaluation works well
+	• Easy is leave as it is
+	• Medium is adding in average distance of enemy units to our base
+	• Hard is simulating loads of AIs to see which won
+
+Extras bots:
+	• Bens bot - Smaller maps
+	• Matt's bot - Larger Maps
+	• Chaser bot??
+	
+
+What maps are being tested on:
+	• Probably 4 shown, with 4 hidden
+	• Need to test on most maps we currently have
+	• No need to test on the 20% special maps
+	
+Exception
+	• Try-Catching
+	• Index out of bounds
+	
+
+Testing
+	• Win percentage
+	• Exception reduction
+	• Need something to say how does our current AI does in the tournament
+	• How do we evaluate in the tournament - just win, or how long does it take?
+	
+
+
+Sections of the Report
+	• Intro - Ben
+	• Literature Review - Johnny
+	• Benchmark - Matt
+
+To-Do
+	• Strategy Chooser - Multiple ways of keeping the strategy or inertia
+	• Predict what enemy we are playing against
+	• Test on multiple maps
+	• Barracks building out of bounds method
+	
