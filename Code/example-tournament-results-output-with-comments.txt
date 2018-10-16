@@ -1,0 +1,44 @@
+Each match is played twice, players flipped.
+Winner: 0 (lose), 1 (win), -1 (tie)
+
+RoundRobinTournament
+AIs:
+	UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction)
+	NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction)
+Maps:
+	maps/8x8/basesWorkers8x8.xml
+Settings:
+	Rounds:	2
+	Max Game Length:	1000
+	Time Budget:	100
+	Iterations Budget:	-1
+	Pregame Analysis Budget:	0	0
+	Full Observability:	true
+	Timeout Check:	false
+	Run Garbage Collector:	false
+
+iteration	map	ai1-win?	ai2-win?	time	winner	crashed	timedout
+0	0	0	1	1000	-1	-1	-1
+0	0	1	0	545	0	-1	-1
+1	0	0	1	1000	-1	-1	-1
+1	0	1	0	865	0	-1	-1
+
+Wins: (not symmetric)
+0	0	# How many times AIs[0] won against all the other players (as player 0)
+2	0	# How many times AIs[1] won against all the other players (as player 0)
+
+Ties: (symmetric)
+0	2	# How many ties AIs[0] had against all the other players (as player 0)
+2	0	# How many ties AIs[1] had against all the other players (as player 0)
+
+Average Game Length:
+0.0	1000.0	# Average game length of AIs[0] against all the other players (as player 0)
+705.0	0.0	 # Average game length of AIs[1] against all the other players (as player 0)
+
+AI crashes:
+0	0	# Average number of times AIs[0] crashed against all the other players (as player 0)
+0	0	# Average number of times AIs[1] crashed against all the other players (as player 0)	
+
+AI timeout:
+0	0	# Average number of times AIs[0] timed out against all the other players (as player 0)	
+0	0	# Average number of times AIs[1] timed out against all the other players (as player 0)

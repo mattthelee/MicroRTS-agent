@@ -1,0 +1,78 @@
+RoundRobinTournament: Starting tournament
+RoundRobinTournament
+AIs:
+	UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction)
+	NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction)
+Maps:
+	maps/8x8/basesWorkers8x8.xml
+Settings:
+	Rounds:	2
+	Max Game Length:	1000
+	Time Budget:	100
+	Iterations Budget:	-1
+	Pregame Analysis Budget:	0	0
+	Full Observability:	true
+	Timeout Check:	false
+	Run Garbage Collector:	false
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	0	1	930	1	-1	-1
+
+MATCH UP: UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction) vs NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction)
+Winner: 1  in 930 cycles
+UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction) : Average runs per cycle: 1028.6923076923076, Average runs per action: 1028.6923076923076
+NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction) : Total runs: 158781, runs per action: 1031.0454, runs per cycle: 1031.0454, average time per cycle: 100.00649, max branching factor: 24000
+AI1 time usage, average:  12.709677419354838, # times over budget: 117 (avg 101.02564102564102) , # times over 2*budget: 0 (avg NaN)
+AI2 time usage, average:  16.56236559139785, # times over budget: 2 (avg 101.5) , # times over 2*budget: 0 (avg NaN)
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	1	0	960	0	-1	-1
+
+MATCH UP: NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction) vs UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction)
+Winner: 0  in 960 cycles
+NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction) : Total runs: 169464, runs per action: 1079.3885, runs per cycle: 1079.3885, average time per cycle: 100.0, max branching factor: 552960
+UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction) : Average runs per cycle: 1136.2173913043478, Average runs per action: 1136.2173913043478
+AI1 time usage, average:  16.354166666666668, # times over budget: 0 (avg NaN) , # times over 2*budget: 0 (avg NaN)
+AI2 time usage, average:  12.098958333333334, # times over budget: 115 (avg 101.0) , # times over 2*budget: 0 (avg NaN)
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+1	0	0	1	615	1	-1	-1
+
+MATCH UP: UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction) vs NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction)
+Winner: 1  in 615 cycles
+UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction) : Average runs per cycle: 1378.1129032258063, Average runs per action: 1378.1129032258063
+NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction) : Total runs: 118055, runs per action: 1297.3077, runs per cycle: 1297.3077, average time per cycle: 100.14286, max branching factor: 19845
+AI1 time usage, average:  10.182113821138211, # times over budget: 62 (avg 101.0) , # times over 2*budget: 0 (avg NaN)
+AI2 time usage, average:  14.817886178861789, # times over budget: 4 (avg 103.25) , # times over 2*budget: 0 (avg NaN)
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+1	0	1	0	685	0	-1	-1
+
+MATCH UP: NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction) vs UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction)
+Winner: 0  in 685 cycles
+NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction) : Total runs: 101941, runs per action: 1040.2142, runs per cycle: 1040.2142, average time per cycle: 100.02041, max branching factor: 1181472075
+UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction) : Average runs per cycle: 1178.4117647058824, Average runs per action: 1178.4117647058824
+AI1 time usage, average:  14.309489051094891, # times over budget: 1 (avg 102.0) , # times over 2*budget: 0 (avg NaN)
+AI2 time usage, average:  10.030656934306569, # times over budget: 68 (avg 101.04411764705883) , # times over 2*budget: 0 (avg NaN)
+
+Wins:
+0	0	
+4	0	
+
+Ties:
+0	0	
+0	0	
+
+Average Game Length:
+0.0	772.5	
+822.5	0.0	
+
+AI crashes:
+0	0	
+0	0	
+
+AI timeout:
+0	0	
+0	0	
+
+RoundRobinTournament: tournament ended
