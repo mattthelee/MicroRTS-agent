@@ -43,9 +43,9 @@ public class GameVisualSimulationTest {
         //PhysicalGameState pgs = PhysicalGameState.load("maps/BroodWar/(2)Benzene.scxA.xml", utt);
         //PhysicalGameState pgs = PhysicalGameState.load("maps/8x8/basesWorkers8x8.xml", utt);
         //PhysicalGameState pgs = PhysicalGameState.load("maps/10x10/basesWorkers10x10.xml", utt);// Set map
-        PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
-        //PhysicalGameState pgs = PhysicalGameState.load("maps/24x24/basesWorkers24x24.xml", utt);
-//      PhysicalGameState pgs = MapGenerator.basesWorkers8x8Obstacle();
+        //PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
+        PhysicalGameState pgs = PhysicalGameState.load("maps/24x24/basesWorkers24x24D.xml", utt);
+        //PhysicalGameState pgs = MapGenerator.basesWorkers8x8Obstacle();
 
 
 
