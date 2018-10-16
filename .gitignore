@@ -3,5 +3,5 @@
 /out/
 /.classpath
 /.project
-.idea/*
-/.idea/*
+.idea/
+Code/.idea/
