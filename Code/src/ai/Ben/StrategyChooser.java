@@ -14,11 +14,7 @@ import rts.*;
 import rts.units.Unit;
 import rts.units.UnitTypeTable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-
+import java.util.*;
 
 
 /**
@@ -26,44 +22,28 @@ import java.util.Random;
  * @author santi
  */
 public class StrategyChooser extends AbstractionLayerAI {
-    public static final int DEBUG = 0;
-    EvaluationFunction ef = new SimpleSqrtEvaluationFunction();;
+
     UnitTypeTable utt = new UnitTypeTable();
     PathFinding pf = new BFSPathFinding();
-
-
-
-    // statistics:
-    public long total_runs = 0;
-    public long total_cycles_executed = 0;
-    public long total_actions_issued = 0;
 
     long MAXACTIONS;
     int MAXSIMULATIONTIME;
 
 
-    //New definitions
-
     List<AI> strategies = new ArrayList<>();
     SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
 
-
-
-
-    public StrategyChooser( int lookahead,
-                           PathFinding a_pf,AI newai, AI workerRush,
+    public StrategyChooser( int lookahead, PathFinding a_pf,AI newai, AI workerRush,
                            AI lightRush , AI heavyRush, AI rangedRush) {
         super(a_pf);
         MAXACTIONS = -1;
         MAXSIMULATIONTIME = lookahead;
-        //ef = a_ef;
         newAI = newai;
         WorkerRush = workerRush;
         LightRush = lightRush;
         HeavyRush = heavyRush;
         RangedRush = rangedRush;
     }
-
 
 
     public void reset() {
@@ -78,25 +58,11 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     public class PlayerActionTableEntry {
         PlayerAction pa;
-        float accum_evaluation = 0;
-        int visit_count = 0;
     }
 
-    //List<PlayerActionTableEntry> actions = null;
-
-    //AI aiToUse = null;
-    AI newAI = new newAI(utt, pf);
-    AI LightRush = new LightRush(utt,pf);
-    AI WorkerRush = new WorkerRush(utt,pf);
-    AI HeavyRush = new HeavyRush(utt, pf);
-    AI RangedRush = new RangedRush(utt,pf);
-    AI RandomAI = new RandomBiasedAI();
-
-
+    AI newAI; AI LightRush; AI WorkerRush; AI HeavyRush; AI RangedRush;
 
     PlayerActionTableEntry actions = new PlayerActionTableEntry();
-
-
     AI lastStrategy = null;
 
 
@@ -117,9 +83,6 @@ public class StrategyChooser extends AbstractionLayerAI {
 
             return evaluateStrategies(player, gs2, strategies);
 
-            //AI LightRush2 = new LightRush(utt,pf);
-            //return newAI2.getAction(player,gs);
-
         } else {
             return new PlayerAction();
         }
@@ -131,69 +94,69 @@ public class StrategyChooser extends AbstractionLayerAI {
         float highscore = Float.NEGATIVE_INFINITY;
         AI topStrategy = null;
 
+        GameState gs3 = gs2.clone();
+        Integer[] votes = predictEnemyStrategy(player,gs3);
+        //The scores of the current strategy against a particular enemy strategy
+        float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore; float randomScore;
+
+        int simulations = 0;
+        for (int j = 0; j<4 ; j++){
+            if (votes[j] > 0){
+                simulations++;
+            }
+        }
+        int totalRuns = (simulations*strategies.size());
+        int timeAllowed = MAXSIMULATIONTIME/totalRuns;
+
+
         for (int i = 0;i < strategies.size();i++){
             AI aiStrategy = strategies.get(i);
-            GameState gs3 = gs2.clone();
-
-            //TODO - Bring this out of the for loop - As its the same
-            int[] votes = predictEnemyStrategy(player,gs3);
-            //TODO - Can remove total vote as it doesn't need to be weighted
-            int totalVote = votes[0] + votes[1] + votes[2] + votes[3] + votes[4];
-            //The scores of the current strategy against a particular enemy strategy
-            float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore; float randomScore;
-
-            int simulations = 0;
-            for (int j = 0; j<5 ; j++){
-                if (votes[j] > 0){
-                    simulations++;
-                }
-            }
-            int timeAllowed = MAXSIMULATIONTIME/(simulations*strategies.size());
 
             /// Keep in the for loop
 
             if (votes[0] > 0){
+                System.out.println("Considering WorkerRush");
                 workerRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, WorkerRush));
             } else { workerRushScore = 0;}
 
             if (votes[1] > 0){
+                System.out.println("Considering LightRush");
                 lightRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, LightRush));
             } else { lightRushScore = 0;}
 
             if (votes[2] > 0){
+                System.out.println("Considering HeavyRush");
                  heavyRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, HeavyRush));
             } else { heavyRushScore = 0;}
 
             if (votes[3] > 0){
+                System.out.println("Considering RangedRush");
                  rangedRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, RangedRush));
             } else { rangedRushScore = 0;}
 
-            if (votes[4] > 0){
-                 randomScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, RandomAI));
-            } else { randomScore = 0;}
 
-            float score = ((votes[0]*workerRushScore) + (votes[1]*lightRushScore) + (votes[2]*heavyRushScore) + (votes[3]*rangedRushScore) + votes[4]*randomScore)/totalVote;
+            float score = (votes[0]*workerRushScore) + (votes[1]*lightRushScore) + (votes[2]*heavyRushScore) + (votes[3]*rangedRushScore);
 
             //System.out.println(aiStrategy.toString() + " : " + score);
 
             if (score > highscore){
                 highscore = score;
                 topStrategy = aiStrategy;
-                //TODO - Bring out that find action out of the for loop
-                PlayerAction action = topStrategy.getAction(player,gs2);
-                actions.pa = action;
             }
         }
         //System.out.println(topStrategy);
 
+        PlayerAction action = topStrategy.getAction(player,gs2);
+        actions.pa = action;
 
         lastStrategy = topStrategy;
-        System.out.println("----------------------" + lastStrategy.toString());
+        //System.out.println("Total Runs: " +totalRuns);
+        //System.out.println("----------------------" + lastStrategy.toString());
 
         return actions.pa;
     }
 
-    public int[] predictEnemyStrategy(int player, GameState gs3){
+    public Integer[] predictEnemyStrategy(int player, GameState gs3){
         //int workerRushVote = 1, lightRushVote = 1, heavyRushVote = 1, rangedRushVote = 1;
         PhysicalGameState pgs = gs3.getPhysicalGameState();
         //Player p = gs3.getPlayer(player);
@@ -204,9 +167,6 @@ public class StrategyChooser extends AbstractionLayerAI {
         int nEnemyHeavy = 0;
         int nEnemyRanged = 0;
         for (Unit u : pgs.getUnits()) {
-
-            //System.out.println(u.getType().name);
-
             if (u.getPlayer() != player) {
                 if (u.getType().name == "Worker"){
                     nEnemyWorkers ++;
@@ -220,48 +180,34 @@ public class StrategyChooser extends AbstractionLayerAI {
             }
         }
 
-        int votes[] = new int[5];
+        //votes[0] is Worker, votes[1] is Light, votes[2] is Heavy, votes[3] = Ranged
+        Integer[] votes = new Integer[4];
 
-        //System.out.println("Workers: " + nEnemyWorkers + " Light: " + nEnemyLight + " Heavy: " + nEnemyHeavy + " Ranged: " + nEnemyRanged);
+        //Integer[] array = new Integer[4];
+        votes[0] = 1+ (nEnemyWorkers*5);
+        votes[1] = (nEnemyLight*5);
+        votes[2] = (nEnemyHeavy*5) ;
+        votes[3] = (nEnemyRanged*5);
 
-        //TODO - Just have the votes to be units times by a certain weighting
-        //TODO - non-linear
-        //TODO - Default to WorkerRush
-
-        //Just have votes
-
-        if (nEnemyWorkers > 4){
-            //System.out.println("Enemy is WorkerRush");
-            //workerRushVote
-            votes[0] = 10;
+        int maxTop = 0;
+        for (int i = 0; i < votes.length; i++) {
+            maxTop = votes[i] > votes[maxTop] ? i : maxTop;
         }
-        if (nEnemyLight > 1){
-            //System.out.println("Enemy is LightRush");
-            //lightRushVote
-            votes[1] = 10;
-            //Amount of Light units weighted by certain score
-        }
-        if (nEnemyHeavy > 1){
-            //System.out.println("Enemy is HeavyRush");
-            //heavyRushVote
-            votes[2] = 10;
-        }
-        if (nEnemyRanged > 1){
-            //System.out.println("Enemy is RangedRush");
-            //rangedRushVote
-            votes[3] = 10;
-        }
-        //RandomScore always needs to be initialised at a low value, to allow something to be analysed
-        votes[4] = 1;
+        //System.out.println("Max: " + votes[maxTop] + " at index " + maxTop);
 
-        /*
-        System.out.println(votes[0]);
-        System.out.println(votes[1]);
-        System.out.println(votes[2]);
-        System.out.println(votes[3]);
-        System.out.println(votes[4]);
-        */
+        int maxSecond = 0;
+        for (int i = 0; i < votes.length; i++) {
+            if (i != maxTop) {
+                maxSecond = votes[i] > votes[maxSecond] ? i : maxSecond;
+            }
+        }
+        //System.out.println("Second: " + votes[maxSecond] + " at index " + maxSecond);
 
+        for (int i = 0; i < votes.length; i++){
+            if (i != maxTop && i != maxSecond){
+                votes[i] = 0;
+            }
+        }
         return votes;
 
     }
@@ -283,11 +229,9 @@ public class StrategyChooser extends AbstractionLayerAI {
             }
         }while(!gameover && gs.getTime()<time);
 
-        System.out.println(ai1 + " v " + ai2 + ": " + count);
+        //System.out.println(ai1 + " v " + ai2 + ": " + count);
         return gs;
     }
-
-
 
 
     @Override
@@ -310,31 +254,16 @@ public class StrategyChooser extends AbstractionLayerAI {
         return MAXSIMULATIONTIME;
     }
 
-
     public void setPlayoutLookahead(int a_pola) {
         MAXSIMULATIONTIME = a_pola;
     }
 
-
-
-
-
-    public AI getplayoutAI() {
-        return newAI;
-    }
-
-
-    public void setplayoutAI(AI a_dp) {
-        newAI = a_dp;
-    }
-
-
     public EvaluationFunction getEvaluationFunction() {
-        return ef;
+        return evaluateFunction;
     }
 
 
-    public void setEvaluationFunction(EvaluationFunction a_ef) {
-        ef = a_ef;
+    public void setEvaluationFunction(SimpleSqrtEvaluationFunction a_ef) {
+        evaluateFunction = a_ef;
     }
 }
