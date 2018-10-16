@@ -97,7 +97,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         GameState gs3 = gs2.clone();
         Integer[] votes = predictEnemyStrategy(player,gs3);
         //The scores of the current strategy against a particular enemy strategy
-        float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore; float randomScore;
+        float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore;
 
         int simulations = 0;
         for (int j = 0; j<4 ; j++){
@@ -150,7 +150,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         actions.pa = action;
 
         lastStrategy = topStrategy;
-        //System.out.println("Total Runs: " +totalRuns);
+        //System.out.println("Total Runs: " + totalRuns);
         //System.out.println("----------------------" + lastStrategy.toString());
 
         return actions.pa;
