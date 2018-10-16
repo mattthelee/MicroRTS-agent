@@ -33,6 +33,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     List<AI> strategies = new ArrayList<>();
     SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
 
+    //Constructor
     public StrategyChooser( int lookahead, PathFinding a_pf,AI newai, AI workerRush,
                            AI lightRush , AI heavyRush, AI rangedRush) {
         super(a_pf);
