@@ -49,12 +49,24 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
             }
         }
         for(Unit maxUnit : maxUnits){
-            
+
+            s1 += unitValue(maxUnit) * manhattenToPoint(maxUnit,minBase.getX(),minBase.getY()) / (pgs.getHeight() * pgs.getWidth());
         }
 
         if (s1 + s2 == 0) return 0.5f;
         return  (2*s1 / (s1 + (aggressionWeight * s2)))-1;
     }
+
+   public int manhattenToPoint(Unit a, int x, int y){
+        return Math.abs(a.getX() - x) + Math.abs(a.getY() - y)
+   }
+
+   public float unitValue(Unit u){
+        float value = u.getResources() * RESOURCE_IN_WORKER;
+        value += UNIT_BONUS_MULTIPLIER * u.getCost()*Math.sqrt( u.getHitPoints()/u.getMaxHitPoints() );
+
+        return value
+   }
 
     public float evaluate(int maxplayer, int minplayer, GameState gs) {
         float s1 = base_score(maxplayer,gs);
