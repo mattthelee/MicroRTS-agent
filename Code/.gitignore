@@ -1,0 +1,14 @@
+*.class
+/bin/
+/out/
+/.classpath
+/.project
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/libraries/lib.xml
+microrts.iml
+.idea/compiler.xml
+.idea/copyright/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml

@@ -1,0 +1,41 @@
+RoundRobinTournament
+AIs:
+	UCT(100, -1, 100, 20, RandomBiasedAI, SimpleEvaluationFunction)
+	NaiveMCTS(100, -1, 100,20,0.33, 1.0, 0.0, 1.0, 0.75, 1.0, RandomBiasedAI, SimpleEvaluationFunction)
+Maps:
+	maps/8x8/basesWorkers8x8.xml
+Settings:
+	Rounds:	2
+	Max Game Length:	1000
+	Time Budget:	100
+	Iterations Budget:	-1
+	Pregame Analysis Budget:	0	0
+	Full Observability:	true
+	Timeout Check:	false
+	Run Garbage Collector:	false
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	0	1	1000	-1	-1	-1
+0	0	1	0	545	0	-1	-1
+1	0	0	1	1000	-1	-1	-1
+1	0	1	0	865	0	-1	-1
+
+Wins:
+0	0	
+2	0	
+
+Ties:
+0	2	
+2	0	
+
+Average Game Length:
+0.0	1000.0	
+705.0	0.0	
+
+AI crashes:
+0	0	
+0	0	
+
+AI timeout:
+0	0	
+0	0
