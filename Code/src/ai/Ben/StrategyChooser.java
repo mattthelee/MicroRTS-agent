@@ -139,7 +139,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
             float score = (votes[0]*workerRushScore) + (votes[1]*lightRushScore) + (votes[2]*heavyRushScore) + (votes[3]*rangedRushScore);
 
-            System.out.println("Considering playing as: " + aiStrategy.toString() + " : " + score);
+            System.out.println("Finished considering playing as: " + aiStrategy.toString() + " : " + score);
 
             if (score > highscore){
                 highscore = score;
@@ -153,7 +153,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         lastStrategy = topStrategy;
         //System.out.println("Total Runs: " +totalRuns);
-        System.out.println("Using: " + lastStrategy.toString() + " with score of: " + highscore);
+        System.out.println("Using: " + lastStrategy.toString() + " with score of: " + highscore + "\n");
 
         return actions.pa;
     }
