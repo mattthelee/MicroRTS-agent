@@ -1,0 +1,23 @@
+Report
+
+Actions
+	• MicroRTS - Johnny
+	• Background: Ben 
+	• Techniques Implemented: Matt
+
+Title	Pages
+ Abstract:	100
+ Introduction:	300
+ microRTS:	300
+ Background:	600
+ Techniques Implemented:	800
+ Experimental Study:	800
+ Analysis:	400
+ Overall conclusions	200
+
+Code
+
+Actions:
+	• Tournament: Johnny
+	• Evaluation Function & mattRush: Matt
+  • Strategy Chooser improvement, Intertia & First Game state: Ben 
