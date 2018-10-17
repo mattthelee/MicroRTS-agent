@@ -1,0 +1,7 @@
+*.class
+/bin/
+/out/
+/.classpath
+/.project
+.idea/
+Code/.idea/
