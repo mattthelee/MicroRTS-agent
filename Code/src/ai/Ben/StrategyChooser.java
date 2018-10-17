@@ -8,6 +8,7 @@ import ai.abstraction.WorkerRush;
 import ai.abstraction.RangedRush;
 import ai.core.AI;
 import ai.core.ParameterSpecification;
+import ai.evaluation.ComplexEvaluationFunction;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction;
 import rts.*;
@@ -31,8 +32,8 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
     List<AI> strategies = new ArrayList<>();
-    SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
-
+    //SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
+    ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
     public StrategyChooser( int lookahead, PathFinding a_pf,AI newai, AI workerRush,
                            AI lightRush , AI heavyRush, AI rangedRush) {
         super(a_pf);
@@ -48,7 +49,8 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     public void reset() {
         strategies = new ArrayList<>();
-        evaluateFunction = new SimpleSqrtEvaluationFunction();
+        //evaluateFunction = new SimpleSqrtEvaluationFunction();
+        evaluateFunction = new ComplexEvaluationFunction();
     }
 
     public AI clone() {
@@ -263,7 +265,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     }
 
 
-    public void setEvaluationFunction(SimpleSqrtEvaluationFunction a_ef) {
+    public void setEvaluationFunction(ComplexEvaluationFunction a_ef) {
         evaluateFunction = a_ef;
     }
 }

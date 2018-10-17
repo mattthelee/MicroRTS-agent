@@ -25,7 +25,7 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
 
 
     public float evaluate(int maxplayer, int minplayer, GameState gs){
-        this.evaluate(maxplayer,minplayer,gs,1.0);
+        return this.evaluate(maxplayer,minplayer,gs,1.0f);
     }
     public float evaluate(int maxplayer, int minplayer, GameState gs, float aggressionWeight) {
         PhysicalGameState pgs = gs.getPhysicalGameState();
@@ -39,65 +39,48 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
         for(Unit u:pgs.getUnits()){
             if (u.getPlayer() == maxplayer){
                 maxUnits.add(u);
-                if (u.getType().name == "Base" {
+                if (u.getType().name == "Base") {
                     maxBase = u;
                 }
             } else if (u.getPlayer() == minplayer){
-                if (u.getType().name == "Base" {
+                minUnits.add(u);
+                if (u.getType().name == "Base") {
                     minBase = u;
                 }
             }
         }
         for(Unit maxUnit : maxUnits){
-
-            s1 += unitValue(maxUnit) * manhattenToPoint(maxUnit,minBase.getX(),minBase.getY()) / (pgs.getHeight() * pgs.getWidth());
+            // Times unitvalue by its manhatten distance to enemy base divided by the maxium manhatten distance possible
+            if (maxBase != null){
+                s1 += unitValue(maxUnit);
+            } else {
+                s1 += unitValue(maxUnit) * manhattenToPoint(maxUnit,minBase.getX(),minBase.getY()) / (pgs.getHeight() + pgs.getWidth());
+            }
         }
-
+        for(Unit minUnit : minUnits){
+            // Times unitvalue by its manhatten distance to enemy base divided by the maxium manhatten distance possible
+            if (minBase != null){
+                s2 += unitValue(minUnit);
+            } else {
+                s2 += unitValue(minUnit) * manhattenToPoint(minUnit,minBase.getX(),maxBase.getY()) / (pgs.getHeight() + pgs.getWidth());
+            }
+        }
         if (s1 + s2 == 0) return 0.5f;
+        // Return a score between -1 and 1, including an adjustment  for aggression
+        // If we want the score to favour lowering enemy score as much as then set aggression weighting to 1
+        // If we want a less aggressive approach, that favours improving itself over degrading the enemy score, choose a lower aggression weight
         return  (2*s1 / (s1 + (aggressionWeight * s2)))-1;
     }
 
    public int manhattenToPoint(Unit a, int x, int y){
-        return Math.abs(a.getX() - x) + Math.abs(a.getY() - y)
+        return Math.abs(a.getX() - x) + Math.abs(a.getY() - y);
    }
 
    public float unitValue(Unit u){
         float value = u.getResources() * RESOURCE_IN_WORKER;
         value += UNIT_BONUS_MULTIPLIER * u.getCost()*Math.sqrt( u.getHitPoints()/u.getMaxHitPoints() );
-
-        return value
+        return value;
    }
-
-    public float evaluate(int maxplayer, int minplayer, GameState gs) {
-        float s1 = base_score(maxplayer,gs);
-        float s2 = base_score(minplayer,gs);
-        if (s1 + s2 == 0) return 0.5f;
-        return  (2*s1 / (s1 + s2))-1;
-    }
-    
-    public float base_score(int player, GameState gs) {
-        PhysicalGameState pgs = gs.getPhysicalGameState();
-        float score = gs.getPlayer(player).getResources()*RESOURCE;
-        for(Unit u:pgs.getUnits()) {
-            if (u.getPlayer() !=player) {
-                ;
-            }
-        }
-        boolean anyunit = false;
-        for(Unit u:pgs.getUnits()) {
-            if (u.getPlayer()==player) {
-                anyunit = true;
-                score += u.getResources() * RESOURCE_IN_WORKER;
-                score += UNIT_BONUS_MULTIPLIER * u.getCost()*Math.sqrt( u.getHitPoints()/u.getMaxHitPoints() );
-            }
-        }
-        if (!anyunit) return 0;
-        return score;
-    }
-
-    public float dist_to_enemy(int Player, Unit u, GameState gs){
-        for (Unit unit : pgs.get)
-    }
     
     public float upperBound(GameState gs) {
         return 1.0f;
