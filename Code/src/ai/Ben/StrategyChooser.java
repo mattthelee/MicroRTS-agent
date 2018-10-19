@@ -8,6 +8,7 @@ import ai.abstraction.WorkerRush;
 import ai.abstraction.RangedRush;
 import ai.core.AI;
 import ai.core.ParameterSpecification;
+import ai.evaluation.ComplexEvaluationFunction;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction;
 import rts.*;
@@ -32,7 +33,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     List<AI> strategies = new ArrayList<>();
     SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
-
+    //ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
     public StrategyChooser( int lookahead, PathFinding a_pf,AI newai, AI workerRush,
                            AI lightRush , AI heavyRush, AI rangedRush) {
         super(a_pf);
@@ -49,6 +50,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     public void reset() {
         strategies = new ArrayList<>();
         evaluateFunction = new SimpleSqrtEvaluationFunction();
+        //evaluateFunction = new ComplexEvaluationFunction();
     }
 
     public AI clone() {
@@ -111,33 +113,33 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         for (int i = 0;i < strategies.size();i++){
             AI aiStrategy = strategies.get(i);
-
             /// Keep in the for loop
 
             if (votes[0] > 0){
-                System.out.println("Considering WorkerRush");
+
                 workerRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, WorkerRush));
+                System.out.println("Simulating against WorkerRush. EvalScore: " + workerRushScore );
             } else { workerRushScore = 0;}
 
             if (votes[1] > 0){
-                System.out.println("Considering LightRush");
                 lightRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, LightRush));
+                System.out.println("Simulating against LightRush. EvalScore: " + lightRushScore );
             } else { lightRushScore = 0;}
 
             if (votes[2] > 0){
-                System.out.println("Considering HeavyRush");
                  heavyRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, HeavyRush));
+                System.out.println("Simulating against HeavyRush. EvalScore: " + heavyRushScore );
             } else { heavyRushScore = 0;}
 
             if (votes[3] > 0){
-                System.out.println("Considering RangedRush");
                  rangedRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, RangedRush));
+                System.out.println("Simulating against RangedRush. EvalScore: " + rangedRushScore );
             } else { rangedRushScore = 0;}
 
 
             float score = (votes[0]*workerRushScore) + (votes[1]*lightRushScore) + (votes[2]*heavyRushScore) + (votes[3]*rangedRushScore);
 
-            //System.out.println(aiStrategy.toString() + " : " + score);
+            System.out.println("Finished considering playing as: " + aiStrategy.toString() + " : " + score);
 
             if (score > highscore){
                 highscore = score;
@@ -151,7 +153,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         lastStrategy = topStrategy;
         //System.out.println("Total Runs: " +totalRuns);
-        //System.out.println("----------------------" + lastStrategy.toString());
+        System.out.println("Using: " + lastStrategy.toString() + " with score of: " + highscore + "\n");
 
         return actions.pa;
     }
