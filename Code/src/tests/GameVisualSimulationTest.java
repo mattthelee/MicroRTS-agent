@@ -66,8 +66,8 @@ public class GameVisualSimulationTest {
         //int lookahead = 100;
         int playouts_per_cycle = -1;
 
-        AI ai2 = new StrategyChooser(100, pf, new newAI(utt,pf), new WorkerRush(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt));
-        AI ai1 = new mattRushAi(utt);
+        AI ai1 = new StrategyChooser(100, pf, new newAI(utt,pf), new WorkerRush(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt));
+        AI ai2 = new mattRushAi(utt);
 
         //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
 
@@ -84,7 +84,7 @@ public class GameVisualSimulationTest {
         //AI ai2 = new PuppetSearchMCTS(utt);
 
         //AI ai2 = new IDRTMinimax(utt);
-        AI ai2 = new SCV(utt);
+        //AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai2 = new LightRush(utt, pf);
         //AI ai2 = new RangedRush(utt, pf);
