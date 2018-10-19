@@ -35,6 +35,7 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
         List<Unit> minUnits = new ArrayList<Unit>();
         Unit maxBase = null;
         Unit minBase = null;
+        int maxManhattenDist = pgs.getHeight() + pgs.getWidth();
 
         for(Unit u:pgs.getUnits()){
             if (u.getPlayer() == maxplayer){
@@ -49,22 +50,25 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
                 }
             }
         }
+
         for(Unit maxUnit : maxUnits){
             // Times unitvalue by its manhatten distance to enemy base divided by the maxium manhatten distance possible
-            if (maxBase != null){
+            if (minBase != null){
                 s1 += unitValue(maxUnit);
             } else {
-                s1 += unitValue(maxUnit) * manhattenToPoint(maxUnit,minBase.getX(),minBase.getY()) / (pgs.getHeight() + pgs.getWidth());
+                s1 += unitValue(maxUnit) * maxManhattenDist  / (maxManhattenDist + manhattenToPoint(maxUnit,minBase.getX(),minBase.getY()));
             }
         }
+
         for(Unit minUnit : minUnits){
             // Times unitvalue by its manhatten distance to enemy base divided by the maxium manhatten distance possible
-            if (minBase != null){
+            if (maxBase != null){
                 s2 += unitValue(minUnit);
             } else {
-                s2 += unitValue(minUnit) * manhattenToPoint(minUnit,minBase.getX(),maxBase.getY()) / (pgs.getHeight() + pgs.getWidth());
+                s2 += unitValue(minUnit) * maxManhattenDist  / (maxManhattenDist + manhattenToPoint(minUnit,maxBase.getX(),maxBase.getY()));
             }
         }
+
         if (s1 + s2 == 0) return 0.5f;
         // Return a score between -1 and 1, including an adjustment  for aggression
         // If we want the score to favour lowering enemy score as much as then set aggression weighting to 1
