@@ -35,7 +35,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
     //ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
     public StrategyChooser( int lookahead, PathFinding a_pf,AI newai, AI workerRush,
-                           AI lightRush , AI heavyRush, AI rangedRush) {
+                           AI lightRush , AI heavyRush, AI rangedRush, AI mattRush) {
         super(a_pf);
         MAXACTIONS = -1;
         MAXSIMULATIONTIME = lookahead;
@@ -44,6 +44,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         LightRush = lightRush;
         HeavyRush = heavyRush;
         RangedRush = rangedRush;
+        MattRush = mattRush;
     }
 
 
@@ -55,14 +56,14 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     public AI clone() {
         return new StrategyChooser(MAXSIMULATIONTIME,pf,
-                newAI,WorkerRush,LightRush,HeavyRush,RangedRush);
+                newAI,WorkerRush,LightRush,HeavyRush,RangedRush, MattRush);
     }
 
     public class PlayerActionTableEntry {
         PlayerAction pa;
     }
 
-    AI newAI; AI LightRush; AI WorkerRush; AI HeavyRush; AI RangedRush;
+    AI newAI; AI LightRush; AI WorkerRush; AI HeavyRush; AI RangedRush; AI MattRush;
 
     PlayerActionTableEntry actions = new PlayerActionTableEntry();
     AI lastStrategy = null;
@@ -80,6 +81,7 @@ public class StrategyChooser extends AbstractionLayerAI {
             strategies.add(WorkerRush);
             strategies.add(LightRush);
             strategies.add(HeavyRush);
+            strategies.add(MattRush);
             //strategies.add(RangedRush);
             //strategies.add(RandomAI);
 
