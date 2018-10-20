@@ -84,6 +84,7 @@ public class newAI extends AbstractionLayerAI {
         This method returns the actions to be sent to each of the units in the gamestate controlled by the player,
         packaged as a PlayerAction.
      */
+
     public PlayerAction getAction(int player, GameState gs) {
         PhysicalGameState pgs = gs.getPhysicalGameState();
         Player p = gs.getPlayer(player);

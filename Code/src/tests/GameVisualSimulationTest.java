@@ -48,7 +48,7 @@ public class GameVisualSimulationTest {
 
 
         GameState gs = new GameState(pgs, utt);
-        int MAXCYCLES = 5000;  // Maximum length of the game
+        int MAXCYCLES = 3000;  // Maximum length of the game
         int TIME_BUDGET = 20;  // Time budget for AIs
         boolean gameover = false;
 
@@ -71,11 +71,8 @@ public class GameVisualSimulationTest {
 
         //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
 
-
         //AI ai1 = new newAI(utt, pf);
         //AI ai2 = new newAI(utt, pf);
-
-
 
         //AI ai2 = new ABCD(utt);
 
@@ -88,14 +85,13 @@ public class GameVisualSimulationTest {
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai2 = new LightRush(utt, pf);
         //AI ai2 = new RangedRush(utt, pf);
-
         //AI ai2 = new HeavyRush( utt, pf);
         //AI ai2 = new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
           //      new newAI(utt,pf), new SimpleEvaluationFunction(), true);
 
         //AI ai2 = new EconomyMilitaryRush(utt, pf);
         //AI ai2 = new EconomyRushBurster(utt, pf);
-        //AI ai2 = new WorkerDefense(utt, pf);
+        AI ai2 = new WorkerDefense(utt, pf);
 
         //AI ai2 = new RandomBiasedAI();
 

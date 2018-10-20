@@ -40,6 +40,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         MAXACTIONS = -1;
         MAXSIMULATIONTIME = lookahead;
         newAI = newai;
+        mattRushAI = mattRushAi;
         WorkerRush = workerRush;
         LightRush = lightRush;
         HeavyRush = heavyRush;
@@ -56,12 +57,14 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     public AI clone() {
         return new StrategyChooser(MAXSIMULATIONTIME,pf,
+
                 newAI,WorkerRush,LightRush,HeavyRush,RangedRush, MattRush);
     }
 
     public class PlayerActionTableEntry {
         PlayerAction pa;
     }
+
 
     AI newAI; AI LightRush; AI WorkerRush; AI HeavyRush; AI RangedRush; AI MattRush;
 
@@ -101,7 +104,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         GameState gs3 = gs2.clone();
         Integer[] votes = predictEnemyStrategy(player,gs3);
         //The scores of the current strategy against a particular enemy strategy
-        float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore; float randomScore;
+        float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore;
 
         int simulations = 0;
         for (int j = 0; j<4 ; j++){
@@ -124,16 +127,19 @@ public class StrategyChooser extends AbstractionLayerAI {
             } else { workerRushScore = 0;}
 
             if (votes[1] > 0){
+
                 lightRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, LightRush));
                 System.out.println("Simulating against LightRush. EvalScore: " + lightRushScore );
             } else { lightRushScore = 0;}
 
             if (votes[2] > 0){
+
                  heavyRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, HeavyRush));
                 System.out.println("Simulating against HeavyRush. EvalScore: " + heavyRushScore );
             } else { heavyRushScore = 0;}
 
             if (votes[3] > 0){
+
                  rangedRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, RangedRush));
                 System.out.println("Simulating against RangedRush. EvalScore: " + rangedRushScore );
             } else { rangedRushScore = 0;}
@@ -154,6 +160,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         actions.pa = action;
 
         lastStrategy = topStrategy;
+
         //System.out.println("Total Runs: " +totalRuns);
         System.out.println("Using: " + lastStrategy.toString() + " with score of: " + highscore + "\n");
 
@@ -233,7 +240,7 @@ public class StrategyChooser extends AbstractionLayerAI {
             }
         }while(!gameover && gs.getTime()<time);
 
-        //System.out.println(ai1 + " v " + ai2 + ": " + count);
+        System.out.println(ai1 + " v " + ai2 + ": " + count);
         return gs;
     }
 
