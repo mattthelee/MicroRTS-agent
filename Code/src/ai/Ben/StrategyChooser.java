@@ -27,24 +27,32 @@ public class StrategyChooser extends AbstractionLayerAI {
     UnitTypeTable utt = new UnitTypeTable();
     PathFinding pf = new BFSPathFinding();
 
-    long MAXACTIONS;
+    //long MAXACTIONS;
     int MAXSIMULATIONTIME;
+    int INERTIACYCLES;
+    int GAMECOUNT = 0;
 
+    AI newAI; AI LightRush; AI WorkerRush; AI HeavyRush; AI RangedRush; AI MattRush;
+
+    PlayerActionTableEntry actions = new PlayerActionTableEntry();
+    AI lastStrategy = null;
 
     List<AI> strategies = new ArrayList<>();
     SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
     //ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
     public StrategyChooser( int lookahead, PathFinding a_pf,AI newai, AI workerRush,
-                           AI lightRush , AI heavyRush, AI rangedRush, AI mattRush) {
+                           AI lightRush , AI heavyRush, AI rangedRush, AI mattRush, int inertiaCycles) {
         super(a_pf);
-        MAXACTIONS = -1;
+        //MAXACTIONS = -1;
         MAXSIMULATIONTIME = lookahead;
         newAI = newai;
+        MattRush = mattRush;
         WorkerRush = workerRush;
         LightRush = lightRush;
         HeavyRush = heavyRush;
         RangedRush = rangedRush;
         MattRush = mattRush;
+        INERTIACYCLES = inertiaCycles;
     }
 
 
@@ -56,17 +64,14 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     public AI clone() {
         return new StrategyChooser(MAXSIMULATIONTIME,pf,
-                newAI,WorkerRush,LightRush,HeavyRush,RangedRush, MattRush);
+
+                newAI,WorkerRush,LightRush,HeavyRush,RangedRush, MattRush, INERTIACYCLES);
     }
 
     public class PlayerActionTableEntry {
         PlayerAction pa;
     }
 
-    AI newAI; AI LightRush; AI WorkerRush; AI HeavyRush; AI RangedRush; AI MattRush;
-
-    PlayerActionTableEntry actions = new PlayerActionTableEntry();
-    AI lastStrategy = null;
 
 
     //Main method that receives the action
@@ -81,12 +86,10 @@ public class StrategyChooser extends AbstractionLayerAI {
             strategies.add(newAI);
 
             strategies.add(WorkerRush);
-            //strategies.add(LightRush);
-            //strategies.add(HeavyRush);
-
             //strategies.add(RangedRush);
             //strategies.add(RandomAI);
 
+            // evaluateStrategies returns a PlayerAction to be returned by the getAction
             return evaluateStrategies(player, gs2, strategies);
 
         } else {
@@ -97,13 +100,92 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
     public PlayerAction evaluateStrategies(int player, GameState gs2, List<AI> strategies) throws Exception {
-        float highscore = Float.NEGATIVE_INFINITY;
-        AI topStrategy = null;
 
-        GameState gs3 = gs2.clone();
-        Integer[] votes = predictEnemyStrategy(player,gs3);
-        //The scores of the current strategy against a particular enemy strategy
-        float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore; float randomScore;
+        // Could combine with getAction method??
+
+        AI topStrategy = new WorkerRush(utt,pf);
+        //GameState gs3 = gs2.clone();
+
+        // First game run
+        if ( GAMECOUNT == 0 ){
+            System.out.println("First run" );
+            topStrategy = firstRunStrategyAnalysis(player, gs2, topStrategy);
+
+        } else if ( GAMECOUNT % INERTIACYCLES == 0 ){
+            // Come to end of inertia run
+            // Find the top strategies by simulating all the strategies in 'strategies' list
+            System.out.println( "\n" + "Simulation -- " );
+            topStrategy = simulateAndFindTopStrategy(player, gs2, strategies, topStrategy);
+
+        } else {
+            // Middle of an inertia run, so keep last strategy
+            topStrategy = lastStrategy;
+            //TODO Keep simulation to find the best strategy when inertia is finished
+            //TODO set global variable for
+            System.out.println("Inertia strategy using " + topStrategy.toString() );
+        }
+
+        //PlayerAction action =
+        actions.pa = topStrategy.getAction(player,gs2);
+        lastStrategy = topStrategy;
+
+        //System.out.println("Total Runs: " + totalRuns);
+        //System.out.println("Using: " + topStrategy.toString() + " with score of: " + highscore + "\n");
+
+        GAMECOUNT ++;
+
+        return actions.pa;
+    }
+
+
+    public AI firstRunStrategyAnalysis(int player, GameState gs3, AI topStrategy) throws Exception {
+
+        //TODO What about the hidden map??
+        //TODO Amend the relevant initial strategies for each map
+
+        PhysicalGameState pgs = gs3.getPhysicalGameState();
+        int mapHeight = pgs.getHeight();
+        int nbases = 0;
+
+        // Calculate how many bases
+        for (Unit u : pgs.getUnits()) {
+            if (u.getType().name == "Base"
+                    && u.getPlayer() == player) {
+                nbases++;
+            }
+        }
+
+        if (mapHeight == 8){
+            //Map = "maps/NoWhereToRun9x8.xml"
+            System.out.println("Map = maps/NoWhereToRun9x8.xml");
+            topStrategy = WorkerRush;
+
+        } else if (mapHeight == 16 && nbases == 1) {
+            //Map = "maps/16x16/basesWorkers16x16.xml"
+            System.out.println("Map = maps/16x16/basesWorkers16x16.xml");
+            topStrategy = MattRush;
+
+        } else if   (mapHeight == 16 && nbases == 2) {
+            //Map = "maps/16x16/TwoBasesBarracks16x16.xml"
+            System.out.println("Map = maps/16x16/TwoBasesBarracks16x16.xml");
+            topStrategy = MattRush;
+
+        } else if (mapHeight == 24){
+            //Map = "maps/24x24/basesWorkers24x24H.xml"
+            System.out.println("Map = maps/24x24/basesWorkers24x24H.xml");
+            topStrategy = MattRush;
+        } else {
+            topStrategy = WorkerRush;
+        }
+
+        System.out.println("Using: " + topStrategy.toString() );
+        return topStrategy;
+    }
+
+    public AI simulateAndFindTopStrategy(int player, GameState gs, List<AI> strategies, AI topStrategy) throws Exception{
+
+        Integer[] votes = predictEnemyStrategy(player,gs);
+        float highscore = Integer.MIN_VALUE;
 
         int simulations = 0;
         for (int j = 0; j<4 ; j++){
@@ -111,35 +193,35 @@ public class StrategyChooser extends AbstractionLayerAI {
                 simulations++;
             }
         }
+
         int totalRuns = (simulations*strategies.size());
         int timeAllowed = MAXSIMULATIONTIME/totalRuns;
 
+        float workerRushScore; float lightRushScore; float heavyRushScore; float rangedRushScore;
 
         for (int i = 0;i < strategies.size();i++){
             AI aiStrategy = strategies.get(i);
-            /// Keep in the for loop
 
             if (votes[0] > 0){
-
-                workerRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, WorkerRush));
+                //The scores of the current strategy against a particular enemy strategy
+                workerRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs,gs.getTime() + timeAllowed, aiStrategy, WorkerRush));
                 System.out.println("Simulating against WorkerRush. EvalScore: " + workerRushScore );
             } else { workerRushScore = 0;}
 
             if (votes[1] > 0){
-                lightRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, LightRush));
+                lightRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs,gs.getTime() + timeAllowed, aiStrategy, LightRush));
                 System.out.println("Simulating against LightRush. EvalScore: " + lightRushScore );
             } else { lightRushScore = 0;}
 
             if (votes[2] > 0){
-                 heavyRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, HeavyRush));
+                heavyRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs,gs.getTime() + timeAllowed, aiStrategy, HeavyRush));
                 System.out.println("Simulating against HeavyRush. EvalScore: " + heavyRushScore );
             } else { heavyRushScore = 0;}
 
             if (votes[3] > 0){
-                 rangedRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs3,gs3.getTime() + timeAllowed, aiStrategy, RangedRush));
+                rangedRushScore = evaluateFunction.evaluate(player,1-player, simulate(gs,gs.getTime() + timeAllowed, aiStrategy, RangedRush));
                 System.out.println("Simulating against RangedRush. EvalScore: " + rangedRushScore );
             } else { rangedRushScore = 0;}
-
 
             float score = (votes[0]*workerRushScore) + (votes[1]*lightRushScore) + (votes[2]*heavyRushScore) + (votes[3]*rangedRushScore);
 
@@ -152,26 +234,17 @@ public class StrategyChooser extends AbstractionLayerAI {
         }
         //System.out.println(topStrategy);
 
-        PlayerAction action = topStrategy.getAction(player,gs2);
-        actions.pa = action;
 
-        lastStrategy = topStrategy;
-        //System.out.println("Total Runs: " +totalRuns);
-        System.out.println("Using: " + lastStrategy.toString() + " with score of: " + highscore + "\n");
-
-        return actions.pa;
+        System.out.println("Using: " + topStrategy.toString() + " with score of: " + highscore + "\n");
+        return topStrategy;
     }
 
-    public Integer[] predictEnemyStrategy(int player, GameState gs3){
-        //int workerRushVote = 1, lightRushVote = 1, heavyRushVote = 1, rangedRushVote = 1;
-        PhysicalGameState pgs = gs3.getPhysicalGameState();
-        //Player p = gs3.getPlayer(player);
+
+    public Integer[] predictEnemyStrategy(int player, GameState gs){
+        PhysicalGameState pgs = gs.getPhysicalGameState();
 
         //Calculate how many units types the enemy has, to determine the votes
-        int nEnemyWorkers = 0;
-        int nEnemyLight = 0;
-        int nEnemyHeavy = 0;
-        int nEnemyRanged = 0;
+        int nEnemyWorkers = 0; int nEnemyLight = 0; int nEnemyHeavy = 0; int nEnemyRanged = 0;
         for (Unit u : pgs.getUnits()) {
             if (u.getPlayer() != player) {
                 if (u.getType().name == "Worker"){
@@ -190,7 +263,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         Integer[] votes = new Integer[4];
 
         //Integer[] array = new Integer[4];
-        votes[0] = 1+ (nEnemyWorkers*5);
+        votes[0] = 1 + (nEnemyWorkers*4);
         votes[1] = (nEnemyLight*5);
         votes[2] = (nEnemyHeavy*5) ;
         votes[3] = (nEnemyRanged*5);
@@ -221,22 +294,26 @@ public class StrategyChooser extends AbstractionLayerAI {
     public GameState simulate(GameState gs, int time, AI ai1, AI ai2) throws Exception {
         boolean gameover = false;
 
+        GameState gs2 = gs.clone();
+
+        //Count the number of simulation issues
         int count = 0;
         do{
-            if (gs.isComplete()) {
-                gameover = gs.cycle();
+            if (gs2.isComplete()) {
+                gameover = gs2.cycle();
             } else {
-                //Run the simulation of our strategy against a pre-set enemy strat
-                gs.issue(ai1.getAction(0, gs));
-                gs.issue(ai2.getAction(1, gs));
+                System.out.println("TESt " + time + " : " + gs2.getTime() + " " + gameover);
+
+                //Run the simulation of our strategy against a pre-set enemy strategy
+                gs2.issue(ai1.getAction(0, gs));
+                gs2.issue(ai2.getAction(1, gs));
                 count ++;
-                //Could add in different strategies of the opponent
-                //Find their strategy, then simulate as if this strat
+                //Find their strategy, then simulate as if this strategy
             }
-        }while(!gameover && gs.getTime()<time);
+        }while(!gameover && gs2.getTime()<time);
 
         System.out.println(ai1 + " v " + ai2 + ": " + count);
-        return gs;
+        return gs2;
     }
 
 
@@ -269,7 +346,4 @@ public class StrategyChooser extends AbstractionLayerAI {
     }
 
 
-    public void setEvaluationFunction(SimpleSqrtEvaluationFunction a_ef) {
-        evaluateFunction = a_ef;
-    }
 }
