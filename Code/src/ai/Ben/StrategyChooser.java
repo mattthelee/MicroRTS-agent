@@ -295,18 +295,15 @@ public class StrategyChooser extends AbstractionLayerAI {
         boolean gameover = false;
 
         GameState gs2 = gs.clone();
-
         //Count the number of simulation issues
         int count = 0;
         do{
             if (gs2.isComplete()) {
                 gameover = gs2.cycle();
             } else {
-                System.out.println("TESt " + time + " : " + gs2.getTime() + " " + gameover);
-
                 //Run the simulation of our strategy against a pre-set enemy strategy
-                gs2.issue(ai1.getAction(0, gs));
-                gs2.issue(ai2.getAction(1, gs));
+                gs2.issue(ai1.getAction(0, gs2));
+                gs2.issue(ai2.getAction(1, gs2));
                 count ++;
                 //Find their strategy, then simulate as if this strategy
             }
