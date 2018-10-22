@@ -305,8 +305,8 @@ public class StrategyChooser extends AbstractionLayerAI {
                 gameover = gs2.cycle();
             } else {
                 //Run the simulation of our strategy against a pre-set enemy strategy
-                gs2.issue(ai1.getAction(0, gs));
-                gs2.issue(ai2.getAction(1, gs));
+                gs2.issue(ai1.getAction(0, gs2));
+                gs2.issue(ai2.getAction(1, gs2));
                 count ++;
                 //Find their strategy, then simulate as if this strategy
             }
