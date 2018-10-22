@@ -35,17 +35,17 @@ import rts.units.UnitTypeTable;
 /**
  * @author santi
  */
+
 public class GameVisualSimulationTest {
     public static void main(String args[]) throws Exception {
         UnitTypeTable utt = new UnitTypeTable();
         PathFinding pf = new BFSPathFinding();
 
         // Assignment Maps:
-        //PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
-        PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/TwoBasesBarracks16x16.xml", utt);// Set map
+        PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
+        //PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/TwoBasesBarracks16x16.xml", utt);// Set map
         //PhysicalGameState pgs = PhysicalGameState.load("maps/24x24/basesWorkers24x24H.xml", utt);
         //PhysicalGameState pgs = PhysicalGameState.load("maps/NoWhereToRun9x8.xml", utt);
-
 
         GameState gs = new GameState(pgs, utt);
         int MAXCYCLES = 3000;  // Maximum length of the game
@@ -65,12 +65,14 @@ public class GameVisualSimulationTest {
 
         //int lookahead = 100;
         int playouts_per_cycle = -1;
+        int inertiaCycles = 5;
 
-        AI ai2 = new StrategyChooser(100, pf, new newAI(utt,pf), new WorkerRush(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt));
+
+        //AI ai1 = new StrategyChooser(1000, pf, new newAI(utt,pf), new WorkerRush(utt,pf), new LightRush(utt,pf),
+        //                                new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
         AI ai1 = new mattRushAi(utt);
 
         //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
-
         //AI ai1 = new newAI(utt, pf);
         //AI ai2 = new newAI(utt, pf);
 
@@ -81,7 +83,7 @@ public class GameVisualSimulationTest {
         //AI ai2 = new PuppetSearchMCTS(utt);
 
         //AI ai2 = new IDRTMinimax(utt);
-        AI ai2 = new SCV(utt);
+        //AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai2 = new LightRush(utt, pf);
         //AI ai2 = new RangedRush(utt, pf);
@@ -91,9 +93,9 @@ public class GameVisualSimulationTest {
 
         //AI ai2 = new EconomyMilitaryRush(utt, pf);
         //AI ai2 = new EconomyRushBurster(utt, pf);
-        AI ai2 = new WorkerDefense(utt, pf);
+        //AI ai2 = new WorkerDefense(utt, pf);
 
-        //AI ai2 = new RandomBiasedAI();
+        AI ai2 = new RandomBiasedAI();
 
 
         JFrame w = PhysicalGameStatePanel.newVisualizer(gs,640,640,true,
