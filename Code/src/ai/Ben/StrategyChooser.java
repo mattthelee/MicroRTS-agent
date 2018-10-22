@@ -77,11 +77,13 @@ public class StrategyChooser extends AbstractionLayerAI {
 
             List<AI> strategies = new ArrayList<>();
 
-            strategies.add(newAI);
-            strategies.add(WorkerRush);
-            strategies.add(LightRush);
-            strategies.add(HeavyRush);
             strategies.add(MattRush);
+            strategies.add(newAI);
+
+            strategies.add(WorkerRush);
+            //strategies.add(LightRush);
+            //strategies.add(HeavyRush);
+
             //strategies.add(RangedRush);
             //strategies.add(RandomAI);
 
@@ -233,7 +235,7 @@ public class StrategyChooser extends AbstractionLayerAI {
             }
         }while(!gameover && gs.getTime()<time);
 
-        //System.out.println(ai1 + " v " + ai2 + ": " + count);
+        System.out.println(ai1 + " v " + ai2 + ": " + count);
         return gs;
     }
 

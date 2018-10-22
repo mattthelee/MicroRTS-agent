@@ -205,7 +205,14 @@ public class mattRushAi extends AbstractionLayerAI {
             // build a barracks:
             if (p.getResources() >= barracksType.cost + resourcesUsed && !freeWorkers.isEmpty()) {
                 Unit u = freeWorkers.remove(0);
-                buildIfNotAlreadyBuilding(u,barracksType,baseX + nbarracks  , baseY - 2 ,reservedPositions,p,pgs);
+                //Check if the unit in the bottom or top corner, then build barracks 2 away from their location
+                ArrayList<Integer> positions = barracksPosition(pgs,u);
+                buildIfNotAlreadyBuilding(u,barracksType,positions.get(0),positions.get(1),reservedPositions,p,pgs);
+                /*
+                if ((u.getX()+u.getY()) < width){
+                    buildIfNotAlreadyBuilding(u,barracksType,u.getX()+2,u.getY()+1,reservedPositions,p,pgs);
+                } else  buildIfNotAlreadyBuilding(u,barracksType,u.getX()-2,u.getY()-1,reservedPositions,p,pgs);
+                */
                 resourcesUsed += barracksType.cost;
             }
         }
@@ -263,6 +270,49 @@ public class mattRushAi extends AbstractionLayerAI {
         }
     }
 
+    public ArrayList barracksPosition(PhysicalGameState pgs, Unit u){
+        int width = pgs.getWidth();
+        int uX = u.getX();
+        int buildX; int spaceX;
+
+        int height = pgs.getHeight();
+        int uY = u.getY();
+        int buildY; int spaceY;
+
+        //Determine if in top left or bottom right
+        if ((uX+uY) < width){
+            //top left
+            spaceX = 1;
+            spaceY = 1;
+        } else {
+            //bottom right
+            spaceX = -1;
+            spaceY = -1;
+        }
+
+        //Width
+        if ((uX - spaceX > 0) && (uX + spaceX < width)){
+            buildX = uX + spaceX;
+        } else if ((uX + spaceX > 0) && (uX - spaceX < width)){
+            buildX = uX - spaceX;
+        } else {
+            buildX = uX;
+        }
+
+        //Height
+        if ((uY - spaceY > 0) && (uY + spaceY < height)){
+            buildY = uY + spaceY;
+        } else if ((uY + spaceY > 0) && (uY - spaceY < height)){
+            buildY = uY - spaceY;
+        } else {
+            buildY = uY;
+        }
+
+        ArrayList<Integer> positions =  new ArrayList<>();
+        positions.add(buildX);
+        positions.add(buildY);
+        return positions;
+    }
 
     @Override
     public List<ParameterSpecification> getParameters()
