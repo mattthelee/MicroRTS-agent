@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tournaments;
+package ai.Ben;
 
 import ai.core.AI;
 import ai.core.AIWithComputationBudget;
@@ -11,25 +11,20 @@ import ai.core.ContinuingAI;
 import ai.core.InterruptibleAI;
 import gui.PhysicalGameStateJFrame;
 import gui.PhysicalGameStatePanel;
+import rts.*;
+import rts.units.UnitTypeTable;
+import util.XMLWriter;
 
 import java.io.*;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-import rts.GameState;
-import rts.PartiallyObservableGameState;
-import rts.PhysicalGameState;
-import rts.PlayerAction;
-import rts.Trace;
-import rts.TraceEntry;
-import rts.units.UnitTypeTable;
-import util.XMLWriter;
 
 /**
  *
  * @author santi
  */
-public class RoundRobinTournament {
+public class RoundRobinTournament_johhny_matt {
 
     public static boolean visualize = false;
     public static int TIMEOUT_CHECK_TOLERANCE = 20;
@@ -71,7 +66,7 @@ public class RoundRobinTournament {
         double accumTime[][] = new double[AIs.size()][AIs.size()];
 
         // Write tournament information
-        out.write("RoundRobinTournament\n");
+     //   out.write("RoundRobinTournament\n");
         out.write("AIs:\n");
         for (ai.core.AI AI : AIs) {
             out.write("\t" + AI.toString() + "\n");
@@ -82,15 +77,15 @@ public class RoundRobinTournament {
         }
 
         // Write tournament settings
-        out.write("Settings:\n");
-        out.write("\tRounds:\t" + rounds + "\n");
-        out.write("\tMax Game Length:\t" + maxGameLength + "\n");
-        out.write("\tTime Budget:\t" + timeBudget + "\n");
-        out.write("\tIterations Budget:\t" + iterationsBudget + "\n");
-        out.write("\tPregame Analysis Budget:\t" + preAnalysisBudgetFirstTimeInAMap + "\t" + preAnalysisBudgetRestOfTimes + "\n");
-        out.write("\tFull Observability:\t" + fullObservability + "\n");
-        out.write("\tTimeout Check:\t" + timeoutCheck + "\n");
-        out.write("\tRun Garbage Collector:\t" + runGC + "\n");
+//        out.write("Settings:\n");
+//        out.write("\tRounds:\t" + rounds + "\n");
+//        out.write("\tMax Game Length:\t" + maxGameLength + "\n");
+//        out.write("\tTime Budget:\t" + timeBudget + "\n");
+//        out.write("\tIterations Budget:\t" + iterationsBudget + "\n");
+//        out.write("\tPregame Analysis Budget:\t" + preAnalysisBudgetFirstTimeInAMap + "\t" + preAnalysisBudgetRestOfTimes + "\n");
+//        out.write("\tFull Observability:\t" + fullObservability + "\n");
+//        out.write("\tTimeout Check:\t" + timeoutCheck + "\n");
+//        out.write("\tRun Garbage Collector:\t" + runGC + "\n");
 
         out.flush();
         
