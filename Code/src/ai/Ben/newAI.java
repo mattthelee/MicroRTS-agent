@@ -379,18 +379,18 @@ public class newAI extends AbstractionLayerAI {
         }
 
         //Width
-        if ((uX - spaceX > 0) && (uX + spaceX < width)){
+        if ((uX - spaceX > 0) || (uX + spaceX < width)){
             buildX = uX + spaceX;
-        } else if ((uX + spaceX > 0) && (uX - spaceX < width)){
+        } else if ((uX + spaceX > 0) || (uX - spaceX < width)){
             buildX = uX - spaceX;
         } else {
             buildX = uX;
         }
 
         //Height
-        if ((uY - spaceY > 0) && (uY + spaceY < height)){
+        if ((uY - spaceY > 0) || (uY + spaceY < height)){
             buildY = uY + spaceY;
-        } else if ((uY + spaceY > 0) && (uY - spaceY < height)){
+        } else if ((uY + spaceY > 0) || (uY - spaceY < height)){
             buildY = uY - spaceY;
         } else {
             buildY = uY;
