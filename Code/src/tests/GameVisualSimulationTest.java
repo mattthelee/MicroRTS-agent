@@ -50,13 +50,10 @@ public class GameVisualSimulationTest {
         //PhysicalGameState pgs = PhysicalGameState.load("maps/NoWhereToRun9x8.xml", utt);
 
         GameState gs = new GameState(pgs, utt);
-        int MAXCYCLES = 3000;  // Maximum length of the game
-        int TIME_BUDGET = 20;  // Time budget for AIs
+        int MAXCYCLES = 2000;  // Maximum length of the game
+        int TIME_BUDGET = 100;  // Time budget for AIs
         boolean gameover = false;
 
-
-        int timeBudget = 100;                          // Time budget allowed per action (default 100ms)
-        int iterationBudget = 100;
 
 
         // Set AIs playing the game
@@ -69,8 +66,10 @@ public class GameVisualSimulationTest {
         int playouts_per_cycle = -1;
         int inertiaCycles = 10;
 
-        AI ai1 = new StrategyChooser(lookahead, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf),
-                                        new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
+
+
+        AI ai1 = new StrategyChooser(TIME_BUDGET, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
+
         //AI ai2 = new mattRushAi(utt);
 
         //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
@@ -85,7 +84,7 @@ public class GameVisualSimulationTest {
 
         //AI ai2 = new IDRTMinimax(utt);
 
-        AI ai2 = new SCV(utt);
+        //AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai1 = new LightRush(utt, pf);
 
@@ -98,7 +97,7 @@ public class GameVisualSimulationTest {
         //AI ai2 = new EconomyRushBurster(utt, pf);
         //AI ai2 = new WorkerDefense(utt, pf);
 
-        //AI ai2 = new RandomBiasedAI();
+        AI ai2 = new RandomBiasedAI();
 
 
         JFrame w = PhysicalGameStatePanel.newVisualizer(gs,640,640,true,
