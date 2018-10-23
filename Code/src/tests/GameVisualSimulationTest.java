@@ -14,6 +14,7 @@ import ai.evaluation.SimpleSqrtEvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import ai.machinelearning.bayes.BayesianModel;
 import ai.mcts.naivemcts.NaiveMCTS;
+import ai.mcts.uct.UCT;
 import ai.minimax.ABCD.ABCD;
 import ai.minimax.MiniMaxResult;
 import ai.minimax.RTMiniMax.IDRTMinimax;
@@ -66,7 +67,9 @@ public class GameVisualSimulationTest {
         int inertiaCycles = 10;
 
 
+
         AI ai1 = new StrategyChooser(TIME_BUDGET, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
+
         //AI ai2 = new mattRushAi(utt);
 
         //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
