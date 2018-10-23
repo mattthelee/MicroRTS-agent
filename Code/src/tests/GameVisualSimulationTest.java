@@ -69,6 +69,7 @@ public class GameVisualSimulationTest {
         int inertiaCycles = 10;
 
 
+
         AI ai1 = new StrategyChooser(lookahead, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf),
                                         new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
         //AI ai2 = new mattRushAi(utt);
@@ -84,9 +85,11 @@ public class GameVisualSimulationTest {
         //AI ai2 = new PuppetSearchMCTS(utt);
 
         //AI ai2 = new IDRTMinimax(utt);
+
         AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai1 = new LightRush(utt, pf);
+
         //AI ai2 = new RangedRush(utt, pf);
         //AI ai2 = new HeavyRush( utt, pf);
         //AI ai2 = new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,

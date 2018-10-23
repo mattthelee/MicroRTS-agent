@@ -99,6 +99,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
             //GameState gs2 = gs.clone();
 
+
             // evaluateStrategies returns a PlayerAction to be returned by the getAction
             return evaluateStrategies(player, gs, strategies, enemyStrategies);
 
@@ -219,7 +220,9 @@ public class StrategyChooser extends AbstractionLayerAI {
         return topStrategy;
     }
 
+  
     public AI findTopStrategy(int player, List<AI> strategies, AI topStrategy) {
+
 
         float highscore = Integer.MIN_VALUE;
 
@@ -260,6 +263,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         for (int i = 0;i < strategies.size();i++){
             AI aiStrategy = strategies.get(i);
 
+
             for (int j = 0 ; j < 4 ; j++){
                 if (votes[j] > 0){
                     predictedEnemyStrategy = j;
@@ -272,6 +276,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     }
 
     public void continueGameStateSimulation(int player, List<AI> strategies, List<AI> enemyStrategies ) throws Exception {
+
 
         int timeAllowed = (MAXSIMULATIONTIME-10)/3;
 
@@ -351,17 +356,18 @@ public class StrategyChooser extends AbstractionLayerAI {
         boolean gameover = false;
 
         GameState gs2 = gs.clone();
-
         //Count the number of simulation issues
         int count = 0;
         do{
             if (gs2.isComplete()) {
                 gameover = gs2.cycle();
             } else {
+
                 //Run the simulation of our strategy against a provided enemy strategy
 
                 gs2.issue(ai1.getAction(player, gs2));
                 gs2.issue(ai2.getAction(1 - player, gs2));
+
                 count ++;
 
             }

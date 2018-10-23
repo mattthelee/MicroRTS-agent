@@ -5,3 +5,6 @@
 /.project
 .idea/
 Code/.idea/
+.log
+.gz
+.pdf
