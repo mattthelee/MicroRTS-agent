@@ -85,8 +85,8 @@ public class RunTournament {
 //        String traceOutputFolder = "traces";
         String traceOutputFolder = null;  // Ignore traces
 
-//        Writer out = new BufferedWriter(new FileWriter(new File("results.txt")));  // Print to file
-        Writer out = new PrintWriter(System.out);  // Print to console
+        Writer out = new BufferedWriter(new FileWriter(new File("results.txt")));  // Print to file
+        // Writer out = new PrintWriter(System.out);  // Print to console
 
 //        Writer progress = new BufferedWriter(new FileWriter(new File("progress.txt")));  // Write progress to file
         Writer progress = new PrintWriter(System.out);  // Write progress to console

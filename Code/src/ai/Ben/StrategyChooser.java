@@ -82,11 +82,10 @@ public class StrategyChooser extends AbstractionLayerAI {
 
             List<AI> strategies = new ArrayList<>();
 
-            strategies.add(newAI);
-            strategies.add(WorkerRush);
             strategies.add(MattRush);
-            //strategies.add(LightRush);
-            //strategies.add(HeavyRush);
+            strategies.add(newAI);
+
+            strategies.add(WorkerRush);
             //strategies.add(RangedRush);
             //strategies.add(RandomAI);
 
@@ -186,7 +185,6 @@ public class StrategyChooser extends AbstractionLayerAI {
     public AI simulateAndFindTopStrategy(int player, GameState gs, List<AI> strategies, AI topStrategy) throws Exception{
 
         Integer[] votes = predictEnemyStrategy(player,gs);
-
         float highscore = Integer.MIN_VALUE;
 
         int simulations = 0;
@@ -195,6 +193,7 @@ public class StrategyChooser extends AbstractionLayerAI {
                 simulations++;
             }
         }
+
         int totalRuns = (simulations*strategies.size());
         int timeAllowed = MAXSIMULATIONTIME/totalRuns;
 
@@ -202,7 +201,6 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         for (int i = 0;i < strategies.size();i++){
             AI aiStrategy = strategies.get(i);
-
 
             if (votes[0] > 0){
                 //The scores of the current strategy against a particular enemy strategy
@@ -297,7 +295,6 @@ public class StrategyChooser extends AbstractionLayerAI {
         boolean gameover = false;
 
         GameState gs2 = gs.clone();
-
         //Count the number of simulation issues
         int count = 0;
         do{

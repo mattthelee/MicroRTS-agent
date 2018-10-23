@@ -1,5 +1,6 @@
 package tests;
 
+import ai.Ben.WorkerRush2;
 import ai.Ben.mattRushAi;
 import ai.abstraction.*;
 import ai.Ben.newAI;
@@ -13,6 +14,7 @@ import ai.evaluation.SimpleSqrtEvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import ai.machinelearning.bayes.BayesianModel;
 import ai.mcts.naivemcts.NaiveMCTS;
+import ai.mcts.uct.UCT;
 import ai.minimax.ABCD.ABCD;
 import ai.minimax.MiniMaxResult;
 import ai.minimax.RTMiniMax.IDRTMinimax;
@@ -68,9 +70,9 @@ public class GameVisualSimulationTest {
         int inertiaCycles = 5;
 
 
-        //AI ai1 = new StrategyChooser(1000, pf, new newAI(utt,pf), new WorkerRush(utt,pf), new LightRush(utt,pf),
-        //                                new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
-        AI ai1 = new mattRushAi(utt);
+        AI ai1 = new StrategyChooser(1000, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
+        //AI ai2 = new mattRushAi(utt);
+        AI ai2 = new UCT(utt);
 
         //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
         //AI ai1 = new newAI(utt, pf);
@@ -84,7 +86,7 @@ public class GameVisualSimulationTest {
 
         //AI ai2 = new IDRTMinimax(utt);
         //AI ai2 = new SCV(utt);
-        //AI ai2 = new WorkerRush(utt, pf);
+        //AI ai1 = new WorkerRush2(utt, pf);
         //AI ai2 = new LightRush(utt, pf);
         //AI ai2 = new RangedRush(utt, pf);
         //AI ai2 = new HeavyRush( utt, pf);
@@ -95,7 +97,7 @@ public class GameVisualSimulationTest {
         //AI ai2 = new EconomyRushBurster(utt, pf);
         //AI ai2 = new WorkerDefense(utt, pf);
 
-        AI ai2 = new RandomBiasedAI();
+        //AI ai2 = new RandomBiasedAI();
 
 
         JFrame w = PhysicalGameStatePanel.newVisualizer(gs,640,640,true,
