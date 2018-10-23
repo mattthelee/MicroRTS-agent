@@ -43,8 +43,8 @@ public class GameVisualSimulationTest {
         PathFinding pf = new BFSPathFinding();
 
         // Assignment Maps:
-        //PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
-        PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/TwoBasesBarracks16x16.xml", utt);// Set map
+        PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
+        //PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/TwoBasesBarracks16x16.xml", utt);// Set map
         //PhysicalGameState pgs = PhysicalGameState.load("maps/24x24/basesWorkers24x24H.xml", utt);
         //PhysicalGameState pgs = PhysicalGameState.load("maps/NoWhereToRun9x8.xml", utt);
 
@@ -71,7 +71,7 @@ public class GameVisualSimulationTest {
 
         AI ai1 = new StrategyChooser(lookahead, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf),
                                         new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
-        AI ai2 = new mattRushAi(utt);
+        //AI ai2 = new mattRushAi(utt);
 
         //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
         //AI ai2 = new newAI(utt, pf);
@@ -84,7 +84,7 @@ public class GameVisualSimulationTest {
         //AI ai2 = new PuppetSearchMCTS(utt);
 
         //AI ai2 = new IDRTMinimax(utt);
-        //AI ai2 = new SCV(utt);
+        AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai1 = new LightRush(utt, pf);
         //AI ai2 = new RangedRush(utt, pf);

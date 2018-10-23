@@ -35,14 +35,14 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
     private List<AI> strategies = new ArrayList<>();
+    private List<AI> enemyStrategies = new ArrayList<>();
+
     private SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
     //private ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
 
     private List<GameState> simulationGameStates = new ArrayList<>();
-
-
-
     Integer[] strategyCounts = new Integer[4];
+    //TODO - Make the strategyCounts dynamic - bring the strategies intot the constructor
 
     int predictedEnemyStrategy;
 
@@ -57,6 +57,21 @@ public class StrategyChooser extends AbstractionLayerAI {
         RangedRush = rangedRush;
         MattRush = mattRush;
         INERTIACYCLES = inertiaCycles;
+
+        strategies.add(newAI);
+        strategies.add(WorkerRush);
+        strategies.add(MattRush);
+        strategies.add(LightRush);
+        //strategies.add(HeavyRush);
+        //strategies.add(RangedRush);
+        //strategies.add(RandomAI);
+
+        //List<AI> enemyStrategies = new ArrayList<>();
+
+        enemyStrategies.add(WorkerRush);
+        enemyStrategies.add(LightRush);
+        enemyStrategies.add(HeavyRush);
+        enemyStrategies.add(RangedRush);
 
 
     }
@@ -82,27 +97,10 @@ public class StrategyChooser extends AbstractionLayerAI {
     public PlayerAction getAction(int player, GameState gs) throws Exception {
         if (gs.canExecuteAnyAction(player)) {
 
-            GameState gs2 = gs.clone();
-
-            List<AI> strategies = new ArrayList<>();
-
-            strategies.add(newAI);
-            strategies.add(WorkerRush);
-            strategies.add(MattRush);
-            strategies.add(LightRush);
-            //strategies.add(HeavyRush);
-            //strategies.add(RangedRush);
-            //strategies.add(RandomAI);
-
-            List<AI> enemyStrategies = new ArrayList<>();
-
-            enemyStrategies.add(WorkerRush);
-            enemyStrategies.add(LightRush);
-            enemyStrategies.add(HeavyRush);
-            enemyStrategies.add(RangedRush);
+            //GameState gs2 = gs.clone();
 
             // evaluateStrategies returns a PlayerAction to be returned by the getAction
-            return evaluateStrategies(player, gs2, strategies, enemyStrategies);
+            return evaluateStrategies(player, gs, strategies, enemyStrategies);
 
         } else {
             return new PlayerAction();
@@ -203,7 +201,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         } else if (mapHeight == 16 && nbases == 1) {
             //Map = "maps/16x16/basesWorkers16x16.xml"
             System.out.println("Map = maps/16x16/basesWorkers16x16.xml");
-            topStrategy = MattRush;
+            topStrategy = WorkerRush;
 
         } else if   (mapHeight == 16 && nbases == 2) {
             //Map = "maps/16x16/TwoBasesBarracks16x16.xml"
