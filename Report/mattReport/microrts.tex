@@ -1,5 +1,7 @@
-\documentclass[]{article}
 
+
+\documentclass[]{article}
+\usepackage{todonotes}
 %opening
 \title{Strategy Choosing $\mu$RTS Bot}
 \author{}
@@ -15,7 +17,8 @@
 \section{Experimental Study}
 To conduct any experiment we must find a measurement of interest. For this project, we chose the win rate of a player in our tournament. The tournament played the candidate bot against standard $\mu$RTS bots in the 4 known maps of the final assessment. We base-lined this by getting the win rate for the standard $\mu$RTS bots. Our objective was to maximise this measurement for our own AI, without creating something so specialised that it was unable to adapt to the 5th hidden map, i.e. we tried to avoid overfitting. 
 
-Bots that select from a pre-determined set of strategies had promising results in previous $\mu$RTS competitons \cite{firstcomp}
+Bots that select from a pre-determined set of strategies had promising results in previous $\mu$RTS competitons \cite{firstcomp}. Our bot selected strategies using a Temporal Difference method. At each gametick the bot runs chooses a strategy from a predefined list then simulates that strategy in  a forward model until it runs out of calculation time. An evaluation function calculates the value of the final gamestate of the simulation. It then performs this assessment for the next strategy in the list. A greedy policy  
+\todo
 
 \bibliographystyle{unsrt}
 \bibliography{microrts}

@@ -33,7 +33,7 @@ public class RunTournament {
         int preAnalysisBudgetRestOfTimes = 1000;       // Time budget for pre-analysis for all other cases (default 1s)
         boolean runGC = false;                         // If Java Garbage Collector should be called before each player action (default false)
         int iterationBudget = -1;                      // Iteration budget, set to -1 for infinite (default: -1)
-        int playOnlyWithThisAI = -1;                   //  AI index in list of AIs, if one AI should be included in all matches played (default -1)
+        int playOnlyWithThisAI = 0;                   //  AI index in list of AIs, if one AI should be included in all matches played (default -1)
 
         // Create list of AIs participating in tournament
         List<AI> AIs = new ArrayList<>();
@@ -42,12 +42,11 @@ public class RunTournament {
         PathFinding pf = new BFSPathFinding();
 
         // Add AIs to list
-        AIs.add(new UCT(timeBudget, -1, 100, 20, new RandomBiasedAI(),
-                new SimpleEvaluationFunction()));
-        AIs.add(new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
-                new RandomBiasedAI(), new SimpleEvaluationFunction(), true));
-        AIs.add(new LightDefense(utt, pf));
         AIs.add(new newAI(utt,pf));
+        //AIs.add(new UCT(timeBudget, -1, 100, 20, new RandomBiasedAI(),new SimpleEvaluationFunction()));
+        //AIs.add(new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,new RandomBiasedAI(), new SimpleEvaluationFunction(), true));
+        //AIs.add(new LightDefense(utt, pf));
+
 
 
         // Create list of maps for tournament
@@ -60,8 +59,8 @@ public class RunTournament {
 //        String traceOutputFolder = "traces";
         String traceOutputFolder = null;  // Ignore traces
 
-//        Writer out = new BufferedWriter(new FileWriter(new File("results.txt")));  // Print to file
-        Writer out = new PrintWriter(System.out);  // Print to console
+        Writer out = new BufferedWriter(new FileWriter(new File("results.txt")));  // Print to file
+        // Writer out = new PrintWriter(System.out);  // Print to console
 
 //        Writer progress = new BufferedWriter(new FileWriter(new File("progress.txt")));  // Write progress to file
         Writer progress = new PrintWriter(System.out);  // Write progress to console
