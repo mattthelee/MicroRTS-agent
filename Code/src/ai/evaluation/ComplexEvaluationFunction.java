@@ -53,7 +53,7 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
 
         for(Unit maxUnit : maxUnits){
             // Times unitvalue by its manhatten distance to enemy base divided by the maxium manhatten distance possible
-            if (minBase != null){
+            if (minBase == null){
                 s1 += unitValue(maxUnit);
             } else {
                 s1 += unitValue(maxUnit) * maxManhattenDist  / (maxManhattenDist + manhattenToPoint(maxUnit,minBase.getX(),minBase.getY()));
@@ -62,7 +62,7 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
 
         for(Unit minUnit : minUnits){
             // Times unitvalue by its manhatten distance to enemy base divided by the maxium manhatten distance possible
-            if (maxBase != null){
+            if (maxBase == null){
                 s2 += unitValue(minUnit);
             } else {
                 s2 += unitValue(minUnit) * maxManhattenDist  / (maxManhattenDist + manhattenToPoint(minUnit,maxBase.getX(),maxBase.getY()));
@@ -81,7 +81,8 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
    }
 
    public float unitValue(Unit u){
-        float value = u.getResources() * RESOURCE_IN_WORKER;
+        float value = 0;
+        value += u.getResources() * RESOURCE_IN_WORKER;
         value += UNIT_BONUS_MULTIPLIER * u.getCost()*Math.sqrt( u.getHitPoints()/u.getMaxHitPoints() );
         return value;
    }
