@@ -205,14 +205,11 @@ public class mattRushAi extends AbstractionLayerAI {
             // build a barracks:
             if (p.getResources() >= barracksType.cost + resourcesUsed && !freeWorkers.isEmpty()) {
                 Unit u = freeWorkers.remove(0);
-                //Check if the unit in the bottom or top corner, then build barracks 2 away from their location
+
                 ArrayList<Integer> positions = barracksPosition(pgs,u);
                 buildIfNotAlreadyBuilding(u,barracksType,positions.get(0),positions.get(1),reservedPositions,p,pgs);
-                /*
-                if ((u.getX()+u.getY()) < width){
-                    buildIfNotAlreadyBuilding(u,barracksType,u.getX()+2,u.getY()+1,reservedPositions,p,pgs);
-                } else  buildIfNotAlreadyBuilding(u,barracksType,u.getX()-2,u.getY()-1,reservedPositions,p,pgs);
-                */
+                //buildIfNotAlreadyBuilding(u,barracksType,baseX + nbarracks  , baseY - 2 ,reservedPositions,p,pgs);
+
                 resourcesUsed += barracksType.cost;
             }
         }
@@ -291,18 +288,22 @@ public class mattRushAi extends AbstractionLayerAI {
         }
 
         //Width
-        if ((uX - spaceX > 0) && (uX + spaceX < width)){
+
+        if ((uX - spaceX > 0) || (uX + spaceX < width)){
             buildX = uX + spaceX;
-        } else if ((uX + spaceX > 0) && (uX - spaceX < width)){
+        } else if ((uX + spaceX > 0) || (uX - spaceX < width)){
+
             buildX = uX - spaceX;
         } else {
             buildX = uX;
         }
 
         //Height
-        if ((uY - spaceY > 0) && (uY + spaceY < height)){
+
+        if ((uY - spaceY > 0) || (uY + spaceY < height)){
             buildY = uY + spaceY;
-        } else if ((uY + spaceY > 0) && (uY - spaceY < height)){
+        } else if ((uY + spaceY > 0) || (uY - spaceY < height)){
+
             buildY = uY - spaceY;
         } else {
             buildY = uY;
