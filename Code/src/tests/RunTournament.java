@@ -1,9 +1,14 @@
 package tests;
 
+import ai.Ben.StrategyChooser;
+import ai.Ben.WorkerRush2;
+import ai.Ben.mattRushAi;
 import ai.RandomBiasedAI;
+import ai.abstraction.HeavyRush;
 import ai.abstraction.LightDefense;
 import ai.abstraction.LightRush;
 import ai.Ben.newAI;
+import ai.abstraction.RangedRush;
 import ai.abstraction.pathfinding.BFSPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
@@ -35,6 +40,8 @@ public class RunTournament {
         int iterationBudget = -1;                      // Iteration budget, set to -1 for infinite (default: -1)
         int playOnlyWithThisAI = -1;                   //  AI index in list of AIs, if one AI should be included in all matches played (default -1)
 
+        int inertiaCycles = 10;
+
         // Create list of AIs participating in tournament
         List<AI> AIs = new ArrayList<>();
 
@@ -42,12 +49,16 @@ public class RunTournament {
         PathFinding pf = new BFSPathFinding();
 
         // Add AIs to list
-        AIs.add(new UCT(timeBudget, -1, 100, 20, new RandomBiasedAI(),
-                new SimpleEvaluationFunction()));
-        AIs.add(new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
-                new RandomBiasedAI(), new SimpleEvaluationFunction(), true));
-        AIs.add(new LightDefense(utt, pf));
-        AIs.add(new newAI(utt,pf));
+        //AIs.add(new UCT(timeBudget, -1, 100, 20, new RandomBiasedAI(),
+        //        new SimpleEvaluationFunction()));
+        //AIs.add(new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
+        //        new RandomBiasedAI(), new SimpleEvaluationFunction(), true));
+        //AIs.add(new LightDefense(utt, pf));
+        //AIs.add(new newAI(utt,pf));
+        //AIs.add( new RandomBiasedAI());
+        AIs.add( new RandomBiasedAI());
+        AIs.add(new StrategyChooser(timeBudget, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles));
+
 
 
         // Create list of maps for tournament

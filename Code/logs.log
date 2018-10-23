@@ -1,0 +1,24 @@
+Map = maps/16x16/basesWorkers16x16.xml
+First game cycle using: WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 1 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 2 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 3 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 4 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 5 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 6 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 7 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 8 using WorkerRush2(BFSPathFinding)
+Inertia strategy game tick 9 using WorkerRush2(BFSPathFinding)
+
+Simulation --- 
+Finished considering playing as: newAI(BFSPathFinding) : 0.07087314
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.1275289
+Finished considering playing as: mattRushAi(AStarPathFinding) : 0.08817744
+Finished considering playing as: LightRush(BFSPathFinding) : -0.022622406
+Using: WorkerRush2(BFSPathFinding) with score of: 0.1275289
+
+newAI(BFSPathFinding) v LightRush(BFSPathFinding): Search depth of 27
+WorkerRush2(BFSPathFinding) v LightRush(BFSPathFinding): Search depth of 27
+mattRushAi(AStarPathFinding) v LightRush(BFSPathFinding): Search depth of 27
+LightRush(BFSPathFinding) v LightRush(BFSPathFinding): Search depth of 27
+Chosen strategy: WorkerRush2(BFSPathFinding)

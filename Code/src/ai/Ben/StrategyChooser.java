@@ -141,25 +141,31 @@ public class StrategyChooser extends AbstractionLayerAI {
                 System.out.println( "\n" + "Simulation --- " );
 
                 // Find the top strategies by simulating all the strategies in 'AIStrategies' list
+                // Calls findTopStrategy method, which evaluates all simulated game states and returns the best strategy
                 topStrategy = findTopStrategy(player, AIStrategies);
 
-                AI ai2 = enemyStrategies.get(predictedEnemyStrategy);
 
+                //AI ai2 = enemyStrategies.get(predictedEnemyStrategy);
+
+                // Logging for each simulated game state, to show the strategies simulated and the search depth of each
                 for (int i=0 ; i<simulationCounts.length ; i++){
-                    System.out.println(AIStrategies.get(i) + " v " + ai2 + ": Search depth of " + simulationCounts[i]);
+                    System.out.println(AIStrategies.get(i) + " v " + enemyStrategies.get(predictedEnemyStrategy) + ": Search depth of " + simulationCounts[i]);
                 }
 
+                // Logging to show the chosen strategy to implement
                 System.out.println("Chosen strategy: " + topStrategy);
 
-
+            // If GAMECOUNT is not a multiple of INERTIACYCLES
+            // Then in the middle of an inertia run
             } else {
-                // Middle of an inertia run, so keep last strategy
+                // Sustain the last played strategy to be the chosen strategy to play
                 topStrategy = lastStrategy;
 
-                System.out.println( "Inertia strategy game tick " + (GAMECOUNT % INERTIACYCLES) + " using " + topStrategy.toString() );
+                // Logging the inertia strategy and each game cycle
+                System.out.println( "Inertia strategy game cycle " + (GAMECOUNT % INERTIACYCLES) + " using " + topStrategy.toString() );
 
+                // If this is the first cycle of a inertia run
                 if (GAMECOUNT % INERTIACYCLES == 1 ){
-                    // First of the inertia run - so create the simulations
 
                     // Initialise the simulationGameStates back to empty
                     simulationGameStates = new ArrayList<>();
@@ -169,28 +175,34 @@ public class StrategyChooser extends AbstractionLayerAI {
                         simulationCounts[i] = 0;
                     }
 
+                    // Start all the simulations within simulationGameStates using startGameStateSimulation method
                     startGameStateSimulation(player, gs, AIStrategies, enemyStrategies);
                 } else {
-                    // Middle of inertia run - so continue simulations
-                    continueGameStateSimulation(player , AIStrategies, enemyStrategies);
+                    // Middle of an inertia run
+
+                    // Continue all the simulations within simulationGameStates using continueGameStateSimulation method
+                    continueGameStateSimulation(player, AIStrategies, enemyStrategies);
                 }
             }
 
+            // Get an action from the chosen best strategy to implement in this game cycle
             actions.pa = topStrategy.getAction(player,gs);
+            // Revert the lastStrategy variable to this chosen strategy, to be used next inertia run
             lastStrategy = topStrategy;
 
+            // Increase the GAMECOUNT variable for each game cycle
             GAMECOUNT ++;
 
+            // Return the given action as a PlayerAction
             return actions.pa;
 
-            //return evaluateStrategies(player, gs, AIStrategies, enemyStrategies);
         } else {
-            // If no actions can be played, continue with the current actions as a PlayerAction()
+            // If no actions can be played, continue with the current actions as a PlayerAction
             return new PlayerAction();
         }
     }
 
-    private AI firstRunStrategyAnalysis(int player, GameState gs) {
+    public AI firstRunStrategyAnalysis(int player, GameState gs) {
 
         AI topStrategy;
         PhysicalGameState pgs = gs.getPhysicalGameState();
@@ -232,7 +244,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     }
 
 
-    private AI findTopStrategy(int player, List<AI> AIStrategies) {
+    public AI findTopStrategy(int player, List<AI> AIStrategies) {
 
         AI topStrategy = null;
         float highscore = Integer.MIN_VALUE;
@@ -257,7 +269,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     }
 
 
-    private void startGameStateSimulation(int player, GameState gs, List<AI> AIStrategies, List<AI> enemyStrategies) throws Exception{
+    public void startGameStateSimulation(int player, GameState gs, List<AI> AIStrategies, List<AI> enemyStrategies) throws Exception{
 
         Integer[] votes = predictEnemyStrategy(player,gs);
 
@@ -286,7 +298,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         }
     }
 
-    private void continueGameStateSimulation(int player, List<AI> AIStrategies, List<AI> enemyStrategies ) throws Exception {
+    public void continueGameStateSimulation(int player, List<AI> AIStrategies, List<AI> enemyStrategies ) throws Exception {
 
 
         int timeAllowed = (MAXSIMULATIONTIME-10)/3;
@@ -309,7 +321,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         simulationGameStates = newSimulationGameStates;
     }
 
-    private Integer[] predictEnemyStrategy(int player, GameState gs){
+    public Integer[] predictEnemyStrategy(int player, GameState gs){
         PhysicalGameState pgs = gs.getPhysicalGameState();
 
         //Calculate how many units types the enemy has, to determine the votes
@@ -363,6 +375,7 @@ public class StrategyChooser extends AbstractionLayerAI {
                 //Run the simulation of our strategy against a provided enemy strategy
 
                 gs2.issue(ai1.getAction(player, gs2));
+                //System.out.println("Action for ai1");
                 gs2.issue(ai2.getAction(1 - player, gs2));
 
                 count ++;
