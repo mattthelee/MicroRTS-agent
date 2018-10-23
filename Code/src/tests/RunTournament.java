@@ -32,7 +32,7 @@ public class RunTournament {
         // Set tournament settings
         int rounds = 2;                                // Number of rounds in the tournament
         int timeBudget = 100;                          // Time budget allowed per action (default 100ms)
-        int maxGameLength = 2000;                      // Maximum game length (default 2000 ticks)
+        int maxGameLength = 3000;                      // Maximum game length (default 2000 ticks)
         boolean fullObservability = true;              // Full or partial observability (default true)
         boolean selfMatches = false;                   // If self-play should be used (default false)
         boolean timeOutCheck = true;                   // If the game should count as a loss if a bot times out (default true)
@@ -52,9 +52,8 @@ public class RunTournament {
         PathFinding pf = new BFSPathFinding();
 
         // Add AIs to list
-        int inertiaCycles;
-        AIs.add(new StrategyChooser(100, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf),
-                                              new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles =10));
+        AIs.add(new StrategyChooser(timeBudget, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf),
+                                              new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), 10));
         AIs.add(new UCT(timeBudget, -1, 100, 20, new RandomBiasedAI(),
                 new SimpleEvaluationFunction()));
         //AIs.add(new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
@@ -85,12 +84,12 @@ public class RunTournament {
 //        String traceOutputFolder = "traces";
         String traceOutputFolder = null;  // Ignore traces
 
-        Writer out = new BufferedWriter(new FileWriter(new File("results.txt")));  // Print to file
-        // Writer out = new PrintWriter(System.out);  // Print to console
+        //Writer out = new BufferedWriter(new FileWriter(new File("results.txt")));  // Print to file
+         Writer out = new PrintWriter(System.out);  // Print to console
 
 //        Writer progress = new BufferedWriter(new FileWriter(new File("progress.txt")));  // Write progress to file
-        Writer progress = new PrintWriter(System.out);  // Write progress to console
-//        Writer progress = null;  // Ignore progress
+        //Writer progress = new PrintWriter(System.out);  // Write progress to console
+        Writer progress = null;  // Ignore progress
 
         // Run tournament
         runTournament(AIs,playOnlyWithThisAI, maps, rounds, maxGameLength, timeBudget, iterationBudget,
