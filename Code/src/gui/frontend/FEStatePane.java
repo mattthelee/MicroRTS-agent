@@ -6,6 +6,7 @@
 
 package gui.frontend;
 
+import ai.Ben.StrategyChooser;
 import ai.Ben.newAI;
 import ai.BranchingFactorCalculatorBigInteger;
 import ai.abstraction.*;
@@ -157,7 +158,8 @@ public class FEStatePane extends JPanel {
                    InformedNaiveMCTS.class,
                    PuppetSearchMCTS.class,
                    SCV.class,
-                   newAI.class
+                   newAI.class,
+                   StrategyChooser.class
                   };
 
     
