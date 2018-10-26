@@ -61,7 +61,7 @@ public class GameVisualSimulationTest {
 
         int lookahead = 100;
         int playouts_per_cycle = -1;
-        int inertiaCycles = 1;
+        int inertiaCycles = 10;
 
 
 
