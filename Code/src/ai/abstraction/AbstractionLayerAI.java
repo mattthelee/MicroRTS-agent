@@ -67,6 +67,7 @@ public abstract class AbstractionLayerAI extends AIWithComputationBudget {
         ResourceUsage ru = new ResourceUsage();
         for (AbstractAction aa : actions.values()) {
             if (!pgs.getUnits().contains(aa.unit)) {
+//            if (pgs.getUnit(aa.unit.getID()) == null) {
                 // The unit is dead:
                 toDelete.add(aa.unit);
             } else {
