@@ -37,6 +37,7 @@ public class newAI extends AbstractionLayerAI {
     UnitType barracksType;
     UnitType lightType;
     UnitType heavyType;
+    Unit ourBase;
 
     // Strategy implemented by this class:
     // For the first 4 melee units: send it to attack to the nearest enemy unit
@@ -230,8 +231,6 @@ public class newAI extends AbstractionLayerAI {
     public void workersBehavior(List<Unit> workers, Player p, PhysicalGameState pgs, GameState gs) {
         int nbases = 0;
         int nbarracks = 0;
-        int baseX = 0;
-        int baseY = 0;
 
         int resourcesUsed = 0;
 
@@ -243,8 +242,7 @@ public class newAI extends AbstractionLayerAI {
             if (u2.getType() == baseType
                     && u2.getPlayer() == p.getID()) {
                 nbases++;
-                baseX = u2.getX();
-                baseY = u2.getY();
+                ourBase = u2;
             }
             if (u2.getType() == barracksType
                     && u2.getPlayer() == p.getID()) {
@@ -360,42 +358,45 @@ public class newAI extends AbstractionLayerAI {
 
     public ArrayList barracksPosition(PhysicalGameState pgs, Unit u){
         int width = pgs.getWidth();
-        int uX = u.getX();
+        int uX = (ourBase == null) ? u.getX() : ourBase.getX();
         int buildX; int spaceX;
 
         int height = pgs.getHeight();
-        int uY = u.getY();
+        int uY = (ourBase == null) ? u.getY() : ourBase.getY();;
         int buildY; int spaceY;
 
-        //Determine if in top left or bottom right
+        // If manhatten from bottom left is less than width
         if ((uX+uY) < width){
-            //top left
-            spaceX = 1;
-            spaceY = 1;
+            //top left, build barracks bottom right cornet
+            spaceX = 2;
+            spaceY = 2;
         } else {
-            //bottom right
-            spaceX = -1;
-            spaceY = -1;
+            //bottom right, build barracks top left corner
+            spaceX = 0;
+            spaceY = 0;
         }
 
         //Width
+
         if ((uX - spaceX > 0) || (uX + spaceX < width)){
             buildX = uX + spaceX;
         } else if ((uX + spaceX > 0) || (uX - spaceX < width)){
+
             buildX = uX - spaceX;
         } else {
             buildX = uX;
         }
 
         //Height
+
         if ((uY - spaceY > 0) || (uY + spaceY < height)){
             buildY = uY + spaceY;
         } else if ((uY + spaceY > 0) || (uY - spaceY < height)){
+
             buildY = uY - spaceY;
         } else {
             buildY = uY;
         }
-
         ArrayList<Integer> positions =  new ArrayList<>();
         positions.add(buildX);
         positions.add(buildY);

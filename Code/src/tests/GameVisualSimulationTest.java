@@ -1,9 +1,7 @@
 package tests;
 
-import ai.Ben.WorkerRush2;
-import ai.Ben.mattRushAi;
+import ai.Ben.*;
 import ai.abstraction.*;
-import ai.Ben.newAI;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
 import ai.*;
@@ -20,7 +18,6 @@ import ai.minimax.MiniMaxResult;
 import ai.minimax.RTMiniMax.IDRTMinimax;
 import ai.montecarlo.MonteCarlo;
 import ai.montecarlo.NewMonteCarlo;
-import ai.Ben.StrategyChooser;
 import ai.puppet.PuppetSearchAB;
 import ai.puppet.PuppetSearchMCTS;
 import ai.scv.SCV;
@@ -88,7 +85,7 @@ public class GameVisualSimulationTest {
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai1 = new LightRush(utt, pf);
 
-        //AI ai2 = new RangedRush(utt, pf);
+        AI ai2 = new RangedRush2(utt, pf);
         //AI ai2 = new HeavyRush( utt, pf);
         //AI ai2 = new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
           //      new newAI(utt,pf), new SimpleEvaluationFunction(), true);
@@ -97,7 +94,7 @@ public class GameVisualSimulationTest {
         //AI ai2 = new EconomyRushBurster(utt, pf);
         //AI ai2 = new WorkerDefense(utt, pf);
 
-        AI ai2 = new RandomBiasedAI();
+        //AI ai2 = new RandomBiasedAI();
 
 
         JFrame w = PhysicalGameStatePanel.newVisualizer(gs,640,640,true,
