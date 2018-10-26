@@ -61,11 +61,11 @@ public class GameVisualSimulationTest {
 
         int lookahead = 100;
         int playouts_per_cycle = -1;
-        int inertiaCycles = 10;
+        int inertiaCycles = 1;
 
 
 
-        AI ai1 = new StrategyChooser(TIME_BUDGET, utt, pf, inertiaCycles);
+        AI ai1 = new StrategyChooser(TIME_BUDGET, utt, pf, new SimpleSqrtEvaluationFunction3(), inertiaCycles);
 
         //AI ai2 = new mattRushAi(utt);
 
@@ -81,11 +81,11 @@ public class GameVisualSimulationTest {
 
         //AI ai2 = new IDRTMinimax(utt);
 
-        //AI ai2 = new SCV(utt);
+        AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai1 = new LightRush(utt, pf);
 
-        AI ai2 = new RangedRush2(utt, pf);
+        //AI ai2 = new RangedRush(utt, pf);
         //AI ai2 = new HeavyRush( utt, pf);
         //AI ai2 = new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
           //      new newAI(utt,pf), new SimpleEvaluationFunction(), true);

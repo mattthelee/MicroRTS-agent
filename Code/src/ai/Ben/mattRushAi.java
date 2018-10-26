@@ -277,11 +277,11 @@ public class mattRushAi extends AbstractionLayerAI {
         // If manhatten from bottom left is less than width
         if ((uX+uY) < width){
             //top left, build barracks bottom right cornet
-            spaceX = 2;
+            spaceX = 1;
             spaceY = 2;
         } else {
             //bottom right, build barracks top left corner
-            spaceX = 0;
+            spaceX = 1;
             spaceY = 0;
         }
 
