@@ -75,17 +75,19 @@ public class StrategyChooser extends AbstractionLayerAI {
         WorkerRush = new WorkerRush2(utt,a_pf);
         LightRush = new LightRush(utt,a_pf);
         HeavyRush = new HeavyRush(utt,a_pf);
-        RangedRush = new RangedRush(utt,a_pf);
+        RangedRush = new RangedRush2(utt,a_pf);
         MattRush = new mattRushAi(utt,a_pf);
         INERTIACYCLES = inertiaCycles;
         GAMECOUNT = 0;
         UTT = utt;
 
         // Initialise the AIStrategies to all the AI strategies we wish to evaluate and simulate with
+        AIStrategies.add(MattRush);
         AIStrategies.add(newAI);
         AIStrategies.add(WorkerRush);
-        AIStrategies.add(MattRush);
-        AIStrategies.add(LightRush);
+        AIStrategies.add(RangedRush);
+
+        //AIStrategies.add(LightRush);
 
         // Initialise the enemyStrategies to all the enemy strategies we wish to simulate against
         enemyStrategies.add(WorkerRush);
