@@ -1,5 +1,6 @@
 package ai.Ben;
 
+import ai.RandomBiasedAI;
 import ai.abstraction.*;
 import ai.abstraction.pathfinding.BFSPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
@@ -9,6 +10,7 @@ import ai.core.ParameterSpecification;
 import ai.evaluation.ComplexEvaluationFunction;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction;
+import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import rts.*;
 import rts.units.Unit;
 import rts.units.UnitTypeTable;
@@ -27,6 +29,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     private int MAXSIMULATIONTIME;
     private int INERTIACYCLES;
     private int GAMECOUNT;
+    UnitTypeTable UTT;
 
     // Initialise all the AI strategies used in the class
     private AI newAI; private AI LightRush; private AI WorkerRush; private AI HeavyRush; private AI RangedRush; private AI MattRush;
@@ -47,8 +50,8 @@ public class StrategyChooser extends AbstractionLayerAI {
     //private PathFinding pf = new BFSPathFinding();
 
     // Initialise the evaluationFunction which provides an evaluation on a given game state, to be used when scoring a simulating game state
-    //private SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
-    private ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
+    private EvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
+    //private ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
 
     // Initialise the simulationGameStates List, which tracks all the simulated game states when running an inertia game tick
     private List<GameState> simulationGameStates = new ArrayList<>();
@@ -58,18 +61,25 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
     // Strategy Chooser Constructor
-    public StrategyChooser( int timeBudget, PathFinding a_pf, AI newai, AI workerRush,
-                           AI lightRush , AI heavyRush, AI rangedRush, AI mattRush, int inertiaCycles) {
+    public  StrategyChooser(UnitTypeTable utt , PathFinding pf){
+        this(100, utt,  pf, 10);
+    }
+
+    public StrategyChooser(UnitTypeTable utt){
+        this(100,utt,new BFSPathFinding(),10);
+    }
+    public StrategyChooser( int timeBudget, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
         super(a_pf);
         MAXSIMULATIONTIME = timeBudget;
-        newAI = newai;
-        WorkerRush = workerRush;
-        LightRush = lightRush;
-        HeavyRush = heavyRush;
-        RangedRush = rangedRush;
-        MattRush = mattRush;
+        newAI = new newAI(utt,a_pf);
+        WorkerRush = new WorkerRush2(utt,a_pf);
+        LightRush = new LightRush(utt,a_pf);
+        HeavyRush = new HeavyRush(utt,a_pf);
+        RangedRush = new RangedRush(utt,a_pf);
+        MattRush = new mattRushAi(utt,a_pf);
         INERTIACYCLES = inertiaCycles;
         GAMECOUNT = 0;
+        UTT = utt;
 
         // Initialise the AIStrategies to all the AI strategies we wish to evaluate and simulate with
         AIStrategies.add(newAI);
@@ -93,8 +103,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     }
 
     public AI clone() {
-        return new StrategyChooser(MAXSIMULATIONTIME,pf,
-                newAI,WorkerRush,LightRush,HeavyRush,RangedRush, MattRush, INERTIACYCLES);
+        return new StrategyChooser(MAXSIMULATIONTIME,UTT, pf, INERTIACYCLES);
     }
 
     public class PlayerActionTableEntry {
@@ -377,8 +386,13 @@ public class StrategyChooser extends AbstractionLayerAI {
         return gs2;
     }
 
+    public void setInertiaCycles(int INERTIACYCLES) {
+        this.INERTIACYCLES = INERTIACYCLES;
+    }
 
-
+    public void setEvaluationFunction(EvaluationFunction evaluateFunction) {
+        this.evaluateFunction = evaluateFunction;
+    }
 
     @Override
     public List<ParameterSpecification> getParameters()

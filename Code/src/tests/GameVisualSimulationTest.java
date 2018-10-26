@@ -68,7 +68,7 @@ public class GameVisualSimulationTest {
 
 
 
-        AI ai1 = new StrategyChooser(TIME_BUDGET, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
+        AI ai1 = new StrategyChooser(TIME_BUDGET, utt, pf, inertiaCycles);
 
         //AI ai2 = new mattRushAi(utt);
 
