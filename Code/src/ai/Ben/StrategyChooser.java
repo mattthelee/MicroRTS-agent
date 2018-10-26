@@ -61,13 +61,19 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
     // Strategy Chooser Constructor
-    public  StrategyChooser(UnitTypeTable utt , PathFinding pf){
+    public StrategyChooser(UnitTypeTable utt , PathFinding pf){
         this(100, utt,  pf, 10);
+    }
+
+    public StrategyChooser(int timeBudget, UnitTypeTable utt , PathFinding pf, EvaluationFunction evalFunc, int inertiaCycles){
+        this(timeBudget, utt,  pf, inertiaCycles);
+        this.setEvaluationFunction(evalFunc);
     }
 
     public StrategyChooser(UnitTypeTable utt){
         this(100,utt,new BFSPathFinding(),10);
     }
+
     public StrategyChooser( int timeBudget, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
         super(a_pf);
         MAXSIMULATIONTIME = timeBudget;
@@ -219,7 +225,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         if (mapHeight == 8){
             //Map = "maps/NoWhereToRun9x8.xml"
             System.out.println("Map = maps/NoWhereToRun9x8.xml");
-            topStrategy = WorkerRush;
+            topStrategy = RangedRush;
 
         } else if (mapHeight == 16 && nbases == 1) {
             //Map = "maps/16x16/basesWorkers16x16.xml"
