@@ -31,7 +31,7 @@ import util.XMLWriter;
  */
 public class RoundRobinTournament {
 
-    public static boolean visualize = true;
+    public static boolean visualize = false;
     public static int TIMEOUT_CHECK_TOLERANCE = 20;
     public static boolean USE_CONTINUING_ON_INTERRUPTIBLE = false;
 
