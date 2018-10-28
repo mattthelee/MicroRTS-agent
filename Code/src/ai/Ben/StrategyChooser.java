@@ -402,6 +402,10 @@ public class StrategyChooser extends AbstractionLayerAI {
         this.evaluateFunction = evaluateFunction;
     }
 
+    public String toString(){
+        return getClass().getSimpleName() + "(" + pf +"," +  evaluateFunction + "," + INERTIACYCLES + ")";
+    }
+
     @Override
     public List<ParameterSpecification> getParameters()
     {

@@ -2,10 +2,27 @@
 
 \documentclass[]{article}
 \usepackage{todonotes}
+\usepackage{listings}
 %opening
 \title{Strategy Choosing $\mu$RTS Bot}
 \author{}
 
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
 \begin{document}
 
 \maketitle
@@ -14,11 +31,59 @@
 
 \end{abstract}
 
-\section{Experimental Study}
-To conduct any experiment we must find a measurement of interest. For this project, we chose the win rate of a player in our tournament. The tournament played the candidate bot against standard $\mu$RTS bots in the 4 known maps of the final assessment. We base-lined this by getting the win rate for the standard $\mu$RTS bots. Our objective was to maximise this measurement for our own AI, without creating something so specialised that it was unable to adapt to the 5th hidden map, i.e. we tried to avoid overfitting. 
+\section{Techniques Implemented}
 
-Bots that select from a pre-determined set of strategies had promising results in previous $\mu$RTS competitons \cite{firstcomp}. Our bot selected strategies using a Temporal Difference method. At each gametick the bot runs chooses a strategy from a predefined list then simulates that strategy in  a forward model until it runs out of calculation time. An evaluation function calculates the value of the final gamestate of the simulation. It then performs this assessment for the next strategy in the list. A greedy policy  
-\todo
+
+\subsection{Temporal Difference Learning}
+Choosing an overall strategy for the map is crucial to winning microRTS \ref{firstcomp}. The Strategy Chooser bot, identifies the best from a predefined list of hardcoded strategies. Temporal Difference learning is used to assess the value of a given strategy at each timestep. Strategy Chooser uses a forward model to predict the long term value of a given strategy and uses that to determine its value. The hardcoded strategies selected were WorkerRush, RangedRush, LightRush and HeavyRush. These were selected because, of the hardcoded strategies they generally performed well, each strategy was also very different from the others and each tended to have a map in which they were so well suited that even the more advanced algorithms struggled to beat them. E.g. workerush on a small map is very strong. When the forward model had no more time to simulate, or the simulation reached a terminal state, the gamestate at that point was evaluated using the SimpleSqrtEvaluationFunction3. 
+
+\subsection{Minor improvements to hardcoded strategies}
+After observing several games of the strategy Chooser, its performance was reasonable but any change in strategy it maxde tended to perform poorly as the hardcoded strategies did not compliment each other. E.g. The non-workerrush strategies would send all workers to collect resources, even if moments ago they had been attacking. To resolve this and to make StrategyChooser more consistent, we made some alterations to the hardcoded strategies. The main improvements were: 2 workers assigned to resources, resources being mined tracked to ensure workers did not queue, spare workers always sent to attack, resource workers moving to attack if approached by an enemy and barracks positioned consistently. Now that all strategies handled these elements consistently, Strategy Chooser could change strategies without undoing the advantages gained by a previous one. 
+
+\subsection{Improving the Forward Modelling}
+The Monte Carlo Tree Search (MCTS) bot in $\mu$RTS simulates future gamestates by playing RandomBiasedAI moves against a RandomBiasedAI opponent. However, RandomBiasedAI is a very weak, non-aggressive strategy which would result in overly optomistic simulations of future gamestates. Strategy Chooser estimates the strategy of the opponent as well and runs the forward model agains that opponent. To estimate the opponent's strategy the count of each of the types of units it has are multiplied by a weighting. See the pseudoCode below:
+\begin{lstlisting}
+noWorkers,noRanged,noHeavy,noLight = getEnemyUnits();
+enemyStrategies = [workerRush, rangedRush, heavyRush, lightRush]
+votes[0] = 4 * noWorkers;
+votes[1]  = 5 * noRanged;
+votes[2]  = 5 * noHeavy;
+votes[3]  = 5 * noLight;
+
+index = getIndexOfMax(votes)
+enemyStrategy = enemyStrategies[index]
+\end{lstlisting}
+A smaller weighting was chosen for the number of workers because all strategies have workers so they're not as strong an indicator of workerRush. 
+
+The strategy with the largest score is then considered to be the opponents strategy. Experiments were conducted with the strategy chooser considering the top 2 enemmy strategies and taking an average evaluation score. This has the advantage of preparing for a shift in the enemy strategy but halves the forward model depth, which had a larger negative impact. This could be investigated again if the forward model depth can be increased.
+
+\subsection{Tuning Forward Model Depth}
+\todo{Is depth the right word for the forward distance considered?}
+The time for the forward model simulation was limited by the 100ms limit given to the bot. This was then split between all the options Strategy Chooser was considering. There was therefore a trade-off between the simulation time and the breadth of options. Typically 100ms would allow enough time for approximately 20 steps forward in the forward model, that would then have to be split between each of the considered options. E.g. If Strategy Chooser had 4 strategies to choose then the forward model would simulate the gamestates at most 5 game ticks into the future.  
+
+5 game ticks is not far enough to determine the long term value of a strategy. To increase this value, an inertia value was created. This inertia value, $I$, determines for how many gameticks the same strategy would be used before deciding upon a new one. This meant that strategies would play consistenyl for $I$ gameticks. Strategy Chooser saves the progress of the forward model during this time and so is able to increase the forward model's depth $I$ times. The greater search depth allows strategy chooser to consider long term effects of a decision. The inertia also results in less erratic and indecisive play because it will only switch strategies every $I$th gametick. 
+
+\subsection{Improving the Gamestate Evaluation}
+The basic evaluation function used was the SimpleSqrtEvaluationFunction3. This calculates the difference in  strength of the max player compared to the min player. A positive score indicates the max player is in a stronger position. The function considers unit costs, resources and unit health but ignores unit positions. It was noticeable that many of the non-hardcoded AIs were not aggressive, since destroying an opposition unit provides an increase in the evaluation score, equal to creating an equally expensive unit. This resulted in passive AIs. To encourage a more aggressive approach, we created a new evaluation function that also considers the distance of untis from the enemy base. The pseudocode is below:
+\begin{lstlisting}
+	function unitValue(Unit u):
+		value = u.getResources * RESOURCE_IN_WORKER_WEIGHTING
+		value += UNIT_BONUS_MULTIPLIER * u.getCost()*sqrt( u.getHitPoints()/u.getMaxHitPoints() )
+		return value
+		
+	function playerScore(player):
+		enemyBase = player.getBase;
+		maxManhattenDist = map.getWidth() + map.getHeight();
+		
+		for each unit in player.getUnits():
+			score = unitValue(unit) * maxManhattenDist / ( manhattenDistanceBetween(unit, enemyBase) + maxMamhattenDist ) 
+		return score;
+	
+	function evaluateGamestate(player, enemyPlayer, aggresionWeight):
+		ourScore = playerScore(player);
+		enemyScore = playerScore(enemyPlayer);
+		return (2 * ourScore / (ourScore + aggresionWeight * enemyScore) ) - 1;
+\end{lstlisting}
 
 \bibliographystyle{unsrt}
 \bibliography{microrts}
