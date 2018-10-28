@@ -1,12 +1,18 @@
 package tests;
 
+import ai.Ben.StrategyChooser;
 import ai.RandomBiasedAI;
 import ai.abstraction.LightRush;
 import ai.abstraction.WorkerRush;
+import ai.abstraction.pathfinding.AStarPathFinding;
+import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
+import ai.evaluation.ComplexEvaluationFunction;
+import ai.evaluation.EvaluationFunction;
 import ai.evaluation.SimpleEvaluationFunction;
 import ai.mcts.naivemcts.NaiveMCTS;
 import ai.mcts.uct.UCT;
+import ai.portfolio.PortfolioAI;
 import rts.units.UnitTypeTable;
 
 import java.io.*;
@@ -36,8 +42,12 @@ public class RunTournament {
         List<AI> AIs = new ArrayList<>();
 
         UnitTypeTable utt = new UnitTypeTable(UnitTypeTable.VERSION_ORIGINAL, UnitTypeTable.MOVE_CONFLICT_RESOLUTION_CANCEL_BOTH);
-        AIs.add(new LightRush(utt));
-        AIs.add(new WorkerRush(utt));
+        PathFinding pf = new AStarPathFinding();
+        EvaluationFunction evalFunc =  new ComplexEvaluationFunction();
+        int inertiaCycles = 10;
+        AIs.add(new StrategyChooser(timeBudget, utt, pf, evalFunc, inertiaCycles));
+        AIs.add(new PortfolioAI(utt));
+        //AIs.add(new LightRush(utt));
 
         // Create list of maps for tournament
         List<String> maps = new ArrayList<>();

@@ -335,9 +335,13 @@ public class StrategyChooser extends AbstractionLayerAI {
             if (u.getPlayer() != player) {
                 switch (u.getType().name){
                     case "Worker": nEnemyWorkers ++;
+                    break;
                     case "Light": nEnemyLight++;
+                    break;
                     case "Heavy": nEnemyHeavy++;
+                    break;
                     case "Ranged": nEnemyRanged++;
+                    break;
                 }
             }
         }
