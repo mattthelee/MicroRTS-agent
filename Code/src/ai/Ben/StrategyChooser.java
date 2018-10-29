@@ -251,7 +251,6 @@ public class StrategyChooser extends AbstractionLayerAI {
             System.out.println("Map = maps/NoWhereToRun9x8.xml");
             topStrategy = RangedRush;
 
-
         // If the map height is 16 and has only 1 base, it is the basesWorkers16x16 provided map
         } else if (mapHeight == 16 && nbases == 1) {
             System.out.println("Map = maps/16x16/basesWorkers16x16.xml");
@@ -262,13 +261,13 @@ public class StrategyChooser extends AbstractionLayerAI {
         } else if   (mapHeight == 16 && nbases == 2) {
             System.out.println("Map = maps/16x16/TwoBasesBarracks16x16.xml");
             // Provide the best strategy for this map
-            topStrategy = LightRush;
+            topStrategy = MattRush;
 
         // If the map height is 24, it is the basesWorkers24x24H provided map
         } else if (mapHeight == 24){
             System.out.println("Map = maps/24x24/basesWorkers24x24H.xml");
             // Provide the best strategy for this map
-            topStrategy = MattRush;
+            topStrategy = newAI;
 
         // Else, it is the hidden map
         } else {
