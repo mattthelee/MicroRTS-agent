@@ -1,9 +1,9 @@
 package ai.Ben;
 
+import ai.RandomBiasedAI;
 import ai.abstraction.*;
 import ai.abstraction.pathfinding.BFSPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
-import ai.abstraction.WorkerRush;
 import ai.core.AI;
 import ai.core.ParameterSpecification;
 import ai.evaluation.ComplexEvaluationFunction;
@@ -30,6 +30,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     // Initialise all the AI strategies used in the class
     private AI newAI; private AI LightRush; private AI WorkerRush; private AI HeavyRush; private AI RangedRush; private AI MattRush;
+    AI RandomBiasedAI;
     // Initialise the list of AIStrategies played and enemyStrategies simulated against
     private List<AI> AIStrategies = new ArrayList<>();
     private List<AI> enemyStrategies = new ArrayList<>();
@@ -37,8 +38,6 @@ public class StrategyChooser extends AbstractionLayerAI {
     private AI lastStrategy = null;
     // Initialise the predictedEnemyStrategy integer, which tracks the enemy strategy that has been predicted for that simulation inertia run
     private int predictedEnemyStrategy;
-    // Initialise the actions PlayerActionTableEntry, which tracks the action returned by getAction and evaluateStrategies method
-    private PlayerActionTableEntry actions = new PlayerActionTableEntry();
 
 
     //TODO - Check why we don't need utt or pf
@@ -70,6 +69,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         MattRush = mattRush;
         INERTIACYCLES = inertiaCycles;
         GAMECOUNT = 0;
+        RandomBiasedAI = new RandomBiasedAI();
 
         // Initialise the AIStrategies to all the AI strategies we wish to evaluate and simulate with
         AIStrategies.add(newAI);
@@ -77,28 +77,28 @@ public class StrategyChooser extends AbstractionLayerAI {
         AIStrategies.add(MattRush);
         AIStrategies.add(LightRush);
 
+
         // Initialise the enemyStrategies to all the enemy strategies we wish to simulate against
         enemyStrategies.add(WorkerRush);
         enemyStrategies.add(LightRush);
         enemyStrategies.add(HeavyRush);
         enemyStrategies.add(RangedRush);
 
+
         // Initialise simulationCounts to an Integer List the size of the AIStrategies
         simulationCounts = new Integer[AIStrategies.size()];
     }
 
+    // Rest method
     public void reset() {
         //evaluateFunction = new SimpleSqrtEvaluationFunction();
         //evaluateFunction = new ComplexEvaluationFunction();
     }
 
+    // Clone method, if the StrategyChooser class is required to be cloned
     public AI clone() {
         return new StrategyChooser(MAXSIMULATIONTIME,pf,
                 newAI,WorkerRush,LightRush,HeavyRush,RangedRush, MattRush, INERTIACYCLES);
-    }
-
-    public class PlayerActionTableEntry {
-        PlayerAction pa;
     }
 
 
@@ -144,9 +144,6 @@ public class StrategyChooser extends AbstractionLayerAI {
                 // Calls findTopStrategy method, which evaluates all simulated game states and returns the best strategy
                 topStrategy = findTopStrategy(player, AIStrategies);
 
-
-                //AI ai2 = enemyStrategies.get(predictedEnemyStrategy);
-
                 // Logging for each simulated game state, to show the strategies simulated and the search depth of each
                 for (int i=0 ; i<simulationCounts.length ; i++){
                     System.out.println(AIStrategies.get(i) + " v " + enemyStrategies.get(predictedEnemyStrategy) + ": Search depth of " + simulationCounts[i]);
@@ -186,7 +183,7 @@ public class StrategyChooser extends AbstractionLayerAI {
             }
 
             // Get an action from the chosen best strategy to implement in this game cycle
-            actions.pa = topStrategy.getAction(player,gs);
+            PlayerAction action  = topStrategy.getAction(player,gs);
             // Revert the lastStrategy variable to this chosen strategy, to be used next inertia run
             lastStrategy = topStrategy;
 
@@ -194,7 +191,7 @@ public class StrategyChooser extends AbstractionLayerAI {
             GAMECOUNT ++;
 
             // Return the given action as a PlayerAction
-            return actions.pa;
+            return action;
 
         } else {
             // If no actions can be played, continue with the current actions as a PlayerAction
@@ -202,191 +199,295 @@ public class StrategyChooser extends AbstractionLayerAI {
         }
     }
 
+
+    /*
+        firstRunStrategyAnalysis is the method which is called for the first ever cycle of the game, which chooses the
+        first strategy to be implemented based on the map size.
+        The input parameters are:
+        - player: the player that the AI controls (0 or 1)
+        - gs: the current game state
+        This method returns the top strategy to be used in the first game cycle by the bot, packaged as an AI class.
+         */
     public AI firstRunStrategyAnalysis(int player, GameState gs) {
 
+        // Initialise the topStrategy variable, which is the best strategy for this map, returned as an AI class
         AI topStrategy;
+        // Create a PhysicalGameState variable from the GameState parameter
         PhysicalGameState pgs = gs.getPhysicalGameState();
+        // Determine the height of the map
         int mapHeight = pgs.getHeight();
+        // Initialise the count of the number of bases on the map
         int nbases = 0;
 
         // Calculate how many bases to use to decide the map size
+        // Loop through each player's unit and check if base
         for (Unit u : pgs.getUnits()) {
             if (u.getType().name.equals("Base")
                     && u.getPlayer() == player) {
+                // Add to the count if the unit is a base
                 nbases++;
             }
         }
 
+        // If the map height is 8, it is the NoWhereToRun9x8 provided map
         if (mapHeight == 8){
-            //Map = "maps/NoWhereToRun9x8.xml"
             System.out.println("Map = maps/NoWhereToRun9x8.xml");
-            topStrategy = WorkerRush;
+            // Provide the best strategy for this map
+            topStrategy = RandomBiasedAI;
 
+        // If the map height is 16 and has only 1 base, it is the basesWorkers16x16 provided map
         } else if (mapHeight == 16 && nbases == 1) {
-            //Map = "maps/16x16/basesWorkers16x16.xml"
             System.out.println("Map = maps/16x16/basesWorkers16x16.xml");
+            // Provide the best strategy for this map
             topStrategy = WorkerRush;
 
+        // If the map height is 16 and has 2 bases, it is the TwoBasesBarracks16x16 provided map
         } else if   (mapHeight == 16 && nbases == 2) {
-            //Map = "maps/16x16/TwoBasesBarracks16x16.xml"
             System.out.println("Map = maps/16x16/TwoBasesBarracks16x16.xml");
+            // Provide the best strategy for this map
             topStrategy = LightRush;
 
+        // If the map height is 24, it is the basesWorkers24x24H provided map
         } else if (mapHeight == 24){
-            //Map = "maps/24x24/basesWorkers24x24H.xml"
             System.out.println("Map = maps/24x24/basesWorkers24x24H.xml");
+            // Provide the best strategy for this map
             topStrategy = MattRush;
+
+        // Else, it is the hidden map
         } else {
+            // Provide the most effective early strategy for all other maps
             topStrategy = WorkerRush;
         }
 
+        // Returns the top strategy to be used in the first game cycle by the bot
         return topStrategy;
     }
 
-
+    /*
+        findTopStrategy is the method which is called when the inertia cycle has ended, and evaluates all the
+        simulated game states to decide which strategy should be implemented for the next inertia cycle.
+        The input parameters are:
+        - player: the player that the AI controls (0 or 1)
+        - AIStrategies: List of AI strategies that are being evaluated
+        This method returns the top strategy to be used in the next inertia cycle, packaged as an AI class.
+         */
     public AI findTopStrategy(int player, List<AI> AIStrategies) {
 
+        // Initialise the topStrategy variable, which is the best strategy for this map, returned as an AI class
         AI topStrategy = null;
+        // Initialise the high-score variable as negative infinity
         float highscore = Integer.MIN_VALUE;
 
+        //Loop through each simulationGameStates, evaluating and greedily choosing the top strategy
         for (int i = 0;i < AIStrategies.size();i++){
-            AI aiStrategy = AIStrategies.get(i);
+            // Find the relevant AIStrategy
+            AI AIStrategy = AIStrategies.get(i);
             // Find the simulated GameState relating to this strategy
             GameState sGS = simulationGameStates.get(i);
 
+            // Use the provided evaluateFunction to evaluate this simulated GameState
             float score = evaluateFunction.evaluate(player,1-player, sGS);
 
-            System.out.println("Finished considering playing as: " + aiStrategy + " : " + score);
+            // Logging to show each strategy evaluation
+            System.out.println("Finished considering playing as: " + AIStrategy + " : " + score);
 
+            // Find the highest scoring strategy
             if (score > highscore || i == 0){
                 highscore = score;
-                topStrategy = aiStrategy;
+                // Set this highest scoring strategy as AIStrategy
+                topStrategy = AIStrategy;
             }
         }
 
+        // Logging to show the chosen highest scoring strategy
         System.out.println("Using: " + topStrategy + " with score of: " + highscore + "\n");
+        // Return this highest scoring strategy
         return topStrategy;
     }
 
-
+    /*
+        startGameStateSimulation is the method which is called at the start of each inertia cycle, which starts the
+        simulation of each Simulated GameState to be evaluated in later cycles.
+        The input parameters are:
+        - player: the player that the AI controls (0 or 1)
+        - gs: the current game state
+        - AIStrategies: List of AI strategies that are being evaluated for the bot to implement
+        - enemyStrategies: List of AI strategies that are being considered for the enemy to be playing
+        This method returns void.
+         */
     public void startGameStateSimulation(int player, GameState gs, List<AI> AIStrategies, List<AI> enemyStrategies) throws Exception{
 
-        Integer[] votes = predictEnemyStrategy(player,gs);
+        // Calculate the time allowed from the provided MAXSIMULATIONTIME and the required amount of simulations
+        // Presuming 10ms for non-simulation computation
+        int timeAllowed = (MAXSIMULATIONTIME-10)/(AIStrategies.size());
 
-        int simulations = 0;
-        for (int j = 0; j<4 ; j++){
-            if (votes[j] > 0){
-                simulations++;
-            }
-        }
+        // use the predictEnemyStrategy method to provide the relevant enemy strategy index
+        int enemyIndex = predictEnemyStrategy(player,gs);
 
-        int timeAllowed = (MAXSIMULATIONTIME-10)/(simulations*AIStrategies.size());
+        // Find the relevant enemyStrategy for these simulations
+        AI enemyStrategy = enemyStrategies.get(enemyIndex);
 
-
+        // Loop through each AIStrategy and start a GameState Simulation for each
         for (int i = 0;i < AIStrategies.size();i++){
+            // Find the relevant AIStrategy for this simulation
             AI aiStrategy = AIStrategies.get(i);
 
-
-            for (int j = 0 ; j < 4 ; j++){
-                if (votes[j] > 0){
-                    predictedEnemyStrategy = j;
-                    //simulationCounts.add(0);
-                    GameState tGS = simulate(gs,gs.getTime() + timeAllowed, player, aiStrategy, enemyStrategies.get(j),i);
-                    simulationGameStates.add(tGS);
-                }
-            }
+            // Use the simulate method to start the simulation with the AI and enemy strategies
+            GameState tGS = simulate(player, gs.clone(),gs.getTime() + timeAllowed, aiStrategy, enemyStrategy,i);
+            // Add each simulated GameState to the global simulationGameStates
+            simulationGameStates.add(tGS);
         }
     }
 
+    /*
+        continueGameStateSimulation is the method which is called for every inertia cycle apart from the first and last,
+        which continues the simulation of the Simulated GameStates to be evaluated in later cycles
+        The input parameters are:
+        - player: the player that the AI controls (0 or 1)
+        - gs: the current game state
+        - AIStrategies: List of AI strategies that are being evaluated for the bot to implement
+        - enemyStrategies: List of AI strategies that are being considered for the enemy to be playing
+        This method returns void.
+         */
     public void continueGameStateSimulation(int player, List<AI> AIStrategies, List<AI> enemyStrategies ) throws Exception {
 
+        // Calculate the time allowed from the provided MAXSIMULATIONTIME and the required amount of simulations
+        // Presuming 10ms for non-simulation computation
+        int timeAllowed = (MAXSIMULATIONTIME-10)/(AIStrategies.size());
 
-        int timeAllowed = (MAXSIMULATIONTIME-10)/3;
-
-
+        // Create an empty ArrayList for temporary storage of the simulated GameStates
         List<GameState> newSimulationGameStates = new ArrayList<>();
 
+        // Find the predicted enemyStrategy for this inertia cycle
         AI enemyStrategy = enemyStrategies.get(predictedEnemyStrategy);
 
+        // Loop through each AIStrategy and continue the GameState Simulation for each
         for (int i = 0; i < AIStrategies.size();i++){
-            // Get the part simulated GameState
+            // Get the part simulated GameState in a temporaryGameState variable, tGS
             GameState tGS = simulationGameStates.get(i);
-            AI aiStrategy = AIStrategies.get(i);
+            // Get the relevant AIStrategy
+            AI AIStrategy = AIStrategies.get(i);
 
-
-            newSimulationGameStates.add(simulate(tGS,tGS.getTime() + timeAllowed, player, aiStrategy, enemyStrategy,i));
+            // Use the simulate method to continue the simulations with the AI and enemy strategies
+            newSimulationGameStates.add(simulate(player, tGS,tGS.getTime() + timeAllowed, AIStrategy, enemyStrategy,i));
 
         }
 
+        // Replace the global simulated GameStates with those just simulated
         simulationGameStates = newSimulationGameStates;
     }
 
-    public Integer[] predictEnemyStrategy(int player, GameState gs){
+
+    /*
+        predictEnemyStrategy is the method which is evaluates the enemy units and decides on the likeliest strategy
+        currently employed by the enemy.
+        The input parameters are:
+        - player: the player that the AI controls (0 or 1)
+        - gs: the current game state
+        This method returns the enemyIndex, the index for the enemy strategy that is most likely, packaged as an Integer.
+         */
+    public Integer predictEnemyStrategy(int player, GameState gs){
+
+        // Create a PhysicalGameState variable from the GameState parameter
         PhysicalGameState pgs = gs.getPhysicalGameState();
 
-        //Calculate how many units types the enemy has, to determine the votes
+        // Calculate how many units types the enemy has, to determine the enemyStrategies votes
+        // Initialise each unit count
         int nEnemyWorkers = 0; int nEnemyLight = 0; int nEnemyHeavy = 0; int nEnemyRanged = 0;
+
+        // Loop through each enemy unit
         for (Unit u : pgs.getUnits()) {
             if (u.getPlayer() != player) {
+                // Add to the relevant count for each enemy unit of each type
                 switch (u.getType().name){
                     case "Worker": nEnemyWorkers ++;
+                    break;
                     case "Light": nEnemyLight++;
+                    break;
                     case "Heavy": nEnemyHeavy++;
+                    break;
                     case "Ranged": nEnemyRanged++;
+                    break;
                 }
             }
         }
+        //System.out.println("workers: "+nEnemyWorkers + " light: "+nEnemyLight + " heavy: "+nEnemyHeavy + " ranged: "+nEnemyRanged );
 
-        //votes[0] is Worker, votes[1] is Light, votes[2] is Heavy, votes[3] is Ranged
+
+        // Initialise the votes List, tracking the score for each enemy strategy, depending on the enemy units
+        // votes[0] is Worker, votes[1] is Light, votes[2] is Heavy, votes[3] is Ranged
         Integer[] votes = new Integer[4];
 
+        // Add the score to the relevant index
         votes[0] = 1 + (nEnemyWorkers*4);
         votes[1] = 1 + (nEnemyLight*5);
         votes[2] = (nEnemyHeavy*5) ;
         votes[3] = (nEnemyRanged*5);
 
-        int maxTop = 0;
+        // Find the highest value within votes, which becomes the enemy strategy index
+        int enemyIndex = 0;
         for (int i = 0; i < votes.length; i++) {
-            maxTop = votes[i] > votes[maxTop] ? i : maxTop;
+            // Add this index if it's higher than the current index
+            enemyIndex = votes[i] > votes[enemyIndex] ? i : enemyIndex;
         }
 
-        for (int i = 0; i < votes.length; i++){
-            if (i != maxTop ){
-                votes[i] = 0;
-            }
-        }
-        return votes;
+        //System.out.println("votes0: "+votes[0] + " votes1: "+votes[1] + " votes2: "+votes[2] + " votes3: "+votes[3] );
+
+        // Set the global predictedEnemyStrategy as this enemy index
+        predictedEnemyStrategy = enemyIndex;
+
+        // Return the index for the enemy strategy that is most likely
+        return enemyIndex;
 
     }
 
+    /*
+        simulate is the method which is used as a Forward Model to simulate a GameState by issuing actions based on the
+        evaluating strategy and the predicted enemy strategy.
+        The input parameters are:
+        - player: the player that the AI controls (0 or 1)
+        - gs: the current game state
+        - time: the full time allows for the simulation
+        - ai1: the simulated strategy being implemented by the player, for evaluation
+        - ai2: the predicted enemy strategy to aid the simulation
+        - simulationIndex: index of the correct Simulated GameState to move forward
+        This method returns the Simulated GameState, packaged as a GameState.
+         */
+    public GameState simulate(int player, GameState gs, int time, AI ai1, AI ai2, int simulationIndex) throws Exception {
 
-    public GameState simulate(GameState gs, int time, int player, AI ai1, AI ai2, int simulationIndex) throws Exception {
-
+        // Initialise a variable to track the end of the game
         boolean gameover = false;
 
+        // Clone the provided gameState, to simulate efficiently
         GameState gs2 = gs.clone();
-        //Count the number of simulation issues
+
+        // Count the number of player action issues for this simulation
         int count = 0;
+
+        // Run the simulation of the bot strategy against a provided enemy strategy until gameover or provided time has elapsed
         do{
             if (gs2.isComplete()) {
+                // Set gameover if the GameState is complete
                 gameover = gs2.cycle();
             } else {
 
-                //Run the simulation of our strategy against a provided enemy strategy
-
+                // Issue simulated actions for simulated bot strategy
                 gs2.issue(ai1.getAction(player, gs2));
-                //System.out.println("Action for ai1");
+                // Issue simulated actions for simulated enemy strategy
                 gs2.issue(ai2.getAction(1 - player, gs2));
 
+                // Increase the simulations count
                 count ++;
 
             }
         } while(!gameover && gs2.getTime() < time);
 
+        // Add the total simulation count to the global simulationCounts
         simulationCounts[simulationIndex] += count;
 
         //System.out.println("Simulate count for " + simulationIndex + ": " + strategyCounts[simulationIndex]);
 
+        // Return the simulated gamestate
         return gs2;
     }
 

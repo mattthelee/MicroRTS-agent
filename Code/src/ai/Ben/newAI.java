@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ai.Ben;
 
 import ai.abstraction.AbstractAction;
@@ -16,7 +12,6 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import rts.GameState;
 import rts.PhysicalGameState;
 import rts.Player;
@@ -25,12 +20,11 @@ import rts.units.*;
 
 /**
  *
- * @author santi
+ * @author Matt Lee, Johnny Hind, Ben Saunders
  */
 
 public class newAI extends AbstractionLayerAI {
 
-    Random r = new Random();
     protected UnitTypeTable utt;
     UnitType workerType;
     UnitType baseType;
@@ -41,22 +35,13 @@ public class newAI extends AbstractionLayerAI {
     // Strategy implemented by this class:
     // For the first 4 melee units: send it to attack to the nearest enemy unit
     // If over 4 melee units, send the rest to attack the base
-    // If we have a base: train workers until we have 4 workers
+    // If we have a base: train workers until we have 2 workers
     // If we have a barracks: train light and heavy in randomness
     // If we have a worker: do this if needed: build base, build barracks, harvest resources, attack if enemy close
-
-    public newAI(UnitTypeTable a_utt) {
-        this(a_utt, new AStarPathFinding());
-    }
-
 
     public newAI(UnitTypeTable a_utt, PathFinding a_pf) {
         super(a_pf);
         reset(a_utt);
-    }
-
-    public void reset() {
-        super.reset();
     }
 
     public void reset(UnitTypeTable a_utt)
@@ -84,11 +69,9 @@ public class newAI extends AbstractionLayerAI {
         This method returns the actions to be sent to each of the units in the gamestate controlled by the player,
         packaged as a PlayerAction.
      */
-
     public PlayerAction getAction(int player, GameState gs) {
         PhysicalGameState pgs = gs.getPhysicalGameState();
         Player p = gs.getPlayer(player);
-//        System.out.println("LightRushAI for player " + player + " (cycle " + gs.getTime() + ")");
 
         // Calculate how many bases units the enemy has
         int nmelee = 0;
@@ -138,12 +121,14 @@ public class newAI extends AbstractionLayerAI {
                 //System.out.println("X: " + u.getX() + " Y: " + u.getY());
             }
         }
+        // Set all workers to observe workersBehaviour
         workersBehavior(workers, p, pgs, gs);
 
         // This method simply takes all the unit actions executed so far, and packages them into a PlayerAction
         return translateActions(player, gs);
     }
 
+    // Method to operate the behaviour of bases
     public void baseBehavior(Unit u, Player p, PhysicalGameState pgs) {
         int nSelfWorkers = 0;
         int nOppWorkers = 0;
@@ -162,11 +147,12 @@ public class newAI extends AbstractionLayerAI {
         }
     }
 
+    // Method to operate the behaviour of barracks
     public void barracksBehavior(Unit u, Player p, PhysicalGameState pgs) {
         int nbarracks = 0;
 
+        // Calculate how many barracks
         for (Unit u2 : pgs.getUnits()) {
-            // Calculate how many barracks
             if (u2.getType() == barracksType
                     && u2.getPlayer() == p.getID()) {
                 nbarracks++;
@@ -176,13 +162,9 @@ public class newAI extends AbstractionLayerAI {
         double random = Math.random();
 
         // If only one barracks, only train Light units
-        if (nbarracks <= 1) {
-            if (p.getResources() >= lightType.cost) {
-                train(u, lightType);
-            }
-
         // If 2 barracks, randomly train Light or Heavy units
-        } else if (nbarracks > 1 && random < 0.5) {
+
+        if (nbarracks == 1 || (nbarracks > 1 && random < 0.5)) {
             if (p.getResources() >= lightType.cost) {
                 train(u, lightType);
             }
@@ -193,8 +175,8 @@ public class newAI extends AbstractionLayerAI {
         }
     }
 
+    // Method to operate the behaviour of barracks
     public void meleeUnitBehavior(Unit u, Player p, PhysicalGameState pgs, boolean attackBase) {
-
 
         Unit closestEnemy = null;
         int closestDistance = 0;
@@ -202,6 +184,7 @@ public class newAI extends AbstractionLayerAI {
             // Just attack closest enemy if not scheduled to attack base
             if (!attackBase){
                 if (u2.getPlayer() >= 0 && u2.getPlayer() != p.getID()) {
+                    // Find closest enemy
                     int d = Math.abs(u2.getX() - u.getX()) + Math.abs(u2.getY() - u.getY());
                     if (closestEnemy == null || d < closestDistance) {
                         closestEnemy = u2;
@@ -211,6 +194,7 @@ public class newAI extends AbstractionLayerAI {
             // Attack the closest base if scheduled to attack base
             } else if (attackBase){
                 if (u2.getPlayer() >= 0 && u2.getPlayer() != p.getID() && u2.getType() == baseType) {
+                    // Find closest base
                     int d = Math.abs(u2.getX() - u.getX()) + Math.abs(u2.getY() - u.getY());
                     if (closestEnemy == null || d < closestDistance) {
                         closestEnemy = u2;
@@ -314,11 +298,13 @@ public class newAI extends AbstractionLayerAI {
             }
         }
 
+        // For each free worker
         for (Unit u : freeWorkers) {
             Unit closestBase = null;
             Unit closestResource = null;
             int closestDistance = 0;
 
+            // Find the closest resource
             for (Unit u2 : availableResources) {
                 int d = Math.abs(u2.getX() - u.getX()) + Math.abs(u2.getY() - u.getY());
                 if (closestResource == null || d < closestDistance) {
@@ -327,6 +313,7 @@ public class newAI extends AbstractionLayerAI {
                 }
             }
 
+            // Find closest base
             closestDistance = 0;
             for (Unit u2 : pgs.getUnits()) {
                 if (u2.getType().isStockpile && u2.getPlayer()==p.getID()) {
@@ -337,6 +324,7 @@ public class newAI extends AbstractionLayerAI {
                     }
                 }
             }
+            // Only harvest resources up to 1 worker per resource
             if (closestResource != null && closestBase != null && harvestingResources < totalResourceCount/2) {
                 availableResources.remove(closestResource);
                 harvestingResources++;
@@ -348,7 +336,7 @@ public class newAI extends AbstractionLayerAI {
                     harvest(u, closestResource, closestBase);
                 }
             } else {
-                // Remaining workers should attack
+                // Remaining workers should attack enemy
                 boolean attackBase = false;
                 meleeUnitBehavior(u, p, pgs, attackBase);
             }
@@ -357,7 +345,7 @@ public class newAI extends AbstractionLayerAI {
     }
 
 
-
+    // Method to find the best position to place the barracks
     public ArrayList barracksPosition(PhysicalGameState pgs, Unit u){
         int width = pgs.getWidth();
         int uX = u.getX();
