@@ -85,7 +85,7 @@ public class GameVisualSimulationTest {
 
         AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
-        AI ai2 = new LightRush(utt, pf);
+        //AI ai2 = new LightRush(utt, pf);
 
         //AI ai2 = new RangedRush(utt, pf);
         //AI ai2 = new HeavyRush( utt, pf);
