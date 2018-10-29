@@ -48,8 +48,9 @@ public class GameVisualSimulationTest {
 
         GameState gs = new GameState(pgs, utt);
         int MAXCYCLES = 2000;  // Maximum length of the game
-        int TIME_BUDGET = 100;  // Time budget for AIs
+        int TIME_BUDGET = 10;  // Time budget for AIs
         boolean gameover = false;
+
 
 
 
@@ -62,10 +63,11 @@ public class GameVisualSimulationTest {
         int lookahead = 100;
         int playouts_per_cycle = -1;
         int inertiaCycles = 10;
+        int AITimeBudget = 100;
 
 
+        AI ai1 = new StrategyChooser(AITimeBudget, utt, pf, new SimpleSqrtEvaluationFunction3(), inertiaCycles);
 
-        AI ai1 = new StrategyChooser(TIME_BUDGET, utt, pf, new SimpleSqrtEvaluationFunction3(), inertiaCycles);
 
         //AI ai2 = new mattRushAi(utt);
 
@@ -83,7 +85,7 @@ public class GameVisualSimulationTest {
 
         AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
-        //AI ai1 = new LightRush(utt, pf);
+        AI ai2 = new LightRush(utt, pf);
 
         //AI ai2 = new RangedRush(utt, pf);
         //AI ai2 = new HeavyRush( utt, pf);
