@@ -1,9 +1,7 @@
 package tests;
 
-import ai.Ben.WorkerRush2;
-import ai.Ben.mattRushAi;
+import ai.Ben.*;
 import ai.abstraction.*;
-import ai.Ben.newAI;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
 import ai.*;
@@ -20,7 +18,6 @@ import ai.minimax.MiniMaxResult;
 import ai.minimax.RTMiniMax.IDRTMinimax;
 import ai.montecarlo.MonteCarlo;
 import ai.montecarlo.NewMonteCarlo;
-import ai.Ben.StrategyChooser;
 import ai.puppet.PuppetSearchAB;
 import ai.puppet.PuppetSearchMCTS;
 import ai.scv.SCV;
@@ -69,7 +66,8 @@ public class GameVisualSimulationTest {
         int AITimeBudget = 100;
 
 
-        AI ai1 = new StrategyChooser(AITimeBudget, pf, new newAI(utt,pf), new WorkerRush2(utt,pf), new LightRush(utt,pf), new HeavyRush(utt,pf), new RangedRush(utt,pf), new mattRushAi(utt), inertiaCycles);
+        AI ai1 = new StrategyChooser(AITimeBudget, utt, pf, new SimpleSqrtEvaluationFunction3(), inertiaCycles);
+
 
         //AI ai2 = new mattRushAi(utt);
 
@@ -85,7 +83,7 @@ public class GameVisualSimulationTest {
 
         //AI ai2 = new IDRTMinimax(utt);
 
-        //AI ai2 = new SCV(utt);
+        AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         AI ai2 = new LightRush(utt, pf);
 

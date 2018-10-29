@@ -9,6 +9,7 @@ import ai.core.ParameterSpecification;
 import ai.evaluation.ComplexEvaluationFunction;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction;
+import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import rts.*;
 import rts.units.Unit;
 import rts.units.UnitTypeTable;
@@ -27,6 +28,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     private int MAXSIMULATIONTIME;
     private int INERTIACYCLES;
     private int GAMECOUNT;
+    UnitTypeTable UTT;
 
     // Initialise all the AI strategies used in the class
     private AI newAI; private AI LightRush; private AI WorkerRush; private AI HeavyRush; private AI RangedRush; private AI MattRush;
@@ -46,8 +48,8 @@ public class StrategyChooser extends AbstractionLayerAI {
     //private PathFinding pf = new BFSPathFinding();
 
     // Initialise the evaluationFunction which provides an evaluation on a given game state, to be used when scoring a simulating game state
-    //private SimpleSqrtEvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
-    private ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
+    private EvaluationFunction evaluateFunction = new SimpleSqrtEvaluationFunction();
+    //private ComplexEvaluationFunction evaluateFunction = new ComplexEvaluationFunction();
 
     // Initialise the simulationGameStates List, which tracks all the simulated game states when running an inertia game tick
     private List<GameState> simulationGameStates = new ArrayList<>();
@@ -57,25 +59,41 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
     // Strategy Chooser Constructor
-    public StrategyChooser( int timeBudget, PathFinding a_pf, AI newai, AI workerRush,
-                           AI lightRush , AI heavyRush, AI rangedRush, AI mattRush, int inertiaCycles) {
+    public StrategyChooser(UnitTypeTable utt , PathFinding pf){
+        this(100, utt,  pf, 10);
+    }
+
+    public StrategyChooser(int timeBudget, UnitTypeTable utt , PathFinding pf, EvaluationFunction evalFunc, int inertiaCycles){
+        this(timeBudget, utt,  pf, inertiaCycles);
+        this.setEvaluationFunction(evalFunc);
+    }
+
+    public StrategyChooser(UnitTypeTable utt){
+        this(100,utt,new BFSPathFinding(),10);
+    }
+
+    public StrategyChooser( int timeBudget, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
         super(a_pf);
         MAXSIMULATIONTIME = timeBudget;
-        newAI = newai;
-        WorkerRush = workerRush;
-        LightRush = lightRush;
-        HeavyRush = heavyRush;
-        RangedRush = rangedRush;
-        MattRush = mattRush;
+        newAI = new newAI(utt,a_pf);
+        WorkerRush = new WorkerRush2(utt,a_pf);
+        LightRush = new LightRush(utt,a_pf);
+        HeavyRush = new HeavyRush(utt,a_pf);
+        RangedRush = new RangedRush2(utt,a_pf);
+        MattRush = new mattRushAi(utt,a_pf);
         INERTIACYCLES = inertiaCycles;
         GAMECOUNT = 0;
-        RandomBiasedAI = new RandomBiasedAI();
+
+        UTT = utt;
+
 
         // Initialise the AIStrategies to all the AI strategies we wish to evaluate and simulate with
+        AIStrategies.add(MattRush);
         AIStrategies.add(newAI);
         AIStrategies.add(WorkerRush);
-        AIStrategies.add(MattRush);
-        AIStrategies.add(LightRush);
+        AIStrategies.add(RangedRush);
+
+        //AIStrategies.add(LightRush);
 
 
         // Initialise the enemyStrategies to all the enemy strategies we wish to simulate against
@@ -97,8 +115,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     // Clone method, if the StrategyChooser class is required to be cloned
     public AI clone() {
-        return new StrategyChooser(MAXSIMULATIONTIME,pf,
-                newAI,WorkerRush,LightRush,HeavyRush,RangedRush, MattRush, INERTIACYCLES);
+        return new StrategyChooser(MAXSIMULATIONTIME,UTT, pf, INERTIACYCLES);
     }
 
 
@@ -232,8 +249,8 @@ public class StrategyChooser extends AbstractionLayerAI {
         // If the map height is 8, it is the NoWhereToRun9x8 provided map
         if (mapHeight == 8){
             System.out.println("Map = maps/NoWhereToRun9x8.xml");
-            // Provide the best strategy for this map
-            topStrategy = RandomBiasedAI;
+            topStrategy = RangedRush;
+
 
         // If the map height is 16 and has only 1 base, it is the basesWorkers16x16 provided map
         } else if (mapHeight == 16 && nbases == 1) {
@@ -491,8 +508,17 @@ public class StrategyChooser extends AbstractionLayerAI {
         return gs2;
     }
 
+    public void setInertiaCycles(int INERTIACYCLES) {
+        this.INERTIACYCLES = INERTIACYCLES;
+    }
 
+    public void setEvaluationFunction(EvaluationFunction evaluateFunction) {
+        this.evaluateFunction = evaluateFunction;
+    }
 
+    public String toString(){
+        return getClass().getSimpleName() + "(" + pf +"," +  evaluateFunction + "," + INERTIACYCLES + ")";
+    }
 
     @Override
     public List<ParameterSpecification> getParameters()
