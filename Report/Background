@@ -1,2 +1,52 @@
-Explain here the algorithm that the submitted agent's technique is based on, including
-literature review.
+Background
+
+Strategy Chooser Tree Search (SCTS) is a strategy abstraction mechanism based on greedily searching the state space to evaluate global 
+strategies. In gameplay, this means that high-level policies are chosen based on simulations in a Forward Model, with the policy actions 
+given to each unit as a collective at the Player level.
+Most algorithms that run on real-time and adversarial games provide an action for each game unit at every game tick, acting low-level 
+and treating each unit separately. This has been shown to be effective in Ms Pacman , the Physical Travelling Salesman Problem  and 
+Hero Academy . 
+In this paper, we decided to move away from the idea of providing actions for each unit independently to a more high-level abstraction 
+of strategy choosing. This follows a similar approach to Puppet Search , an action abstraction mechanism which selects action choices 
+based on look-ahead search results, but SCTS evaluates strategy choices as opposed to actions. We believe these high-level strategies 
+will allow cohesion between all units and a stronger tactical ability to be encased.
+
+Our research follows on from work done on StarCraft with Portfolio Greedy Search  (PGS), which uses hill climbing and accurate 
+playout-based evaluations to efficiently search even the largest combat scenarios. A distinct set of appropriate scripts are then chosen
+to be employed depending on the situation, with PGS ultimately choosing a strategy to be played for all units in this game cycle. 
+This is limited to multi-unit combat states, as these have enormous branching factors which are set-up for large-scale search algorithms. 
+SCTS expands this Portfolio approach for all game scenarios, making strategy choices for resource management and unit building as well as 
+combat.
+
+There has been some work previously combining multiple strategies during microRTS , which switches between macro-management for non-combat 
+and micro-management for combat. Ms Pacman has also been shown to have an effective use of switching between various policies depending on 
+the game state . However, unlike these works, here we consider automatic switching between multiple global strategies decided inherently 
+by the algorithm as opposed to hardcoded switch criteria. 
+
+
+Tree Search is a category of search methods that uses a tree structure to navigate through possible solutions. SCTS can be represented as 
+a game tree, an acyclic directed graph with the root node being the current game state. Edges in the graph represent available strategies 
+in the game that lead from one state to other hypothetical future game states. Nodes also have certain values assigned to them, where 
+higher values indicate more desirable game situations. A heuristic is then applied which rates all leaf nodes states and greedily selects 
+the strategy sequence that leads to the state with the highest return.
+
+In microRTS, only the final outcome of winning and losing is important and thus the optimal return model would be a Monte-Carlo full 
+roll-out. However, given the large game state and a limited time of 100ms to think, a full termination simulation is often impractical. 
+We have used a simulation-based Return function, following a Temporal Difference (TD(0)) idea of estimating a reward function before 
+game termination, using a shallow search. However, SCTS differs in terms of back-ups, as it only performs greedy search in a one-time 
+use rather updating a State-Value function.
+TD(0) Learning is relevant to multi-step prediction problems  such as microRTS, particularly fitting in well with the game structure as 
+learning is done via bootstrapping of an incomplete episode to make decisions each game tick when new information is received.
+The idea of a Forward Model (FM) is pivotal to this algorithm, with a necessity to simulate the effect of certain actions on a given 
+game state in order to evaluate the effectiveness of each strategy and follow a Goal-Oriented Action Approach. For this report, microRTS
+itself serves as the forward model, simulating actions to reach a further game state.  Due to microRTS operating as an adversarial game,
+FM simulations require an estimation of the future actions the opposition will play. In SCTS, this is encoded as certain high-level 
+strategies that may have been adopted by the opposition, with a the top confidence weighting of strategy simulated against. 
+In order to generate this reward from a certain simulated gamestate, an effective fitness function is required which can evaluate each 
+players units against each other to conclusively determine the stronger position. This is a pivotal component of our algorithm, as it 
+defines the goodness of each strategy and a watertight structure will enhance the strategy choosing decision.
+
+SCTS incorporates an element of inertia function to the decision-making process, sustaining a global strategy for multiple game ticks as
+opposed to simultaneously recalibrating. This was added after initial runs of the algorithm were seen to jump back and forth between 
+strategies, often causing certain units to flip between low-level actions and be caught in two minds. The inertia function allows a 
+smoother game run with the high-level meta strategies, thus a more effective algorithm.
