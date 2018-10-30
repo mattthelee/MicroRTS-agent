@@ -32,8 +32,10 @@ public class RunTournament {
         int iterationBudget = -1;                      // Iteration budget, set to -1 for infinite (default: -1)
         int playOnlyWithThisAI = -1;                   //  AI index in list of AIs, if one AI should be included in all matches played (default -1)
 
+
         // Create list of AIs participating in tournament
         List<AI> AIs = new ArrayList<>();
+
 
         UnitTypeTable utt = new UnitTypeTable(UnitTypeTable.VERSION_ORIGINAL, UnitTypeTable.MOVE_CONFLICT_RESOLUTION_CANCEL_BOTH);
         PathFinding pf = new AStarPathFinding();
