@@ -32,7 +32,7 @@ public class GameVisualSimulationTest {
 
         GameState gs = new GameState(pgs, utt);
         int MAXCYCLES = 2000;  // Maximum length of the game
-        int TIME_BUDGET = 10;  // Time budget for AIs
+        int TIME_BUDGET = 100;  // Time budget for AIs
         boolean gameover = false;
 
 

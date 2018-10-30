@@ -1,4 +1,3 @@
-<<<<<<< HEAD:Code/src/ai/strategychooser/newAI.java
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
