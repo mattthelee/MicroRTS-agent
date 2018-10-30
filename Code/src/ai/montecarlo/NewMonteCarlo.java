@@ -1,7 +1,7 @@
 package ai.montecarlo;
 
 
-import ai.Ben.newAI;
+import ai.strategychooser.newAI;
 import ai.abstraction.pathfinding.BFSPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;

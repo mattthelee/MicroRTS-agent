@@ -1,18 +1,12 @@
 package tests;
 
-import ai.Ben.StrategyChooser;
-import ai.RandomBiasedAI;
-import ai.abstraction.LightRush;
-import ai.abstraction.WorkerRush;
+import ai.abstraction.*;
 import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
-import ai.evaluation.ComplexEvaluationFunction;
 import ai.evaluation.EvaluationFunction;
-import ai.evaluation.SimpleEvaluationFunction;
-import ai.mcts.naivemcts.NaiveMCTS;
-import ai.mcts.uct.UCT;
-import ai.portfolio.PortfolioAI;
+import ai.evaluation.SimpleSqrtEvaluationFunction3;
+import ai.strategychooser.StrategyChooser;
 import rts.units.UnitTypeTable;
 
 import java.io.*;
@@ -45,18 +39,39 @@ public class RunTournament {
 
         UnitTypeTable utt = new UnitTypeTable(UnitTypeTable.VERSION_ORIGINAL, UnitTypeTable.MOVE_CONFLICT_RESOLUTION_CANCEL_BOTH);
         PathFinding pf = new AStarPathFinding();
-        EvaluationFunction evalFunc =  new ComplexEvaluationFunction();
+        EvaluationFunction evalFunc =  new SimpleSqrtEvaluationFunction3();
         int inertiaCycles = 10;
         AIs.add(new StrategyChooser(timeBudget, utt, pf, evalFunc, inertiaCycles));
-        AIs.add(new PortfolioAI(utt));
-        //AIs.add(new LightRush(utt));
+        //AIs.add(new SCV(utt));
+        //AIs.add(new PortfolioAI(utt));
+        AIs.add(new RangedRush(utt));
+        AIs.add(new WorkerRush(utt));
+        AIs.add(new HeavyRush(utt));
+        AIs.add(new LightRush(utt));
+        AIs.add(new LightDefense(utt));
+        AIs.add(new RangedDefense(utt));
+        AIs.add(new EconomyRush(utt));
+        AIs.add(new EconomyMilitaryRush(utt));
+        AIs.add(new HeavyDefense(utt));
+        AIs.add(new WorkerDefense(utt));
+
+
+        //AIs.add(new newAI(utt,pf));
+        //AIs.add(new mattRushAi(utt,pf));
+        //AIs.add(new ABCD(utt));
+        //AIs.add(new NewMonteCarlo(utt, pf));
+        //AIs.add( new PuppetSearchMCTS(utt));
+        //AIs.add(new UCT(utt));
+        //AIs.add(new IDRTMinimax(utt));
+        //AIs.add(new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f, new newAI(utt,pf), new SimpleSqrtEvaluationFunction3(), true));
+
 
         // Create list of maps for tournament
         List<String> maps = new ArrayList<>();
-        maps.add("maps/16x16/basesWorkers16x16.xml");
-        maps.add("maps/24x24/basesWorkers24x24H.xml");
-        maps.add("maps/16x16/TwoBasesBarracks16x16.xml");
-        maps.add("maps/NoWhereToRun9x8.xml");
+        //maps.add("maps/16x16/basesWorkers16x16.xml"); //Always won by workerRush2
+        //maps.add("maps/24x24/basesWorkers24x24H.xml"); // Best performance by newAI
+        //maps.add("maps/16x16/TwoBasesBarracks16x16.xml"); // Best performance by mattrush
+        maps.add("maps/NoWhereToRun9x8.xml"); //Joint best between ranged and mattrush
 
         // Initialize result writing
         String folderForReadWriteFolders = "readwrite";
