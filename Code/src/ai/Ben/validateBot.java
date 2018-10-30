@@ -4,13 +4,11 @@ import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.BFSPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
-import ai.evaluation.ComplexEvaluationFunction;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.LanchesterEvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import ai.portfolio.PortfolioAI;
 import rts.units.UnitTypeTable;
-import tests.RunTournament;
 
 
 import java.io.PrintWriter;

@@ -2,6 +2,7 @@ package tests;
 
 import ai.Ben.*;
 import ai.abstraction.*;
+import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
 import ai.*;
@@ -38,13 +39,15 @@ import rts.units.UnitTypeTable;
 public class GameVisualSimulationTest {
     public static void main(String args[]) throws Exception {
         UnitTypeTable utt = new UnitTypeTable();
-        PathFinding pf = new BFSPathFinding();
+        PathFinding pf = new AStarPathFinding();
 
         // Assignment Maps:
-        PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
+        //PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/basesWorkers16x16.xml", utt);// Set map
         //PhysicalGameState pgs = PhysicalGameState.load("maps/16x16/TwoBasesBarracks16x16.xml", utt);// Set map
-        //PhysicalGameState pgs = PhysicalGameState.load("maps/24x24/basesWorkers24x24H.xml", utt);
+        PhysicalGameState pgs = PhysicalGameState.load("maps/24x24/basesWorkers24x24H.xml", utt);
         //PhysicalGameState pgs = PhysicalGameState.load("maps/NoWhereToRun9x8.xml", utt);
+        //PhysicalGameState pgs = PhysicalGameState.load("maps/BroodWar/(2)HeartbreakRidge.scxA.xml", utt);
+
 
         GameState gs = new GameState(pgs, utt);
         int MAXCYCLES = 2000;  // Maximum length of the game

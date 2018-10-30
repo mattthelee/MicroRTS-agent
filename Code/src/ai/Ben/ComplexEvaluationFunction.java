@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ai.evaluation;
+package ai.Ben;
 
+import ai.evaluation.EvaluationFunction;
 import rts.GameState;
 import rts.PhysicalGameState;
 import rts.units.Unit;
@@ -22,12 +23,18 @@ public class ComplexEvaluationFunction extends EvaluationFunction {
     public static float RESOURCE = 20;
     public static float RESOURCE_IN_WORKER = 10;
     public static float UNIT_BONUS_MULTIPLIER = 40.0f;
+    public static float aggressionWeight = 1;
 
-
-    public float evaluate(int maxplayer, int minplayer, GameState gs){
-        return this.evaluate(maxplayer,minplayer,gs,1.0f);
+    public ComplexEvaluationFunction(float aggressionWeightFloat){
+        super();
+        this.aggressionWeight = aggressionWeightFloat;
     }
-    public float evaluate(int maxplayer, int minplayer, GameState gs, float aggressionWeight) {
+
+    public ComplexEvaluationFunction(){
+        this(1);
+    }
+
+    public float evaluate(int maxplayer, int minplayer, GameState gs) {
         PhysicalGameState pgs = gs.getPhysicalGameState();
         float s1 = gs.getPlayer(maxplayer).getResources()*RESOURCE;
         float s2 = gs.getPlayer(minplayer).getResources()*RESOURCE;

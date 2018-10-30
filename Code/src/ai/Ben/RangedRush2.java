@@ -115,7 +115,7 @@ public class RangedRush2  extends AbstractionLayerAI {
                 nworkers++;
             }
         }
-        if (nworkers < 1 && p.getResources() >= workerType.cost) {
+        if (nworkers < 2 && p.getResources() >= workerType.cost) {
             train(u, workerType);
         }
     }
