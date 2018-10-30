@@ -1,4 +1,4 @@
-package ai.Ben;
+package ai.strategychooser;
 
 import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.BFSPathFinding;

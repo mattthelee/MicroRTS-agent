@@ -1,4 +1,4 @@
-package ai.Ben;
+package ai.strategychooser;
 
 /*
  * To change this template, choose Tools | Templates

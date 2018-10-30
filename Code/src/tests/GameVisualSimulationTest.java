@@ -1,35 +1,16 @@
 package tests;
 
-import ai.Ben.*;
-import ai.abstraction.*;
+import ai.strategychooser.*;
 import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
-import ai.*;
-import ai.abstraction.pathfinding.BFSPathFinding;
-import ai.evaluation.EvaluationFunction;
-import ai.evaluation.SimpleEvaluationFunction;
-import ai.evaluation.SimpleSqrtEvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
-import ai.machinelearning.bayes.BayesianModel;
-import ai.mcts.naivemcts.NaiveMCTS;
-import ai.mcts.uct.UCT;
-import ai.minimax.ABCD.ABCD;
-import ai.minimax.MiniMaxResult;
-import ai.minimax.RTMiniMax.IDRTMinimax;
-import ai.montecarlo.MonteCarlo;
-import ai.montecarlo.NewMonteCarlo;
-import ai.puppet.PuppetSearchAB;
-import ai.puppet.PuppetSearchMCTS;
 import ai.scv.SCV;
-import ai.socket.SocketAI;
-import exercise5.BotExercise5;
 import gui.PhysicalGameStatePanel;
 import javax.swing.JFrame;
 import rts.GameState;
 import rts.PhysicalGameState;
 import rts.PlayerAction;
-import rts.units.Unit;
 import rts.units.UnitTypeTable;
 
 /**

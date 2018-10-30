@@ -1,4 +1,4 @@
-package ai.Ben;
+package ai.strategychooser;
 
 public class HeavyRush2 {
 }

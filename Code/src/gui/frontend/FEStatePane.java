@@ -6,8 +6,8 @@
 
 package gui.frontend;
 
-import ai.Ben.StrategyChooser;
-import ai.Ben.newAI;
+import ai.strategychooser.StrategyChooser;
+import ai.strategychooser.newAI;
 import ai.BranchingFactorCalculatorBigInteger;
 import ai.abstraction.*;
 import ai.core.AI;

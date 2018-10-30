@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ai.Ben;
+package ai.strategychooser;
 
 import ai.core.AI;
 import ai.core.AIWithComputationBudget;
@@ -41,7 +41,7 @@ public class RoundRobinTournament_johhny_matt {
             int timeBudget,
             int iterationsBudget,
             long preAnalysisBudgetFirstTimeInAMap,
-            long preAnalysisBudgetRestOfTimes, 
+            long preAnalysisBudgetRestOfTimes,
             boolean fullObservability,
             boolean selfMatches,
             boolean timeoutCheck,
@@ -88,7 +88,7 @@ public class RoundRobinTournament_johhny_matt {
 //        out.write("\tRun Garbage Collector:\t" + runGC + "\n");
 
         out.flush();
-        
+
         // Create all the read/write folders:
         String readWriteFolders[] = new String[AIs.size()];
         boolean firstPreAnalysis[][] = new boolean[AIs.size()][maps.size()];
@@ -339,12 +339,12 @@ public class RoundRobinTournament_johhny_matt {
                             progress.write("Winner: " + winner + "  in " + gs.getTime() + " cycles\n");
                             progress.write(ai1 + " : " + ai1.statisticsString() + "\n");
                             progress.write(ai2 + " : " + ai2.statisticsString() + "\n");
-                            progress.write("AI1 time usage, average:  " + (averageTime1/numTimes1) + 
+                            progress.write("AI1 time usage, average:  " + (averageTime1/numTimes1) +
                                            ", # times over budget: " + numberOfTimeOverBudget1 + " (avg " +
                                            (averageTimeOverBudget1/numberOfTimeOverBudget1) +
                                            ") , # times over 2*budget: " + numberOfTimeOverTwiceBudget1 + " (avg " +
                                            (averageTimeOverTwiceBudget1/numberOfTimeOverTwiceBudget1) + ")\n");
-                            progress.write("AI2 time usage, average:  " + (averageTime2/numTimes2) + 
+                            progress.write("AI2 time usage, average:  " + (averageTime2/numTimes2) +
                                            ", # times over budget: " + numberOfTimeOverBudget2 + " (avg " +
                                            (averageTimeOverBudget2/numberOfTimeOverBudget2) +
                                            ") , # times over 2*budget: " + numberOfTimeOverTwiceBudget2 + " (avg " +

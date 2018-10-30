@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package ai.Ben;
+package ai.strategychooser;
 
 import ai.abstraction.AbstractAction;
 import ai.abstraction.AbstractionLayerAI;
@@ -12,7 +12,6 @@ import ai.core.AI;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.ParameterSpecification;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

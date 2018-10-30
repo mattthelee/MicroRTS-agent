@@ -1,20 +1,12 @@
 package tests;
 
-import ai.Ben.*;
 import ai.abstraction.*;
 import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
 import ai.evaluation.EvaluationFunction;
-import ai.evaluation.SimpleEvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
-import ai.mcts.naivemcts.NaiveMCTS;
-import ai.mcts.uct.UCT;
-import ai.minimax.ABCD.ABCD;
-import ai.minimax.RTMiniMax.IDRTMinimax;
-import ai.portfolio.PortfolioAI;
-import ai.puppet.PuppetSearchMCTS;
-import ai.scv.SCV;
+import ai.strategychooser.StrategyChooser;
 import rts.units.UnitTypeTable;
 
 import java.io.*;
@@ -47,7 +39,7 @@ public class RunTournament {
         PathFinding pf = new AStarPathFinding();
         EvaluationFunction evalFunc =  new SimpleSqrtEvaluationFunction3();
         int inertiaCycles = 10;
-        //AIs.add(new StrategyChooser(timeBudget, utt, pf, evalFunc, inertiaCycles));
+        AIs.add(new StrategyChooser(timeBudget, utt, pf, evalFunc, inertiaCycles));
         //AIs.add(new SCV(utt));
         //AIs.add(new PortfolioAI(utt));
         AIs.add(new RangedRush(utt));
