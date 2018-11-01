@@ -1,20 +1,11 @@
 package tests;
 
-import ai.abstraction.*;
 import ai.abstraction.pathfinding.*;
 import ai.core.AI;
 import ai.evaluation.EvaluationFunction;
-import ai.evaluation.LanchesterEvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction;
-import ai.evaluation.SimpleSqrtEvaluationFunction3;
-import ai.mcts.naivemcts.NaiveMCTS;
-import ai.mcts.uct.UCT;
-import ai.minimax.ABCD.ABCD;
-import ai.minimax.RTMiniMax.IDRTMinimax;
 import ai.portfolio.PortfolioAI;
-import ai.puppet.PuppetSearchMCTS;
-import ai.scv.SCV;
-import ai.strategychooser.StrategyChooser;
+import ai.strategychooser.QMLeeSaundersHind;
 import rts.units.UnitTypeTable;
 
 import java.io.*;
@@ -49,10 +40,10 @@ public class RunTournament {
         PathFinding pf = new AStarPathFinding();
         EvaluationFunction evalFunc =  new SimpleSqrtEvaluationFunction();
         int inertiaCycles = 10;
-        AIs.add(new StrategyChooser(utt));
-        //AIs.add(new StrategyChooser(timeBudget, utt, new BFSPathFinding(), evalFunc, inertiaCycles));
-        //AIs.add(new StrategyChooser(timeBudget, utt, new GreedyPathFinding(), evalFunc, inertiaCycles));
-        //AIs.add(new StrategyChooser(timeBudget, utt, new FloodFillPathFinding(), evalFunc, inertiaCycles));
+        AIs.add(new QMLeeSaundersHind(utt));
+        //AIs.add(new QMLeeSaundersHind(timeBudget, utt, new BFSPathFinding(), evalFunc, inertiaCycles));
+        //AIs.add(new QMLeeSaundersHind(timeBudget, utt, new GreedyPathFinding(), evalFunc, inertiaCycles));
+        //AIs.add(new QMLeeSaundersHind(timeBudget, utt, new FloodFillPathFinding(), evalFunc, inertiaCycles));
 
 
         //AIs.add(new SCV(utt));

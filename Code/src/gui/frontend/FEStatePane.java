@@ -6,7 +6,7 @@
 
 package gui.frontend;
 
-import ai.strategychooser.StrategyChooser;
+import ai.strategychooser.QMLeeSaundersHind;
 import ai.strategychooser.HeavyRush2;
 import ai.BranchingFactorCalculatorBigInteger;
 import ai.abstraction.*;
@@ -157,7 +157,7 @@ public class FEStatePane extends JPanel {
                    PuppetSearchMCTS.class,
                    SCV.class,
                    HeavyRush2.class,
-                   StrategyChooser.class
+                   QMLeeSaundersHind.class
                   };
 
     

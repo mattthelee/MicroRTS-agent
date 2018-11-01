@@ -2,13 +2,11 @@ package ai.strategychooser;
 
 import ai.abstraction.*;
 import ai.abstraction.pathfinding.AStarPathFinding;
-import ai.abstraction.pathfinding.BFSPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
 import ai.core.ParameterSpecification;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction;
-import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import rts.*;
 import rts.units.Unit;
 import rts.units.UnitTypeTable;
@@ -21,7 +19,7 @@ import java.util.*;
  * @author Matt Lee, Johnny Hind, Ben Saunders
  */
 
-public class StrategyChooser extends AbstractionLayerAI {
+public class QMLeeSaundersHind extends AbstractionLayerAI {
 
     //
     private int MAXSIMULATIONTIME;
@@ -58,20 +56,20 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
     // Strategy Chooser Constructor
-    public StrategyChooser(UnitTypeTable utt , PathFinding pf){
+    public QMLeeSaundersHind(UnitTypeTable utt , PathFinding pf){
         this(120, utt,  pf, 10);
     }
 
-    public StrategyChooser(int lookahead, UnitTypeTable utt , PathFinding pf, EvaluationFunction evalFunc, int inertiaCycles){
+    public QMLeeSaundersHind(int lookahead, UnitTypeTable utt , PathFinding pf, EvaluationFunction evalFunc, int inertiaCycles){
         this(lookahead, utt,  pf, inertiaCycles);
         this.setEvaluationFunction(evalFunc);
     }
 
-    public StrategyChooser(UnitTypeTable utt){
+    public QMLeeSaundersHind(UnitTypeTable utt){
         this(120,utt,new AStarPathFinding(),10);
     }
 
-    public StrategyChooser( int lookahead, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
+    public QMLeeSaundersHind(int lookahead, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
         super(a_pf);
         MAXSIMULATIONTIME = lookahead;
         HeavyRush = new HeavyRush2(utt,a_pf);
@@ -110,9 +108,9 @@ public class StrategyChooser extends AbstractionLayerAI {
         //evaluateFunction = new ComplexEvaluationFunction();
     }
 
-    // Clone method, if the StrategyChooser class is required to be cloned
+    // Clone method, if the QMLeeSaundersHind class is required to be cloned
     public AI clone() {
-        return new StrategyChooser(MAXSIMULATIONTIME,UTT, pf, INERTIACYCLES);
+        return new QMLeeSaundersHind(MAXSIMULATIONTIME,UTT, pf, INERTIACYCLES);
     }
 
 
