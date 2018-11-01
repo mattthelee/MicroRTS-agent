@@ -28,7 +28,7 @@ public class StrategyChooser extends AbstractionLayerAI {
     UnitTypeTable UTT;
 
     // Initialise all the AI strategies used in the class
-    private AI newAI; private AI LightRush; private AI WorkerRush; private AI HeavyRush; private AI RangedRush; private AI MattRush;
+    private AI LightRush; private AI WorkerRush; private AI HeavyRush; private AI RangedRush; private AI MattRush;
     AI RandomBiasedAI;
     // Initialise the list of AIStrategies played and enemyStrategies simulated against
     private List<AI> AIStrategies = new ArrayList<>();
@@ -72,12 +72,10 @@ public class StrategyChooser extends AbstractionLayerAI {
     public StrategyChooser( int timeBudget, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
         super(a_pf);
         MAXSIMULATIONTIME = timeBudget;
-        newAI = new newAI(utt,a_pf);
+        HeavyRush = new HeavyRush2(utt,a_pf);
         WorkerRush = new WorkerRush2(utt,a_pf);
-        LightRush = new LightRush(utt,a_pf);
-        HeavyRush = new HeavyRush(utt,a_pf);
         RangedRush = new RangedRush2(utt,a_pf);
-        MattRush = new mattRushAi(utt,a_pf);
+        LightRush = new LightRush2(utt,a_pf);
         INERTIACYCLES = inertiaCycles;
         GAMECOUNT = 0;
 
@@ -85,8 +83,8 @@ public class StrategyChooser extends AbstractionLayerAI {
 
 
         // Initialise the AIStrategies to all the AI strategies we wish to evaluate and simulate with
-        AIStrategies.add(MattRush);
-        AIStrategies.add(newAI);
+        AIStrategies.add(LightRush);
+        AIStrategies.add(HeavyRush);
         AIStrategies.add(WorkerRush);
         AIStrategies.add(RangedRush);
 
@@ -258,13 +256,13 @@ public class StrategyChooser extends AbstractionLayerAI {
         } else if   (mapHeight == 16 && nbases == 2) {
             System.out.println("Map = maps/16x16/TwoBasesBarracks16x16.xml");
             // Provide the best strategy for this map
-            topStrategy = MattRush;
+            topStrategy = LightRush;
 
         // If the map height is 24, it is the basesWorkers24x24H provided map
         } else if (mapHeight == 24){
             System.out.println("Map = maps/24x24/basesWorkers24x24H.xml");
             // Provide the best strategy for this map
-            topStrategy = newAI;
+            topStrategy = HeavyRush;
 
         // Else, it is the hidden map
         } else {
@@ -432,7 +430,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         Integer[] votes = new Integer[4];
 
         // Add the score to the relevant index
-        votes[0] = 1 + (nEnemyWorkers*4);
+        votes[0] = 2 + (nEnemyWorkers*4);
         votes[1] = 1 + (nEnemyLight*5);
         votes[2] = (nEnemyHeavy*5) ;
         votes[3] = (nEnemyRanged*5);

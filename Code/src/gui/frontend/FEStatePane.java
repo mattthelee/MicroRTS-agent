@@ -7,7 +7,7 @@
 package gui.frontend;
 
 import ai.strategychooser.StrategyChooser;
-import ai.strategychooser.newAI;
+import ai.strategychooser.HeavyRush2;
 import ai.BranchingFactorCalculatorBigInteger;
 import ai.abstraction.*;
 import ai.core.AI;
@@ -46,7 +46,6 @@ import ai.minimax.ABCD.IDABCD;
 import ai.minimax.RTMiniMax.IDRTMinimax;
 import ai.minimax.RTMiniMax.IDRTMinimaxRandomized;
 import ai.montecarlo.MonteCarlo;
-import ai.montecarlo.NewMonteCarlo;
 import ai.montecarlo.lsi.LSI;
 import ai.portfolio.PortfolioAI;
 import ai.portfolio.portfoliogreedysearch.PGSAI;
@@ -145,7 +144,6 @@ public class FEStatePane extends JPanel {
                    IDRTMinimaxRandomized.class,
                    IDABCD.class,
                    MonteCarlo.class,
-                   NewMonteCarlo.class,
                    LSI.class,
                    UCT.class,
                    UCTUnitActions.class,
@@ -158,7 +156,7 @@ public class FEStatePane extends JPanel {
                    InformedNaiveMCTS.class,
                    PuppetSearchMCTS.class,
                    SCV.class,
-                   newAI.class,
+                   HeavyRush2.class,
                    StrategyChooser.class
                   };
 
@@ -170,7 +168,7 @@ public class FEStatePane extends JPanel {
                    LightRush.class,
                    HeavyRush.class,
                    RangedRush.class,
-                   newAI.class
+                   HeavyRush2.class
                   };
     
     PathFinding pathFinders[] = {new AStarPathFinding(),

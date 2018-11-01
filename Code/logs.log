@@ -1,361 +1,289 @@
-Map = maps/16x16/basesWorkers16x16.xml
-First game cycle using: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
+Map = maps/24x24/basesWorkers24x24H.xml
+First game cycle using: HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using HeavyRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : -0.021897793
-Finished considering playing as: newAI(BFSPathFinding) : -0.021897793
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.014084458
-Finished considering playing as: RangedRush2(BFSPathFinding) : -0.052631557
-Using: WorkerRush2(BFSPathFinding) with score of: 0.014084458
+Finished considering playing as: LightRush2(AStarPathFinding) : -0.021897793
+Finished considering playing as: HeavyRush2(AStarPathFinding) : -0.021897793
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.0
+Finished considering playing as: RangedRush2(AStarPathFinding) : -0.052631557
+Using: WorkerRush2(AStarPathFinding) with score of: 0.0
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
-
-Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : -0.034482777
-Finished considering playing as: newAI(BFSPathFinding) : -0.034482777
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.018633485
-Finished considering playing as: RangedRush2(BFSPathFinding) : -0.04895103
-Using: WorkerRush2(BFSPathFinding) with score of: 0.018633485
-
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.0
-Finished considering playing as: newAI(BFSPathFinding) : 0.020408154
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.049999952
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.0
-Using: WorkerRush2(BFSPathFinding) with score of: 0.049999952
+Finished considering playing as: LightRush2(AStarPathFinding) : -0.048275888
+Finished considering playing as: HeavyRush2(AStarPathFinding) : -0.048275888
+Finished considering playing as: WorkerRush2(AStarPathFinding) : -0.014084518
+Finished considering playing as: RangedRush2(AStarPathFinding) : -0.06293708
+Using: WorkerRush2(AStarPathFinding) with score of: -0.014084518
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 21
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
-
-Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.0
-Finished considering playing as: newAI(BFSPathFinding) : 0.0062111616
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.058823586
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.0
-Using: WorkerRush2(BFSPathFinding) with score of: 0.058823586
-
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 22
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : -0.3584906
-Finished considering playing as: newAI(BFSPathFinding) : 0.03184712
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.06748462
-Finished considering playing as: RangedRush2(BFSPathFinding) : -0.3584906
-Using: WorkerRush2(BFSPathFinding) with score of: 0.06748462
+Finished considering playing as: LightRush2(AStarPathFinding) : -0.08609271
+Finished considering playing as: HeavyRush2(AStarPathFinding) : -0.037037015
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.041095853
+Finished considering playing as: RangedRush2(AStarPathFinding) : -0.10067111
+Using: WorkerRush2(AStarPathFinding) with score of: 0.041095853
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 25
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 25
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
-
-Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : -0.02702701
-Finished considering playing as: newAI(BFSPathFinding) : 0.037974715
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.07878792
-Finished considering playing as: RangedRush2(BFSPathFinding) : -0.3693694
-Using: WorkerRush2(BFSPathFinding) with score of: 0.07878792
-
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 23
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 23
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 29
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 24
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 29
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.037974715
-Finished considering playing as: newAI(BFSPathFinding) : 0.037974715
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.089820385
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.037974715
-Using: WorkerRush2(BFSPathFinding) with score of: 0.089820385
+Finished considering playing as: LightRush2(AStarPathFinding) : -0.5045872
+Finished considering playing as: HeavyRush2(AStarPathFinding) : -0.007194221
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.07500005
+Finished considering playing as: RangedRush2(AStarPathFinding) : -0.5327103
+Using: WorkerRush2(AStarPathFinding) with score of: 0.07500005
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
-
-Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.0
-Finished considering playing as: newAI(BFSPathFinding) : 0.06172836
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.09523809
-Finished considering playing as: RangedRush2(BFSPathFinding) : -0.32173914
-Using: WorkerRush2(BFSPathFinding) with score of: 0.09523809
-
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 23
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 23
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 37
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 37
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 37
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : -0.27433628
-Finished considering playing as: newAI(BFSPathFinding) : 0.07317078
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.105882406
-Finished considering playing as: RangedRush2(BFSPathFinding) : -0.27433628
-Using: WorkerRush2(BFSPathFinding) with score of: 0.105882406
+Finished considering playing as: LightRush2(AStarPathFinding) : -0.04000002
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.0
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.057324886
+Finished considering playing as: RangedRush2(AStarPathFinding) : -0.04000002
+Using: WorkerRush2(AStarPathFinding) with score of: 0.057324886
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 23
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 23
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
-
-Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.036144614
-Finished considering playing as: newAI(BFSPathFinding) : -0.23577237
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.1428572
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.036144614
-Using: WorkerRush2(BFSPathFinding) with score of: 0.1428572
-
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 34
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 21
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 26
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 34
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 25
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 38
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 25
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.1025641
-Finished considering playing as: newAI(BFSPathFinding) : 0.109677434
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.16091955
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.09090912
-Using: WorkerRush2(BFSPathFinding) with score of: 0.16091955
+Finished considering playing as: LightRush2(AStarPathFinding) : -0.2962963
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.013333321
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.069182396
+Finished considering playing as: RangedRush2(AStarPathFinding) : -0.2962963
+Using: WorkerRush2(AStarPathFinding) with score of: 0.069182396
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 29
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 20
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
-
-Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.122807026
-Finished considering playing as: newAI(BFSPathFinding) : 0.122807026
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.15730333
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.122807026
-Using: WorkerRush2(BFSPathFinding) with score of: 0.15730333
-
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 30
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-Chosen strategy: WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 1 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 2 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 3 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 4 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 5 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 6 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 7 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 8 using WorkerRush2(BFSPathFinding)
-Inertia strategy game cycle 9 using WorkerRush2(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 28
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 24
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 28
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.7477478
-Finished considering playing as: newAI(BFSPathFinding) : 0.26530612
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.14450872
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.7477478
-Using: mattRushAi(BFSPathFinding) with score of: 0.7477478
+Finished considering playing as: LightRush2(AStarPathFinding) : 0.01986754
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.013333321
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.06040263
+Finished considering playing as: RangedRush2(AStarPathFinding) : 0.013333321
+Using: WorkerRush2(AStarPathFinding) with score of: 0.06040263
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 28
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-Chosen strategy: mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 1 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 2 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 3 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 4 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 5 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 6 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 7 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 8 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 9 using mattRushAi(BFSPathFinding)
-
-Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.2789116
-Finished considering playing as: newAI(BFSPathFinding) : 0.0930233
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.18471336
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.2789116
-Using: mattRushAi(BFSPathFinding) with score of: 0.2789116
-
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 37
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 26
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 39
-Chosen strategy: mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 1 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 2 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 3 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 4 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 5 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 6 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 7 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 8 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 9 using mattRushAi(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 0.58208954
-Finished considering playing as: newAI(BFSPathFinding) : 0.50746274
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.4899329
-Finished considering playing as: RangedRush2(BFSPathFinding) : 0.58208954
-Using: mattRushAi(BFSPathFinding) with score of: 0.58208954
+Finished considering playing as: LightRush2(AStarPathFinding) : 0.013333321
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.026315808
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.1082803
+Finished considering playing as: RangedRush2(AStarPathFinding) : 0.013333321
+Using: WorkerRush2(AStarPathFinding) with score of: 0.1082803
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 48
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 51
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 49
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 48
-Chosen strategy: mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 1 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 2 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 3 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 4 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 5 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 6 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 7 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 8 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 9 using mattRushAi(BFSPathFinding)
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 28
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
 
 Simulation --- 
-Finished considering playing as: mattRushAi(BFSPathFinding) : 1.0
-Finished considering playing as: newAI(BFSPathFinding) : 0.85
-Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.8688525
-Finished considering playing as: RangedRush2(BFSPathFinding) : 1.0
-Using: mattRushAi(BFSPathFinding) with score of: 1.0
+Finished considering playing as: LightRush2(AStarPathFinding) : 0.024999976
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.029585838
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.0864197
+Finished considering playing as: RangedRush2(AStarPathFinding) : 0.024999976
+Using: WorkerRush2(AStarPathFinding) with score of: 0.0864197
 
-mattRushAi(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 52
-newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 45
-WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 45
-RangedRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): Search depth of 52
-Chosen strategy: mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 1 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 2 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 3 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 4 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 5 using mattRushAi(BFSPathFinding)
-Inertia strategy game cycle 6 using mattRushAi(BFSPathFinding)
-Game Over
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 25
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 26
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 30
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 25
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
+
+Simulation --- 
+Finished considering playing as: LightRush2(AStarPathFinding) : 0.013333321
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.045161247
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.0864197
+Finished considering playing as: RangedRush2(AStarPathFinding) : 0.0
+Using: WorkerRush2(AStarPathFinding) with score of: 0.0864197
+
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 23
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 24
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 39
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 23
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
+
+Simulation --- 
+Finished considering playing as: LightRush2(AStarPathFinding) : 0.057324886
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.34883726
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.11949682
+Finished considering playing as: RangedRush2(AStarPathFinding) : 0.057324886
+Using: HeavyRush2(AStarPathFinding) with score of: 0.34883726
+
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 39
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 27
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 40
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 39
+Chosen strategy: HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using HeavyRush2(AStarPathFinding)
+
+Simulation --- 
+Finished considering playing as: LightRush2(AStarPathFinding) : 0.057324886
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.052023172
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.108695626
+Finished considering playing as: RangedRush2(AStarPathFinding) : 0.057324886
+Using: WorkerRush2(AStarPathFinding) with score of: 0.108695626
+
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 39
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 40
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 40
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 39
+Chosen strategy: WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 2 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 3 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 4 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 5 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 6 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 7 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 8 using WorkerRush2(AStarPathFinding)
+Inertia strategy game cycle 9 using WorkerRush2(AStarPathFinding)
+
+Simulation --- 
+Finished considering playing as: LightRush2(AStarPathFinding) : 0.07602334
+Finished considering playing as: HeavyRush2(AStarPathFinding) : 0.10975611
+Finished considering playing as: WorkerRush2(AStarPathFinding) : 0.09876537
+Finished considering playing as: RangedRush2(AStarPathFinding) : 0.07602334
+Using: HeavyRush2(AStarPathFinding) with score of: 0.10975611
+
+LightRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 33
+HeavyRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+WorkerRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 20
+RangedRush2(AStarPathFinding) v WorkerRush2(AStarPathFinding): Search depth of 33
+Chosen strategy: HeavyRush2(AStarPathFinding)
+Inertia strategy game cycle 1 using HeavyRush2(AStarPathFinding)

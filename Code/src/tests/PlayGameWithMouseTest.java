@@ -1,10 +1,13 @@
 package tests;
 
+import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.core.AI;
 import ai.*;
 import ai.core.ContinuingAI;
 import ai.evaluation.SimpleEvaluationFunction;
+import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import ai.mcts.naivemcts.NaiveMCTS;
+import ai.strategychooser.StrategyChooser;
 import gui.MouseController;
 import gui.PhysicalGameStateMouseJFrame;
 import gui.PhysicalGameStatePanel;
@@ -38,8 +41,8 @@ public class PlayGameWithMouseTest {
 //        AI ai2 = new PassiveAI();
 //        AI ai2 = new RandomBiasedAI();
 //        AI ai2 = new LightRush(utt, new AStarPathFinding());
-        AI ai2 = new ContinuingAI(new NaiveMCTS(TIME_BUDGET, -1, 100, 20, 0.33f, 0.0f, 0.75f, new RandomBiasedAI(), new SimpleEvaluationFunction(), true));
-
+        //AI ai2 = new ContinuingAI(new NaiveMCTS(TIME_BUDGET, -1, 100, 20, 0.33f, 0.0f, 0.75f, new RandomBiasedAI(), new SimpleEvaluationFunction(), true));
+        AI ai2 = new StrategyChooser(100, utt, new AStarPathFinding(), new SimpleSqrtEvaluationFunction3(), 10);
         // Play game
         long nextTimeToUpdate = System.currentTimeMillis() + TIME_BUDGET;
         do {
