@@ -1,5 +1,6 @@
 package tests;
 
+import ai.portfolio.PortfolioAI;
 import ai.strategychooser.*;
 import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
@@ -51,13 +52,13 @@ public class GameVisualSimulationTest {
 
 
         AI ai1 = new StrategyChooser(AITimeBudget, utt, pf, new SimpleSqrtEvaluationFunction3(), inertiaCycles);
+        AI ai2 = new PortfolioAI(utt);
 
+        //AI ai2 = new LightRush2(utt);
 
-        //AI ai2 = new mattRushAi(utt);
-
-        //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new newAI(utt,pf), a_ef);
-        //AI ai2 = new newAI(utt, pf);
-        //AI ai2 = new newAI(utt, pf);
+        //AI ai2 = new NewMonteCarlo(timeBudget, playouts_per_cycle, 150, new HeavyRush2(utt,pf), a_ef);
+        //AI ai2 = new HeavyRush2(utt, pf);
+        //AI ai2 = new HeavyRush2(utt, pf);
 
         //AI ai2 = new ABCD(utt);
 
@@ -67,14 +68,14 @@ public class GameVisualSimulationTest {
 
         //AI ai2 = new IDRTMinimax(utt);
 
-        AI ai2 = new SCV(utt);
+        //AI ai2 = new SCV(utt);
         //AI ai2 = new WorkerRush(utt, pf);
         //AI ai2 = new LightRush(utt, pf);
 
         //AI ai2 = new RangedRush(utt, pf);
         //AI ai2 = new HeavyRush( utt, pf);
         //AI ai2 = new NaiveMCTS(timeBudget, -1, 100, 20, 0.33f, 0.0f, 0.75f,
-          //      new newAI(utt,pf), new SimpleEvaluationFunction(), true);
+          //      new HeavyRush2(utt,pf), new SimpleEvaluationFunction(), true);
 
         //AI ai2 = new EconomyMilitaryRush(utt, pf);
         //AI ai2 = new EconomyRushBurster(utt, pf);
