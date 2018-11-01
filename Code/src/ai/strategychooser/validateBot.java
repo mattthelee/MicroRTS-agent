@@ -62,7 +62,7 @@ public class validateBot {
         Writer progress = new PrintWriter(System.out);  // Write progress to console
 //        Writer progress = null;  // Ignore progress
         System.out.println("Starting gridsearch");
-
+        /*
         List<Integer> lookaheads = Arrays.asList( 20,30,50,70,100,120,150,200);
         for (int lookahead : lookaheads) {
             System.out.println("Lookahead: " + lookahead);
@@ -75,6 +75,7 @@ public class validateBot {
                     progress, folderForReadWriteFolders);
 
         }
+        */
         /*
         for (int inertiaCycles : inertias) {
             for (EvaluationFunction evalFunc : evalFuncs) {
