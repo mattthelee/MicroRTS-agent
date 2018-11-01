@@ -1,12 +1,14 @@
 package ai.strategychooser;
 
 import ai.abstraction.*;
+import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.BFSPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
 import ai.core.ParameterSpecification;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction;
+import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import rts.*;
 import rts.units.Unit;
 import rts.units.UnitTypeTable;
@@ -57,21 +59,21 @@ public class StrategyChooser extends AbstractionLayerAI {
 
     // Strategy Chooser Constructor
     public StrategyChooser(UnitTypeTable utt , PathFinding pf){
-        this(100, utt,  pf, 10);
+        this(120, utt,  pf, 10);
     }
 
-    public StrategyChooser(int timeBudget, UnitTypeTable utt , PathFinding pf, EvaluationFunction evalFunc, int inertiaCycles){
-        this(timeBudget, utt,  pf, inertiaCycles);
+    public StrategyChooser(int lookahead, UnitTypeTable utt , PathFinding pf, EvaluationFunction evalFunc, int inertiaCycles){
+        this(lookahead, utt,  pf, inertiaCycles);
         this.setEvaluationFunction(evalFunc);
     }
 
     public StrategyChooser(UnitTypeTable utt){
-        this(100,utt,new BFSPathFinding(),10);
+        this(120,utt,new AStarPathFinding(),10);
     }
 
-    public StrategyChooser( int timeBudget, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
+    public StrategyChooser( int lookahead, UnitTypeTable utt, PathFinding a_pf, int inertiaCycles) {
         super(a_pf);
-        MAXSIMULATIONTIME = timeBudget;
+        MAXSIMULATIONTIME = lookahead;
         HeavyRush = new HeavyRush2(utt,a_pf);
         WorkerRush = new WorkerRush2(utt,a_pf);
         RangedRush = new RangedRush2(utt,a_pf);
@@ -330,7 +332,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         // Calculate the time allowed from the provided MAXSIMULATIONTIME and the required amount of simulations
         // Presuming 10ms for non-simulation computation
-        int timeAllowed = (MAXSIMULATIONTIME-10)/(AIStrategies.size());
+        int timeAllowed = (MAXSIMULATIONTIME);
 
         // use the predictEnemyStrategy method to provide the relevant enemy strategy index
         int enemyIndex = predictEnemyStrategy(player,gs);
@@ -364,7 +366,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         // Calculate the time allowed from the provided MAXSIMULATIONTIME and the required amount of simulations
         // Presuming 10ms for non-simulation computation
-        int timeAllowed = (MAXSIMULATIONTIME-10)/(AIStrategies.size());
+        int timeAllowed = (MAXSIMULATIONTIME);
 
         // Create an empty ArrayList for temporary storage of the simulated GameStates
         List<GameState> newSimulationGameStates = new ArrayList<>();

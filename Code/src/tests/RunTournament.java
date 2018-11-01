@@ -5,6 +5,7 @@ import ai.abstraction.pathfinding.*;
 import ai.core.AI;
 import ai.evaluation.EvaluationFunction;
 import ai.evaluation.LanchesterEvaluationFunction;
+import ai.evaluation.SimpleSqrtEvaluationFunction;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
 import ai.mcts.naivemcts.NaiveMCTS;
 import ai.mcts.uct.UCT;
@@ -46,9 +47,9 @@ public class RunTournament {
 
         UnitTypeTable utt = new UnitTypeTable(UnitTypeTable.VERSION_ORIGINAL, UnitTypeTable.MOVE_CONFLICT_RESOLUTION_CANCEL_BOTH);
         PathFinding pf = new AStarPathFinding();
-        EvaluationFunction evalFunc =  new SimpleSqrtEvaluationFunction3();
+        EvaluationFunction evalFunc =  new SimpleSqrtEvaluationFunction();
         int inertiaCycles = 10;
-        AIs.add(new StrategyChooser(timeBudget, utt, pf, new LanchesterEvaluationFunction(), inertiaCycles));
+        AIs.add(new StrategyChooser(utt));
         //AIs.add(new StrategyChooser(timeBudget, utt, new BFSPathFinding(), evalFunc, inertiaCycles));
         //AIs.add(new StrategyChooser(timeBudget, utt, new GreedyPathFinding(), evalFunc, inertiaCycles));
         //AIs.add(new StrategyChooser(timeBudget, utt, new FloodFillPathFinding(), evalFunc, inertiaCycles));

@@ -25,7 +25,8 @@ public class validateBot {
         List<EvaluationFunction> evalFuncs = Arrays.asList(new SimpleSqrtEvaluationFunction3(), new LanchesterEvaluationFunction(), new ComplexEvaluationFunction());
         List<PathFinding> pathFinders = Arrays.asList(new BFSPathFinding(), new AStarPathFinding());
 
-        int rounds = 10;                                // Number of rounds in the tournament
+
+        int rounds = 2;                                // Number of rounds in the tournament
         int timeBudget = 100;                          // Time budget allowed per action (default 100ms)
         int maxGameLength = 2000;                    // NOT IN USE. Maximum game length (default 2000 ticks) [See List<Integer> lengths]
         boolean fullObservability = true;              // Full or partial observability (default true)
@@ -61,7 +62,21 @@ public class validateBot {
         Writer progress = new PrintWriter(System.out);  // Write progress to console
 //        Writer progress = null;  // Ignore progress
         System.out.println("Starting gridsearch");
+        /*
+        List<Integer> lookaheads = Arrays.asList( 20,30,50,70,100,120,150,200);
+        for (int lookahead : lookaheads) {
+            System.out.println("Lookahead: " + lookahead);
+            List<AI> AIs = new ArrayList<>();
+            AIs.add(new StrategyChooser(lookahead, utt, new AStarPathFinding(), new LanchesterEvaluationFunction(), 10));
+            AIs.add(new PortfolioAI(utt));
+            runTournament(AIs,playOnlyWithThisAI, maps, rounds, maxGameLength, timeBudget, iterationBudget,
+                    preAnalysisBudgetFirstTimeInAMap, preAnalysisBudgetRestOfTimes, fullObservability, selfMatches,
+                    timeOutCheck, runGC, preAnalysis, utt, traceOutputFolder, out,
+                    progress, folderForReadWriteFolders);
 
+        }
+        */
+        /*
         for (int inertiaCycles : inertias) {
             for (EvaluationFunction evalFunc : evalFuncs) {
                 for (PathFinding pf : pathFinders) {
@@ -81,7 +96,7 @@ public class validateBot {
 
             }
         }
-
+        */
     }
 
 
