@@ -87,6 +87,10 @@ public class StrategyChooser extends AbstractionLayerAI {
         AIStrategies.add(HeavyRush);
         AIStrategies.add(WorkerRush);
         AIStrategies.add(RangedRush);
+        AIStrategies.add(new LightDefense(utt,a_pf));
+        AIStrategies.add(new HeavyDefense(utt,a_pf));
+        AIStrategies.add(new WorkerDefense(utt,a_pf));
+        AIStrategies.add(new RangedDefense(utt,a_pf));
 
         //AIStrategies.add(LightRush);
 
@@ -330,7 +334,7 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         // Calculate the time allowed from the provided MAXSIMULATIONTIME and the required amount of simulations
         // Presuming 10ms for non-simulation computation
-        int timeAllowed = (MAXSIMULATIONTIME-10)/(AIStrategies.size());
+        int timeAllowed = (MAXSIMULATIONTIME-30)/(AIStrategies.size());
 
         // use the predictEnemyStrategy method to provide the relevant enemy strategy index
         int enemyIndex = predictEnemyStrategy(player,gs);
@@ -344,7 +348,7 @@ public class StrategyChooser extends AbstractionLayerAI {
             AI aiStrategy = AIStrategies.get(i);
 
             // Use the simulate method to start the simulation with the AI and enemy strategies
-            GameState tGS = simulate(player, gs.clone(),gs.getTime() + timeAllowed, aiStrategy, enemyStrategy,i);
+            GameState tGS = simulate(player, gs.clone(),System.currentTimeMillis() + timeAllowed, aiStrategy, enemyStrategy,i);
             // Add each simulated GameState to the global simulationGameStates
             simulationGameStates.add(tGS);
         }
@@ -364,8 +368,8 @@ public class StrategyChooser extends AbstractionLayerAI {
 
         // Calculate the time allowed from the provided MAXSIMULATIONTIME and the required amount of simulations
         // Presuming 10ms for non-simulation computation
-        int timeAllowed = (MAXSIMULATIONTIME-10)/(AIStrategies.size());
-
+        int timeAllowed = (MAXSIMULATIONTIME-30)/(AIStrategies.size());
+        //System.out.println("Time for simulations: " + timeAllowed );
         // Create an empty ArrayList for temporary storage of the simulated GameStates
         List<GameState> newSimulationGameStates = new ArrayList<>();
 
@@ -378,9 +382,12 @@ public class StrategyChooser extends AbstractionLayerAI {
             GameState tGS = simulationGameStates.get(i);
             // Get the relevant AIStrategy
             AI AIStrategy = AIStrategies.get(i);
+            //System.out.println("Time now: " + tGS.getTime());
+            //System.out.println("Finish time: " + (tGS.getTime() + timeAllowed));
+
 
             // Use the simulate method to continue the simulations with the AI and enemy strategies
-            newSimulationGameStates.add(simulate(player, tGS,tGS.getTime() + timeAllowed, AIStrategy, enemyStrategy,i));
+            newSimulationGameStates.add(simulate(player, tGS,System.currentTimeMillis() + timeAllowed, AIStrategy, enemyStrategy,i));
 
         }
 
@@ -464,7 +471,7 @@ public class StrategyChooser extends AbstractionLayerAI {
         - simulationIndex: index of the correct Simulated GameState to move forward
         This method returns the Simulated GameState, packaged as a GameState.
          */
-    public GameState simulate(int player, GameState gs, int time, AI ai1, AI ai2, int simulationIndex) throws Exception {
+    public GameState simulate(int player, GameState gs, long time, AI ai1, AI ai2, int simulationIndex) throws Exception {
 
         // Initialise a variable to track the end of the game
         boolean gameover = false;
@@ -491,7 +498,7 @@ public class StrategyChooser extends AbstractionLayerAI {
                 count ++;
 
             }
-        } while(!gameover && gs2.getTime() < time);
+        } while(!gameover && System.currentTimeMillis() < time);
 
         // Add the total simulation count to the global simulationCounts
         simulationCounts[simulationIndex] += count;
