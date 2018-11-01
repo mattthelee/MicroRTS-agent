@@ -48,7 +48,7 @@ public class RunTournament {
         PathFinding pf = new AStarPathFinding();
         EvaluationFunction evalFunc =  new SimpleSqrtEvaluationFunction3();
         int inertiaCycles = 10;
-        AIs.add(new StrategyChooser(timeBudget, utt, pf, new LanchesterEvaluationFunction(), inertiaCycles));
+        AIs.add(new StrategyChooser(30, utt, pf, new LanchesterEvaluationFunction(), inertiaCycles));
         //AIs.add(new StrategyChooser(timeBudget, utt, new BFSPathFinding(), evalFunc, inertiaCycles));
         //AIs.add(new StrategyChooser(timeBudget, utt, new GreedyPathFinding(), evalFunc, inertiaCycles));
         //AIs.add(new StrategyChooser(timeBudget, utt, new FloodFillPathFinding(), evalFunc, inertiaCycles));
