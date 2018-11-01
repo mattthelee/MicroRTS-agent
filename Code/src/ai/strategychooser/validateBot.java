@@ -67,7 +67,7 @@ public class validateBot {
         for (int lookahead : lookaheads) {
             System.out.println("Lookahead: " + lookahead);
             List<AI> AIs = new ArrayList<>();
-            AIs.add(new StrategyChooser(lookahead, utt, new AStarPathFinding(), new LanchesterEvaluationFunction(), 10));
+            AIs.add(new QMLeeSaundersHind(lookahead, utt, new AStarPathFinding(), new LanchesterEvaluationFunction(), 10));
             AIs.add(new PortfolioAI(utt));
             runTournament(AIs,playOnlyWithThisAI, maps, rounds, maxGameLength, timeBudget, iterationBudget,
                     preAnalysisBudgetFirstTimeInAMap, preAnalysisBudgetRestOfTimes, fullObservability, selfMatches,
@@ -85,7 +85,7 @@ public class validateBot {
                     System.out.println("Pathfinding: " + pf.toString() );
 
                     List<AI> AIs = new ArrayList<>();
-                    AIs.add(new StrategyChooser(timeBudget, utt, pf, evalFunc, inertiaCycles));
+                    AIs.add(new QMLeeSaundersHind(timeBudget, utt, pf, evalFunc, inertiaCycles));
                     AIs.add(new PortfolioAI(utt));
 
                     runTournament(AIs,playOnlyWithThisAI, maps, rounds, maxGameLength, timeBudget, iterationBudget,

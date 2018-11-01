@@ -6,7 +6,6 @@ import ai.abstraction.pathfinding.AStarPathFinding;
 import ai.abstraction.pathfinding.PathFinding;
 import ai.core.AI;
 import ai.evaluation.SimpleSqrtEvaluationFunction3;
-import ai.scv.SCV;
 import gui.PhysicalGameStatePanel;
 import javax.swing.JFrame;
 import rts.GameState;
@@ -51,7 +50,7 @@ public class GameVisualSimulationTest {
         int AITimeBudget = 100;
 
 
-        AI ai1 = new StrategyChooser(AITimeBudget, utt, pf, new SimpleSqrtEvaluationFunction3(), inertiaCycles);
+        AI ai1 = new QMLeeSaundersHind(AITimeBudget, utt, pf, new SimpleSqrtEvaluationFunction3(), inertiaCycles);
         AI ai2 = new PortfolioAI(utt);
 
         //AI ai2 = new LightRush2(utt);
