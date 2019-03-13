@@ -1,0 +1,116 @@
+RoundRobinTournament
+AIs:
+	StrategyChooser(BFSPathFinding)
+	SCV
+	PortfolioAI(100, -1, 100, SimpleSqrtEvaluationFunction3)
+Maps:
+	/home/leem/repos/legends.com/Code/maps/16x16/TwoBasesBarracks16x16.xml
+	/home/leem/repos/legends.com/Code/maps/16x16/basesWorkers16x16.xml
+	/home/leem/repos/legends.com/Code/maps/24x24/basesWorkers24x24H.xml
+	/home/leem/repos/legends.com/Code/maps/NoWhereToRun9x8.xml
+Settings:
+	Rounds:	1
+	Max Game Length:	3000
+	Time Budget:	100
+	Iterations Budget:	-1
+	Pregame Analysis Budget:	1000	1000
+	Full Observability:	true
+	Timeout Check:	true
+	Run Garbage Collector:	false
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	0	1	0	0	-1	1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	0	2	645	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	1	0	530	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	1	2	542	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	2	0	562	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	2	1	494	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	1	0	1	2438	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	1	0	2	1420	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	1	1	0	915	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	1	1	2	1250	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	1	2	0	2045	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	1	2	1	2035	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	2	0	1	655	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	2	0	2	1730	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	2	1	0	1705	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	2	1	2	2330	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	2	2	0	925	0	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	2	2	1	680	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	3	0	1	3000	-1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	3	0	2	1650	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	3	1	0	1070	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	3	1	2	1195	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	3	2	0	983	1	-1	-1
+
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	3	2	1	1265	0	-1	-1
+
+Wins:
+0	4	4	
+3	0	2	
+4	6	0	
+
+Ties:
+0	1	0	
+1	0	0	
+0	0	0	
+
+Average Game Length:
+0.0	1523.25	1361.25	
+1055.0	0.0	1329.25	
+1128.75	1118.5	0.0	
+
+AI crashes:
+0	0	0	
+0	0	0	
+0	0	0	
+
+AI timeout:
+0	0	0	
+1	0	0	
+0	0	0	

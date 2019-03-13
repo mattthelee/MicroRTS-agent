@@ -1,0 +1,28 @@
+FixedOpponentsTournament
+AIs
+	StrategyChooser(BFSPathFinding,SimpleSqrtEvaluationFunction,10)
+	StrategyChooser(BFSPathFinding,SimpleSqrtEvaluationFunction,10)
+	StrategyChooser(BFSPathFinding,SimpleSqrtEvaluationFunction,10)
+opponent AIs
+	UCT(100, -1, 100, 10, RandomBiasedAI, SimpleSqrtEvaluationFunction3)
+	IDRTMinimax(100, -1, SimpleSqrtEvaluationFunction3)
+	BS3_NaiveMCTS(100, -1, 100,10,0.3, 1.0, 0.0, 1.0, 0.4, 1.0, RandomBiasedAI, SimpleSqrtEvaluationFunction3)
+maps
+	/home/leem/repos/legends.com/Code/maps/16x16/basesWorkers16x16.xml
+	/home/leem/repos/legends.com/Code/maps/16x16/TwoBasesBarracks16x16.xml
+	/home/leem/repos/legends.com/Code/maps/24x24/basesWorkers24x24H.xml
+	/home/leem/repos/legends.com/Code/maps/NoWhereToRun9x8.xml
+iterations	2
+maxGameLength	3000
+timeBudget	100
+iterationsBudget	-1
+fullObservability	true
+timeoutCheck	true
+runGC	false
+iteration	map	ai1	ai2	time	winner	crashed	timedout
+0	0	0	0	12	0	-1	1
+0	0	0	1	775	0	-1	-1
+0	0	0	2	19	0	-1	1
+0	0	1	0	16	0	-1	1
+0	0	1	1	775	0	-1	-1
+0	0	1	2	1294	0	-1	-1

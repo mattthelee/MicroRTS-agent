@@ -1,0 +1,1027 @@
+First run
+Map = maps/16x16/basesWorkers16x16.xml
+Using: mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 35
+Simulating against WorkerRush. EvalScore: -120.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : -1080.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: -50.0
+Finished considering playing as: newAI(BFSPathFinding) : -450.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 41
+Simulating against WorkerRush. EvalScore: 20.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 180.0
+Using: WorkerRush2(BFSPathFinding) with score of: 180.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 36
+Simulating against WorkerRush. EvalScore: -360.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : -4680.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 0.0
+Finished considering playing as: newAI(BFSPathFinding) : 0.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 0.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 0.0
+Using: newAI(BFSPathFinding) with score of: 0.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 40
+Simulating against WorkerRush. EvalScore: 80.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 1360.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 0.0
+Finished considering playing as: newAI(BFSPathFinding) : 0.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 38
+Simulating against WorkerRush. EvalScore: 90.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 1530.0
+Using: WorkerRush2(BFSPathFinding) with score of: 1530.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 48
+Simulating against WorkerRush. EvalScore: 40.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 840.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 39
+Simulating against WorkerRush. EvalScore: 40.0
+Finished considering playing as: newAI(BFSPathFinding) : 840.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 30.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 630.0
+Using: mattRushAi(AStarPathFinding) with score of: 840.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 83
+Simulating against WorkerRush. EvalScore: 190.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 4750.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 41
+Simulating against WorkerRush. EvalScore: 90.0
+Finished considering playing as: newAI(BFSPathFinding) : 2250.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 40.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 1000.0
+Using: mattRushAi(AStarPathFinding) with score of: 4750.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 77
+Simulating against WorkerRush. EvalScore: 120.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 3480.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 46
+Simulating against WorkerRush. EvalScore: 30.0
+Finished considering playing as: newAI(BFSPathFinding) : 870.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 30.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 870.0
+Using: mattRushAi(AStarPathFinding) with score of: 3480.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 85
+Simulating against WorkerRush. EvalScore: 150.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 4950.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 73
+Simulating against WorkerRush. EvalScore: 150.0
+Finished considering playing as: newAI(BFSPathFinding) : 4950.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 76
+Simulating against WorkerRush. EvalScore: 210.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6930.0
+Using: WorkerRush2(BFSPathFinding) with score of: 6930.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 112
+Simulating against WorkerRush. EvalScore: 400.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 13200.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 96
+Simulating against WorkerRush. EvalScore: 320.0
+Finished considering playing as: newAI(BFSPathFinding) : 10560.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 84
+Simulating against WorkerRush. EvalScore: 340.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 11220.0
+Using: mattRushAi(AStarPathFinding) with score of: 13200.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 130
+Simulating against WorkerRush. EvalScore: 290.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 9570.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 105
+Simulating against WorkerRush. EvalScore: 370.0
+Finished considering playing as: newAI(BFSPathFinding) : 12210.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 85
+Simulating against WorkerRush. EvalScore: 370.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 12210.0
+Using: newAI(BFSPathFinding) with score of: 12210.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 133
+Simulating against WorkerRush. EvalScore: 840.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 31080.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 101
+Simulating against WorkerRush. EvalScore: 330.0
+Finished considering playing as: newAI(BFSPathFinding) : 12210.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 119
+Simulating against WorkerRush. EvalScore: 490.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 18130.0
+Using: mattRushAi(AStarPathFinding) with score of: 31080.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 107
+Simulating against WorkerRush. EvalScore: 990.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 36630.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 114
+Simulating against WorkerRush. EvalScore: 790.0
+Finished considering playing as: newAI(BFSPathFinding) : 29230.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 106
+Simulating against WorkerRush. EvalScore: 320.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 11840.0
+Using: mattRushAi(AStarPathFinding) with score of: 36630.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+	at java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:719)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:751)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:749)
+	at java.base/java.util.HashMap.putMapEntries(HashMap.java:512)
+	at java.base/java.util.HashMap.putAll(HashMap.java:785)
+	at rts.PartiallyObservableGameState.<init>(PartiallyObservableGameState.java:30)
+	at gui.PhysicalGameStatePanel.draw(PhysicalGameStatePanel.java:258)
+	at gui.PhysicalGameStatePanel.paint(PhysicalGameStatePanel.java:222)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JLayeredPane.paint(JLayeredPane.java:590)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5262)
+	at java.desktop/javax.swing.BufferStrategyPaintManager.paint(BufferStrategyPaintManager.java:246)
+	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1313)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1060)
+	at java.desktop/java.awt.GraphicsCallback$PaintCallback.run(GraphicsCallback.java:39)
+	at java.desktop/sun.awt.SunGraphicsCallback.runOneComponent(SunGraphicsCallback.java:78)
+	at java.desktop/sun.awt.SunGraphicsCallback.runComponents(SunGraphicsCallback.java:115)
+	at java.desktop/java.awt.Container.paint(Container.java:2000)
+	at java.desktop/java.awt.Window.paint(Window.java:3940)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:868)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:840)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:840)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:815)
+	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:764)
+	at java.desktop/javax.swing.RepaintManager.access$1200(RepaintManager.java:69)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1880)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue.access$600(EventQueue.java:97)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 127
+Simulating against WorkerRush. EvalScore: 850.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 28050.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 139
+Simulating against WorkerRush. EvalScore: 720.0
+Finished considering playing as: newAI(BFSPathFinding) : 23760.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 127
+Simulating against WorkerRush. EvalScore: 420.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 13860.0
+Using: mattRushAi(AStarPathFinding) with score of: 28050.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 139
+Simulating against WorkerRush. EvalScore: 560.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 20720.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 138
+Simulating against WorkerRush. EvalScore: 830.0
+Finished considering playing as: newAI(BFSPathFinding) : 30710.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 112
+Simulating against WorkerRush. EvalScore: 850.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 31450.0
+Using: WorkerRush2(BFSPathFinding) with score of: 31450.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 121
+Simulating against WorkerRush. EvalScore: 820.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 30340.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 122
+Simulating against WorkerRush. EvalScore: 1080.0
+Finished considering playing as: newAI(BFSPathFinding) : 39960.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 126
+Simulating against WorkerRush. EvalScore: 920.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 34040.0
+Using: newAI(BFSPathFinding) with score of: 39960.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 125
+Simulating against WorkerRush. EvalScore: 900.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 33300.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 135
+Simulating against WorkerRush. EvalScore: 660.0
+Finished considering playing as: newAI(BFSPathFinding) : 24420.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 100
+Simulating against WorkerRush. EvalScore: 470.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 17390.0
+Using: mattRushAi(AStarPathFinding) with score of: 33300.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 131
+Simulating against WorkerRush. EvalScore: 990.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 36630.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 121
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: newAI(BFSPathFinding) : 41070.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 157
+Simulating against WorkerRush. EvalScore: 580.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 21460.0
+Using: newAI(BFSPathFinding) with score of: 41070.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 157
+Simulating against WorkerRush. EvalScore: 990.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 32670.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 164
+Simulating against WorkerRush. EvalScore: 1040.0
+Finished considering playing as: newAI(BFSPathFinding) : 34320.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 125
+Simulating against WorkerRush. EvalScore: 1050.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 34650.0
+Using: WorkerRush2(BFSPathFinding) with score of: 34650.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 80
+Simulating against WorkerRush. EvalScore: 970.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 24250.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 99
+Simulating against WorkerRush. EvalScore: 1120.0
+Finished considering playing as: newAI(BFSPathFinding) : 28000.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 143
+Simulating against WorkerRush. EvalScore: 1200.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 30000.0
+Using: WorkerRush2(BFSPathFinding) with score of: 30000.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+	at java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:719)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:751)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:749)
+	at java.base/java.util.HashMap.putMapEntries(HashMap.java:512)
+	at java.base/java.util.HashMap.putAll(HashMap.java:785)
+	at rts.PartiallyObservableGameState.<init>(PartiallyObservableGameState.java:30)
+	at gui.PhysicalGameStatePanel.draw(PhysicalGameStatePanel.java:259)
+	at gui.PhysicalGameStatePanel.paint(PhysicalGameStatePanel.java:222)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JLayeredPane.paint(JLayeredPane.java:590)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5262)
+	at java.desktop/javax.swing.BufferStrategyPaintManager.paint(BufferStrategyPaintManager.java:246)
+	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1313)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1060)
+	at java.desktop/java.awt.GraphicsCallback$PaintCallback.run(GraphicsCallback.java:39)
+	at java.desktop/sun.awt.SunGraphicsCallback.runOneComponent(SunGraphicsCallback.java:78)
+	at java.desktop/sun.awt.SunGraphicsCallback.runComponents(SunGraphicsCallback.java:115)
+	at java.desktop/java.awt.Container.paint(Container.java:2000)
+	at java.desktop/java.awt.Window.paint(Window.java:3940)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:868)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:840)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:840)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:815)
+	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:764)
+	at java.desktop/javax.swing.RepaintManager.access$1200(RepaintManager.java:69)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1880)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue.access$600(EventQueue.java:97)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 134
+Simulating against WorkerRush. EvalScore: 1070.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 26750.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 112
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: newAI(BFSPathFinding) : 27250.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 93
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 27250.0
+Using: newAI(BFSPathFinding) with score of: 27250.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 89
+Simulating against WorkerRush. EvalScore: 1070.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 31030.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 92
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: newAI(BFSPathFinding) : 31610.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 57
+Simulating against WorkerRush. EvalScore: 1030.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 29870.0
+Using: newAI(BFSPathFinding) with score of: 31610.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 142
+Simulating against WorkerRush. EvalScore: 1050.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 30450.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 101
+Simulating against WorkerRush. EvalScore: 1040.0
+Finished considering playing as: newAI(BFSPathFinding) : 30160.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 106
+Simulating against WorkerRush. EvalScore: 1160.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 33640.0
+Using: WorkerRush2(BFSPathFinding) with score of: 33640.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 120
+Simulating against WorkerRush. EvalScore: 1250.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 36250.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 110
+Simulating against WorkerRush. EvalScore: 1080.0
+Finished considering playing as: newAI(BFSPathFinding) : 31320.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 94
+Simulating against WorkerRush. EvalScore: 1070.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 31030.0
+Using: mattRushAi(AStarPathFinding) with score of: 36250.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 110
+Simulating against WorkerRush. EvalScore: 1330.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 33250.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 84
+Simulating against WorkerRush. EvalScore: 1060.0
+Finished considering playing as: newAI(BFSPathFinding) : 26500.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 103
+Simulating against WorkerRush. EvalScore: 1220.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 30500.0
+Using: mattRushAi(AStarPathFinding) with score of: 33250.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 43
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 22890.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 61
+Simulating against WorkerRush. EvalScore: 1160.0
+Finished considering playing as: newAI(BFSPathFinding) : 24360.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 90
+Simulating against WorkerRush. EvalScore: 1210.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 25410.0
+Using: WorkerRush2(BFSPathFinding) with score of: 25410.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 23
+Simulating against WorkerRush. EvalScore: 1030.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 21630.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 52
+Simulating against WorkerRush. EvalScore: 1150.0
+Finished considering playing as: newAI(BFSPathFinding) : 24150.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 126
+Simulating against WorkerRush. EvalScore: 1290.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 27090.0
+Using: WorkerRush2(BFSPathFinding) with score of: 27090.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 39
+Simulating against WorkerRush. EvalScore: 1100.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 23100.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 60
+Simulating against WorkerRush. EvalScore: 1040.0
+Finished considering playing as: newAI(BFSPathFinding) : 21840.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 83
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 22890.0
+Using: mattRushAi(AStarPathFinding) with score of: 23100.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 53
+Simulating against WorkerRush. EvalScore: 1100.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 18700.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 84
+Simulating against WorkerRush. EvalScore: 1120.0
+Finished considering playing as: newAI(BFSPathFinding) : 19040.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 112
+Simulating against WorkerRush. EvalScore: 1250.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 21250.0
+Using: WorkerRush2(BFSPathFinding) with score of: 21250.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 82
+Simulating against WorkerRush. EvalScore: 1130.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 19210.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 64
+Simulating against WorkerRush. EvalScore: 1120.0
+Finished considering playing as: newAI(BFSPathFinding) : 19040.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 60
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 18530.0
+Using: mattRushAi(AStarPathFinding) with score of: 19210.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 46
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 18870.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 48
+Simulating against WorkerRush. EvalScore: 1150.0
+Finished considering playing as: newAI(BFSPathFinding) : 19550.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 48
+Simulating against WorkerRush. EvalScore: 1170.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 19890.0
+Using: WorkerRush2(BFSPathFinding) with score of: 19890.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 30
+Simulating against WorkerRush. EvalScore: 1060.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 9540.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 56
+Simulating against WorkerRush. EvalScore: 1120.0
+Finished considering playing as: newAI(BFSPathFinding) : 10080.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 41
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 9810.0
+Using: newAI(BFSPathFinding) with score of: 10080.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 21
+Simulating against WorkerRush. EvalScore: 1090.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 9810.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 37
+Simulating against WorkerRush. EvalScore: 1150.0
+Finished considering playing as: newAI(BFSPathFinding) : 10350.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 37
+Simulating against WorkerRush. EvalScore: 1160.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 10440.0
+Using: WorkerRush2(BFSPathFinding) with score of: 10440.0
+
+Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+	at java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:719)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:751)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:749)
+	at java.base/java.util.HashMap.putMapEntries(HashMap.java:512)
+	at java.base/java.util.HashMap.putAll(HashMap.java:785)
+	at rts.PartiallyObservableGameState.<init>(PartiallyObservableGameState.java:30)
+	at gui.PhysicalGameStatePanel.draw(PhysicalGameStatePanel.java:259)
+	at gui.PhysicalGameStatePanel.paint(PhysicalGameStatePanel.java:222)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JLayeredPane.paint(JLayeredPane.java:590)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5262)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+	at java.desktop/javax.swing.BufferStrategyPaintManager.paint(BufferStrategyPaintManager.java:246)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1313)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1060)
+	at java.desktop/java.awt.GraphicsCallback$PaintCallback.run(GraphicsCallback.java:39)
+	at java.desktop/sun.awt.SunGraphicsCallback.runOneComponent(SunGraphicsCallback.java:78)
+	at java.desktop/sun.awt.SunGraphicsCallback.runComponents(SunGraphicsCallback.java:115)
+	at java.desktop/java.awt.Container.paint(Container.java:2000)
+	at java.desktop/java.awt.Window.paint(Window.java:3940)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:868)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:840)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:840)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:815)
+	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:764)
+	at java.desktop/javax.swing.RepaintManager.access$1200(RepaintManager.java:69)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1880)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue.access$600(EventQueue.java:97)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 21
+Simulating against WorkerRush. EvalScore: 1100.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 9900.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 42
+Simulating against WorkerRush. EvalScore: 1160.0
+Finished considering playing as: newAI(BFSPathFinding) : 10440.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 87
+Simulating against WorkerRush. EvalScore: 1250.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 11250.0
+Using: WorkerRush2(BFSPathFinding) with score of: 11250.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 1160.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 10440.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 32
+Simulating against WorkerRush. EvalScore: 1160.0
+Finished considering playing as: newAI(BFSPathFinding) : 10440.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 92
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 11340.0
+Using: WorkerRush2(BFSPathFinding) with score of: 11340.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 28
+Simulating against WorkerRush. EvalScore: 1040.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 9360.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 27
+Simulating against WorkerRush. EvalScore: 1080.0
+Finished considering playing as: newAI(BFSPathFinding) : 9720.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 58
+Simulating against WorkerRush. EvalScore: 1210.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 10890.0
+Using: WorkerRush2(BFSPathFinding) with score of: 10890.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 33
+Simulating against WorkerRush. EvalScore: 1170.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 10530.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 63
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: newAI(BFSPathFinding) : 11340.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 62
+Simulating against WorkerRush. EvalScore: 1160.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 10440.0
+Using: newAI(BFSPathFinding) with score of: 11340.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 33
+Simulating against WorkerRush. EvalScore: 1150.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 10350.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 72
+Simulating against WorkerRush. EvalScore: 1150.0
+Finished considering playing as: newAI(BFSPathFinding) : 10350.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 63
+Simulating against WorkerRush. EvalScore: 1200.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 10800.0
+Using: WorkerRush2(BFSPathFinding) with score of: 10800.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+	at java.base/java.util.LinkedHashMap$LinkedHashIterator.nextNode(LinkedHashMap.java:719)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:751)
+	at java.base/java.util.LinkedHashMap$LinkedEntryIterator.next(LinkedHashMap.java:749)
+	at java.base/java.util.HashMap.putMapEntries(HashMap.java:512)
+	at java.base/java.util.HashMap.putAll(HashMap.java:785)
+	at rts.PartiallyObservableGameState.<init>(PartiallyObservableGameState.java:30)
+	at gui.PhysicalGameStatePanel.draw(PhysicalGameStatePanel.java:258)
+	at gui.PhysicalGameStatePanel.paint(PhysicalGameStatePanel.java:222)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1083)
+	at java.desktop/javax.swing.JLayeredPane.paint(JLayeredPane.java:590)
+	at java.desktop/javax.swing.JComponent.paintChildren(JComponent.java:907)
+	at java.desktop/javax.swing.JComponent.paintToOffscreen(JComponent.java:5262)
+	at java.desktop/javax.swing.BufferStrategyPaintManager.paint(BufferStrategyPaintManager.java:246)
+	at java.desktop/javax.swing.RepaintManager.paint(RepaintManager.java:1313)
+	at java.desktop/javax.swing.JComponent.paint(JComponent.java:1060)
+	at java.desktop/java.awt.GraphicsCallback$PaintCallback.run(GraphicsCallback.java:39)
+	at java.desktop/sun.awt.SunGraphicsCallback.runOneComponent(SunGraphicsCallback.java:78)
+	at java.desktop/sun.awt.SunGraphicsCallback.runComponents(SunGraphicsCallback.java:115)
+	at java.desktop/java.awt.Container.paint(Container.java:2000)
+	at java.desktop/java.awt.Window.paint(Window.java:3940)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:868)
+	at java.desktop/javax.swing.RepaintManager$4.run(RepaintManager.java:840)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:840)
+	at java.desktop/javax.swing.RepaintManager.paintDirtyRegions(RepaintManager.java:815)
+	at java.desktop/javax.swing.RepaintManager.prePaintDirtyRegions(RepaintManager.java:764)
+	at java.desktop/javax.swing.RepaintManager.access$1200(RepaintManager.java:69)
+	at java.desktop/javax.swing.RepaintManager$ProcessingRunnable.run(RepaintManager.java:1880)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:313)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770)
+	at java.desktop/java.awt.EventQueue.access$600(EventQueue.java:97)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:740)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 53
+Simulating against WorkerRush. EvalScore: 1170.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 10530.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 30
+Simulating against WorkerRush. EvalScore: 1190.0
+Finished considering playing as: newAI(BFSPathFinding) : 10710.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 106
+Simulating against WorkerRush. EvalScore: 1270.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 11430.0
+Using: WorkerRush2(BFSPathFinding) with score of: 11430.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 53
+Simulating against WorkerRush. EvalScore: 1220.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 10980.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 40
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: newAI(BFSPathFinding) : 11340.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 44
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 11340.0
+Using: newAI(BFSPathFinding) with score of: 11340.0
+
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+Inertia strategy using newAI(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 21
+Simulating against WorkerRush. EvalScore: 1240.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 11160.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 1180.0
+Finished considering playing as: newAI(BFSPathFinding) : 10620.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 34
+Simulating against WorkerRush. EvalScore: 1180.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 10620.0
+Using: mattRushAi(AStarPathFinding) with score of: 11160.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 13
+Simulating against WorkerRush. EvalScore: 1240.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 6200.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 13
+Simulating against WorkerRush. EvalScore: 1240.0
+Finished considering playing as: newAI(BFSPathFinding) : 6200.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 13
+Simulating against WorkerRush. EvalScore: 1240.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6200.0
+Using: mattRushAi(AStarPathFinding) with score of: 6200.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 21
+Simulating against WorkerRush. EvalScore: 1200.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 6000.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 50
+Simulating against WorkerRush. EvalScore: 1170.0
+Finished considering playing as: newAI(BFSPathFinding) : 5850.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 61
+Simulating against WorkerRush. EvalScore: 1250.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6250.0
+Using: WorkerRush2(BFSPathFinding) with score of: 6250.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 15
+Simulating against WorkerRush. EvalScore: 1200.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 6000.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 21
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: newAI(BFSPathFinding) : 6300.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 24
+Simulating against WorkerRush. EvalScore: 1290.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6450.0
+Using: WorkerRush2(BFSPathFinding) with score of: 6450.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 16
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 6300.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 16
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: newAI(BFSPathFinding) : 6300.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 16
+Simulating against WorkerRush. EvalScore: 1260.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6300.0
+Using: mattRushAi(AStarPathFinding) with score of: 6300.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 17
+Simulating against WorkerRush. EvalScore: 1250.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 6250.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 13
+Simulating against WorkerRush. EvalScore: 1280.0
+Finished considering playing as: newAI(BFSPathFinding) : 6400.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 55
+Simulating against WorkerRush. EvalScore: 1330.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6650.0
+Using: WorkerRush2(BFSPathFinding) with score of: 6650.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 15
+Simulating against WorkerRush. EvalScore: 1300.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 6500.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 14
+Simulating against WorkerRush. EvalScore: 1290.0
+Finished considering playing as: newAI(BFSPathFinding) : 6450.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 17
+Simulating against WorkerRush. EvalScore: 1290.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6450.0
+Using: mattRushAi(AStarPathFinding) with score of: 6500.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 8
+Simulating against WorkerRush. EvalScore: 1210.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 6050.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 8
+Simulating against WorkerRush. EvalScore: 1210.0
+Finished considering playing as: newAI(BFSPathFinding) : 6050.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 17
+Simulating against WorkerRush. EvalScore: 1300.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6500.0
+Using: WorkerRush2(BFSPathFinding) with score of: 6500.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 14
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 5550.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 14
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: newAI(BFSPathFinding) : 5550.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 11
+Simulating against WorkerRush. EvalScore: 1300.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6500.0
+Using: WorkerRush2(BFSPathFinding) with score of: 6500.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 9
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 5550.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 9
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: newAI(BFSPathFinding) : 5550.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 10
+Simulating against WorkerRush. EvalScore: 1310.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 6550.0
+Using: WorkerRush2(BFSPathFinding) with score of: 6550.0
+
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+Inertia strategy using WorkerRush2(BFSPathFinding)
+
+Simulation -- 
+mattRushAi(AStarPathFinding) v WorkerRush2(BFSPathFinding): 3
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: mattRushAi(AStarPathFinding) : 5550.0
+newAI(BFSPathFinding) v WorkerRush2(BFSPathFinding): 3
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: newAI(BFSPathFinding) : 5550.0
+WorkerRush2(BFSPathFinding) v WorkerRush2(BFSPathFinding): 3
+Simulating against WorkerRush. EvalScore: 1110.0
+Finished considering playing as: WorkerRush2(BFSPathFinding) : 5550.0
+Using: mattRushAi(AStarPathFinding) with score of: 5550.0
+
+Inertia strategy using mattRushAi(AStarPathFinding)
+Inertia strategy using mattRushAi(AStarPathFinding)
+Game Over
